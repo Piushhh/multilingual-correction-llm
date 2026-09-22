@@ -1,0 +1,23 @@
+# --- Member 1: core LLM ---
+torch
+tokenizers
+numpy
+tqdm
+
+# --- Member 2: document AI (OCR, language, domain) ---
+opencv-python
+pillow
+pytesseract
+langdetect
+rapidfuzz
+scikit-learn
+pandas
+joblib
+
+# --- Member 3 / shared: API, config, testing ---
+fastapi
+uvicorn
+pydantic
+python-dotenv
+pyyaml
+pytest

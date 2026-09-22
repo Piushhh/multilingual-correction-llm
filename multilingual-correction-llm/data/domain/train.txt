@@ -1,0 +1,423 @@
+Deep learning is a subfield of machine learning that uses neural networks with multiple layers.
+
+A deep neural network can learn complex representations from data.
+
+Neural networks consist of layers of interconnected neurons.
+
+The input layer receives the input features and passes them to hidden layers.
+
+Hidden layers transform the input representation using learnable parameters.
+
+The output layer produces the final prediction of the network.
+
+Each neuron performs a weighted computation followed by an activation function.
+
+Weights are adjusted during training to reduce the prediction error.
+
+Bias values allow neural network layers to shift their activations.
+
+The forward pass calculates the output of a neural network.
+
+Backpropagation calculates gradients of the loss with respect to model parameters.
+
+Gradient descent uses these gradients to update the parameters.
+
+The learning rate controls the size of each parameter update.
+
+A high learning rate can cause unstable training.
+
+A very low learning rate can make optimization unnecessarily slow.
+
+Stochastic gradient descent updates parameters using batches of training examples.
+
+Mini batch training processes a small group of examples at each optimization step.
+
+Adam is an adaptive optimization algorithm widely used in deep learning.
+
+AdamW is a variant of Adam that decouples weight decay from the gradient update.
+
+Weight decay can help regularize neural networks.
+
+Regularization techniques can reduce overfitting.
+
+Overfitting occurs when a model performs well on training data but poorly on unseen data.
+
+Underfitting occurs when a model cannot learn the patterns present in the data.
+
+Dropout randomly removes some activations during training.
+
+Dropout can improve generalization by preventing excessive dependence on individual neurons.
+
+Batch normalization normalizes activations within a mini batch.
+
+Layer normalization normalizes features within individual examples.
+
+Activation functions introduce nonlinearity into neural networks.
+
+The ReLU activation function returns zero for negative inputs.
+
+The GELU activation function is commonly used in transformer architectures.
+
+Sigmoid produces values between zero and one.
+
+The softmax function converts logits into a probability distribution.
+
+Cross entropy is commonly used as a classification loss.
+
+Mean squared error is commonly used for regression problems.
+
+The loss function measures the difference between predictions and target values.
+
+Training attempts to minimize the loss function.
+
+An epoch represents one complete pass through the training dataset.
+
+A batch is a group of training examples processed together.
+
+The batch size affects memory usage and optimization behavior.
+
+GPU acceleration can significantly speed up deep learning training.
+
+CUDA allows compatible NVIDIA GPUs to perform parallel computation.
+
+PyTorch provides tensors and modules for building deep learning models.
+
+A tensor is a multidimensional numerical array.
+
+PyTorch tensors can be stored on the CPU or GPU.
+
+Automatic differentiation calculates gradients required for optimization.
+
+The autograd system in PyTorch tracks operations on tensors.
+
+Calling backward computes gradients through the computational graph.
+
+The optimizer step updates model parameters using their gradients.
+
+Gradients can be cleared before processing the next batch.
+
+Gradient clipping can prevent extremely large gradients.
+
+Exploding gradients can make neural network training unstable.
+
+Vanishing gradients can make it difficult to train deep networks.
+
+Careful initialization can improve neural network optimization.
+
+Xavier initialization is commonly used for certain neural network layers.
+
+He initialization is commonly used with ReLU based networks.
+
+Transformers are neural network architectures designed to process sequences using attention.
+
+The attention mechanism allows a model to focus on relevant parts of an input sequence.
+
+Self attention calculates relationships between tokens in the same sequence.
+
+Query, key, and value vectors are used to calculate attention.
+
+Attention scores determine how strongly tokens interact with one another.
+
+The scaled dot product attention formula uses the dot product of queries and keys.
+
+The dot product is scaled by the square root of the key dimension.
+
+Softmax converts attention scores into attention weights.
+
+Attention weights are multiplied by value vectors to produce the attention output.
+
+Multi head attention uses several attention heads in parallel.
+
+Different attention heads can learn different relationships between tokens.
+
+The outputs of attention heads are concatenated.
+
+A linear projection combines the outputs of multiple attention heads.
+
+Transformer blocks usually contain an attention layer and a feed forward network.
+
+Residual connections are used around major transformer components.
+
+Layer normalization is commonly applied inside transformer blocks.
+
+The feed forward network independently transforms each token representation.
+
+The hidden dimension of the feed forward network is usually larger than the model dimension.
+
+Transformer models can contain many stacked transformer blocks.
+
+Increasing the number of layers increases the depth of a transformer.
+
+Increasing the hidden dimension increases the capacity of the model.
+
+The number of attention heads determines how many attention patterns are processed in parallel.
+
+The model dimension must be divisible by the number of attention heads.
+
+Token embeddings convert token IDs into dense vector representations.
+
+Positional embeddings provide information about the order of tokens.
+
+Without positional information, a transformer does not inherently know token order.
+
+A vocabulary contains the tokens that can be represented by a language model.
+
+Tokenization converts raw text into tokens.
+
+Subword tokenization can represent words using smaller pieces.
+
+Byte Pair Encoding is a common subword tokenization method.
+
+BPE learns frequently occurring character or subword sequences.
+
+A tokenizer maps tokens to numerical IDs.
+
+The model uses token IDs as input to the embedding layer.
+
+The embedding layer produces dense representations for input tokens.
+
+Language models predict tokens based on their context.
+
+A causal language model predicts the next token from previous tokens.
+
+Causal attention prevents a token from attending to future positions.
+
+A causal mask is used to hide future tokens during training.
+
+Next token prediction is a common objective for autoregressive language models.
+
+The training targets are usually shifted versions of the input sequence.
+
+For a sequence of tokens, the model predicts the token following each input position.
+
+Language modeling loss is calculated using predicted logits and target token IDs.
+
+Perplexity is commonly used to evaluate language models.
+
+Lower perplexity generally indicates better predictive performance on the evaluation data.
+
+A validation dataset is used to monitor generalization during training.
+
+A test dataset can be used for final evaluation.
+
+Training and validation datasets should not contain identical examples.
+
+A checkpoint stores the state of a model during training.
+
+Model checkpoints can contain model parameters and optimizer state.
+
+Saving checkpoints allows interrupted training to be resumed.
+
+The best checkpoint can be selected using validation loss.
+
+A learning rate scheduler changes the learning rate during training.
+
+Warmup gradually increases the learning rate at the beginning of training.
+
+Learning rate decay gradually reduces the learning rate during training.
+
+Early stopping can stop training when validation performance stops improving.
+
+Training logs can record loss, learning rate, and other metrics.
+
+Reproducible experiments use fixed random seeds.
+
+Hyperparameters control how a neural network is trained or configured.
+
+Common hyperparameters include learning rate, batch size, sequence length, and number of layers.
+
+Model architecture parameters include hidden dimension, number of heads, and number of transformer blocks.
+
+Larger models generally require more computational resources.
+
+Longer sequences require more memory for attention computation.
+
+Attention computation can become expensive for long sequences.
+
+Efficient training requires choosing an appropriate sequence length.
+
+Mixed precision can reduce memory usage and improve training speed on supported hardware.
+
+Gradient accumulation allows several smaller batches to contribute to one parameter update.
+
+Distributed training can train large models across multiple GPUs or machines.
+
+Transfer learning uses knowledge learned from one task or dataset for another task.
+
+Pretraining teaches a model general patterns from a large corpus.
+
+Fine tuning adapts a pretrained model to a particular task.
+
+Domain adaptive pretraining continues language model training on domain specific data.
+
+A domain corpus contains terminology and language patterns from a specific field.
+
+Deep learning domain adaptation can expose a language model to specialized technical vocabulary.
+
+The same tokenizer should generally be reused when continuing training from a checkpoint.
+
+Domain adaptation should start from the trained base model rather than a randomly initialized model.
+
+A smaller learning rate can be used during domain adaptive training.
+
+Domain specific evaluation should contain terminology from the target domain.
+
+A model trained on deep learning text should learn terms such as attention, gradient, embedding, and optimization.
+
+Neural network architecture affects model capacity and computational requirements.
+
+Model capacity refers to the ability of a model to represent complex functions.
+
+Increasing model size can increase capacity but also increases computational cost.
+
+Training data quality is important for learning useful representations.
+
+Duplicate training examples can reduce the diversity of the corpus.
+
+Noisy data can cause a model to learn incorrect patterns.
+
+Data preprocessing can remove unwanted noise from the training corpus.
+
+Text normalization can make training data more consistent.
+
+Unicode handling is important when training multilingual deep learning systems.
+
+English and Hindi text can be included in a multilingual training corpus.
+
+Code mixed text combines words from multiple languages.
+
+A multilingual model should learn patterns from each language present in its training data.
+
+Technical terminology should be represented consistently throughout the training corpus.
+
+Deep learning models can be applied to computer vision.
+
+Convolutional neural networks are widely used for image related tasks.
+
+Convolutional layers learn local patterns from images.
+
+Pooling operations can reduce spatial dimensions.
+
+Image classification assigns an image to one or more categories.
+
+Object detection identifies objects and their locations in images.
+
+Semantic segmentation assigns a class to individual pixels.
+
+Recurrent neural networks process sequential information.
+
+Long short term memory networks were designed to handle long term dependencies.
+
+Gated recurrent units are another type of recurrent neural network.
+
+Transformers provide an alternative to recurrent architectures for sequence modeling.
+
+Natural language processing uses deep learning to process human language.
+
+Text classification assigns documents to predefined categories.
+
+Sentiment analysis identifies sentiment expressed in text.
+
+Named entity recognition identifies entities such as people and organizations.
+
+Machine translation converts text from one language into another.
+
+Text summarization produces a shorter representation of a document.
+
+Question answering systems generate answers based on questions and context.
+
+Text generation produces new text based on a prompt or context.
+
+Sequence to sequence models map an input sequence to an output sequence.
+
+Document correction can be treated as a sequence transformation task.
+
+A correction model can learn to transform noisy text into cleaner text.
+
+OCR systems convert images of documents into machine readable text.
+
+OCR errors can include incorrect characters, missing spaces, and incorrect punctuation.
+
+A deep learning model can learn patterns associated with common OCR errors.
+
+Document correction systems should preserve the original meaning of the input.
+
+A correction model should avoid changing valid technical terminology.
+
+Character level errors can be measured using character error rate.
+
+Word level errors can be measured using word error rate.
+
+Evaluation metrics should be calculated on unseen examples.
+
+The performance of a correction model depends on the quality and diversity of training data.
+
+A domain specific corpus can improve a model's familiarity with technical vocabulary.
+
+Deep learning terminology includes neural network, activation, gradient, optimizer, and loss.
+
+Transformer terminology includes attention, query, key, value, embedding, and tokenization.
+
+Optimization terminology includes gradient descent, learning rate, batch size, and weight decay.
+
+Model evaluation includes validation loss, test loss, accuracy, and perplexity.
+
+A complete deep learning pipeline includes data preparation, tokenization, modeling, training, evaluation, and inference.
+
+Data preparation converts raw information into a format suitable for model training.
+
+Tokenization converts text into numerical representations.
+
+The model processes numerical representations using neural network layers.
+
+Training updates the parameters based on the loss.
+
+Evaluation measures how well the trained model performs.
+
+Inference uses the trained model to generate predictions for new inputs.
+
+A well designed pipeline makes experiments easier to reproduce.
+
+Modular code separates data processing, modeling, training, and inference.
+
+Configuration files can store model and training hyperparameters.
+
+Unit tests can verify individual components of the training pipeline.
+
+Integration tests can verify that different modules work together.
+
+A successful tiny training experiment can verify the complete pipeline before large scale training.
+
+After the base model is trained, domain adaptive pretraining can be performed.
+
+The domain adapted model can then be evaluated on deep learning related prompts.
+
+The final model should produce useful outputs while preserving important input information.
+
+This anonymous survey measures student comfort and understanding of deep learning concepts.
+
+यह गुमनाम सर्वेक्षण डीप लर्निंग की अवधारणाओं में विद्यार्थियों की समझ और सहजता को मापता है।
+
+Respondents report their program, year, and department, and their prior exposure to deep learning as none, basic, intermediate, or advanced.
+
+उत्तरदाता अपना प्रोग्राम, वर्ष और विभाग बताते हैं, और डीप लर्निंग में अपना पूर्व अनुभव कोई नहीं, प्रारंभिक, मध्यवर्ती या उन्नत के रूप में बताते हैं।
+
+I can explain back-propagation.
+
+मैं बैक-प्रोपेगेशन समझा सकता/सकती हूँ।
+
+I am comfortable tuning hyper-parameters.
+
+मैं हाइपर-पैरामीटर ट्यून करने में सहज हूँ।
+
+I understand convolutional neural networks (CNNs).
+
+मैं कन्वोल्यूशनल न्यूरल नेटवर्क (CNN) समझता/समझती हूँ।
+
+मैं CNN और back-propagation दोनों अच्छी तरह समझता/समझती हूँ।
+
+Hyper-parameter tuning karte samay mujhe confidence lagta hai.
+
+Each statement in the survey is rated on a five point scale from strongly disagree to strongly agree.
+
+सर्वेक्षण के प्रत्येक वाक्य को काफी असहमत से लेकर पूरी तरह सहमत तक के पाँच बिंदु पैमाने पर आंका जाता है।

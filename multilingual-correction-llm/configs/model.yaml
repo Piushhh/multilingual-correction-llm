@@ -1,0 +1,9 @@
+# vocab_size is informational only -- pretrain.py always derives the actual
+# vocab_size from the tokenizer passed via --tokenizer, since the model's
+# embedding/lm_head size must match that tokenizer exactly.
+vocab_size: 10000
+context_length: 256
+embedding_dim: 256
+num_layers: 4
+num_heads: 4
+dropout: 0.1

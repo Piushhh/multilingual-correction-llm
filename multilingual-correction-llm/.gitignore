@@ -1,0 +1,49 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.env
+.vscode/settings.json
+checkpoints/*
+!checkpoints/.gitkeep
+data/raw/*
+data/interim/*
+data/processed/*
+data/splits/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/splits/.gitkeep
+experiments/*
+!experiments/.gitkeep
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# Model files
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Checkpoints and generated data
+checkpoints/*
+data/processed/*
+experiments/runs/*
+
+# IDE
+.vscode/
+.idea/

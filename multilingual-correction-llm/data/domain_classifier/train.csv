@@ -1,0 +1,33 @@
+text,domain
+"The transformer architecture uses multi-head self-attention to weigh relationships between tokens in a sequence.",deep_learning
+"Backpropagation computes gradients of the loss with respect to each weight using the chain rule.",deep_learning
+"A convolutional neural network applies learned filters across an image to detect local patterns.",deep_learning
+"Dropout randomly zeroes activations during training to reduce overfitting in deep networks.",deep_learning
+"The Adam optimizer combines momentum with per-parameter adaptive learning rates.",deep_learning
+"Batch normalization stabilizes training by normalizing layer activations across a mini-batch.",deep_learning
+"Recurrent neural networks maintain a hidden state that is updated at every timestep of a sequence.",deep_learning
+"Gradient descent iteratively updates model parameters in the direction that reduces training loss.",deep_learning
+"A binary search tree keeps its left subtree smaller and its right subtree larger than the root.",computer_science
+"The time complexity of quicksort is O(n log n) on average and O(n squared) in the worst case.",computer_science
+"A hash table maps keys to values using a hash function and resolves collisions with chaining or open addressing.",computer_science
+"Operating systems use virtual memory to give each process the illusion of its own contiguous address space.",computer_science
+"A deadlock occurs when two or more processes are each waiting for a resource held by the other.",computer_science
+"Dijkstra's algorithm finds the shortest path from a source node to all other nodes in a weighted graph.",computer_science
+"A stack follows last-in-first-out ordering, while a queue follows first-in-first-out ordering.",computer_science
+"Object-oriented programming organizes code around classes that encapsulate data and behavior.",computer_science
+"An eigenvector of a matrix is a nonzero vector whose direction is unchanged by the linear transformation.",mathematics
+"The derivative of a function measures its instantaneous rate of change at a given point.",mathematics
+"A prime number has exactly two positive divisors: one and itself.",mathematics
+"The determinant of a 2x2 matrix is calculated as ad minus bc.",mathematics
+"Integration by parts is derived from the product rule for differentiation.",mathematics
+"A vector space is a set of vectors closed under addition and scalar multiplication.",mathematics
+"The central limit theorem states that the sampling distribution of the mean approaches a normal distribution.",mathematics
+"Matrix multiplication is associative but not commutative in general.",mathematics
+"The weather has been unusually warm this week across most of the region.",general
+"She picked up groceries on the way home before making dinner for the family.",general
+"The city council approved funding for a new public park near the river.",general
+"He spent the weekend hiking in the mountains with a few old friends.",general
+"The museum's new exhibit features paintings from the early twentieth century.",general
+"Traffic was heavier than usual this morning because of ongoing road construction.",general
+"The recipe calls for two cups of flour, a pinch of salt, and three eggs.",general
+"The local team won their match on Saturday after a close final quarter.",general

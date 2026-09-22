@@ -1,0 +1,9 @@
+{
+  "domain": "deep_learning",
+  "terms": [
+    "attention", "backpropagation", "gradient", "transformer",
+    "embedding", "tokenizer", "activation", "dropout",
+    "convolution", "epoch", "overfitting", "regularization",
+    "softmax", "perceptron", "optimizer", "hyperparameter"
+  ]
+}
