@@ -15,11 +15,12 @@ class CorrectionEngine:
     """
     Baseline inference engine for multilingual correction.
     """
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(self, config: Dict[str, Any], mock_mode: bool = False):
         """
         Initializes the Correction Engine with a configuration.
         """
         self.config = config
+        self.mock_mode = mock_mode
         self.model_id_or_path = config.get("model_name", "google/gemma-2b-it") # default fallback
         self.device = config.get("device", "cuda" if torch.cuda.is_available() else "cpu")
         self.max_length = config.get("max_length", 512)
@@ -31,9 +32,12 @@ class CorrectionEngine:
 
     def load_model(self):
         """Loads the model and tokenizer into memory."""
-        if not TRANSFORMERS_AVAILABLE:
-            print("Warning: transformers library not found. Running in mock mode.")
+        if self.mock_mode:
+            print("Running in explicit mock mode. Model loading skipped.")
             return
+
+        if not TRANSFORMERS_AVAILABLE:
+            raise RuntimeError("transformers library not found but mock_mode is False.")
 
         print(f"Loading model {self.model_id_or_path} on {self.device}...")
         try:
@@ -50,9 +54,7 @@ class CorrectionEngine:
                 device=0 if self.device == "cuda" else -1
             )
         except Exception as e:
-            print(f"Error loading model: {e}")
-            print("Falling back to mock mode.")
-            self.model = None
+            raise RuntimeError(f"Error loading model: {e}")
 
     def build_prompt(self, text: str, language: str, domain: str) -> str:
         """Builds the prompt for the model."""
@@ -60,9 +62,11 @@ class CorrectionEngine:
 
     def generate(self, prompt: str) -> str:
         """Generates raw text from the model."""
+        if self.mock_mode:
+            return "[MOCK GENERATED CORRECTION]"
+            
         if not self.model or not self.generator:
-            # Mock behavior if model failed to load or transformers is missing
-            return f"{prompt}\n[MOCK GENERATED CORRECTION]"
+            raise RuntimeError("Model is not loaded. Call load_model() first.")
             
         outputs = self.generator(
             prompt, 
@@ -88,12 +92,10 @@ class CorrectionEngine:
         
         prompt = self.build_prompt(text, language, domain)
         
-        # We assume the generated text is the pure corrected text 
-        # (this requires proper prompt tuning in production)
         corrected_text = self.generate(prompt)
         
-        # If in mock mode, just simulate a correction for testing
-        if "[MOCK GENERATED CORRECTION]" in corrected_text:
+        if self.mock_mode and "[MOCK GENERATED CORRECTION]" in corrected_text:
+            # Only do this explicit swap in mock mode for testing
             corrected_text = text.replace("teh", "the") if "teh" in text else text
             
         changes = self.detect_changes(text, corrected_text)

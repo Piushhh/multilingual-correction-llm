@@ -53,6 +53,8 @@ def save_experiment_metadata(config, output_dir, dataset_stats=None):
 def main():
     parser = argparse.ArgumentParser(description="Train Correction Model")
     parser.add_argument('--config', type=str, default='config/training_config.yaml', help="Path to config file")
+    parser.add_argument('--train', action='store_true', help="Actually execute training")
+    parser.add_argument('--dry-run', action='store_true', help="Run dependency checks and data loading without training")
     args = parser.parse_args()
     
     print(f"Loading configuration from {args.config}...")
@@ -69,6 +71,9 @@ def main():
     if not torch.cuda.is_available():
         print("WARNING: CUDA is not available. Training on CPU will be extremely slow.")
         print("For actual fine-tuning, please run this on a GPU instance.")
+        if args.train and not args.dry_run:
+            print("ERROR: Refusing to run actual training without CUDA unless forced (not implemented).")
+            return
     
     seed = config.get("seed", 42)
     set_seed(seed)
@@ -89,8 +94,6 @@ def main():
             "train_samples": len(train_dataset) if train_dataset else 0,
             "val_samples": len(val_dataset) if val_dataset else 0
         }
-        
-        save_experiment_metadata(config, output_dir, dataset_stats)
         
         if not train_dataset:
             print("ERROR: Training dataset is empty or missing. Aborting.")
@@ -138,14 +141,24 @@ def main():
             tokenizer=tokenizer
         )
         
-        print("Starting training...")
-        # To prevent actual execution failure if hardware is incapable in this exact runner environment, 
-        # we document that actual training executes below:
-        print("Trainer configured successfully. (Call trainer.train() in a GPU environment)")
-        # trainer.train()
+        if args.dry_run:
+            print("Dry-run complete. System is ready for training.")
+            save_experiment_metadata(config, output_dir, {**dataset_stats, "status": "dry_run_success"})
+            return
+            
+        if args.train:
+            print("Starting training...")
+            trainer.train()
+            print("Training complete. Saving checkpoint.")
+            trainer.save_model(output_dir)
+            save_experiment_metadata(config, output_dir, {**dataset_stats, "status": "training_success"})
+        else:
+            print("Trainer configured successfully. Pass --train to execute actual training.")
+            save_experiment_metadata(config, output_dir, {**dataset_stats, "status": "configured_no_train"})
         
     except Exception as e:
         print(f"Training pipeline error: {e}")
-        
+        save_experiment_metadata(config, output_dir, {"status": "error", "error_message": str(e)})
+
 if __name__ == "__main__":
     main()

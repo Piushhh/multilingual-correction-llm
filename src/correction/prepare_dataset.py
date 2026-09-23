@@ -28,7 +28,12 @@ def validate_and_clean(data):
         'duplicate_texts': 0,
         'empty_strings': 0,
         'invalid_language': 0,
-        'valid': 0
+        'valid': 0,
+        'language_distribution': Counter(),
+        'domain_distribution': Counter(),
+        'error_category_distribution': Counter(),
+        'verified_distribution': Counter(),
+        'source_type_distribution': Counter()
     }
     
     valid_languages = {'en', 'hi', 'code-mixed'}
@@ -63,6 +68,18 @@ def validate_and_clean(data):
         seen_texts.add(text_pair)
         valid_data.append(item)
         stats['valid'] += 1
+        
+        # Distributions
+        stats['language_distribution'][item.get('language', 'unknown')] += 1
+        stats['domain_distribution'][item.get('domain', 'unknown')] += 1
+        stats['verified_distribution'][str(item.get('verified', False))] += 1
+        stats['source_type_distribution'][item.get('source_type', 'unknown')] += 1
+        for err in item.get('error_categories', []):
+            stats['error_category_distribution'][err] += 1
+        
+    # Convert counters to dicts for clean printing/saving
+    for k in ['language_distribution', 'domain_distribution', 'error_category_distribution', 'verified_distribution', 'source_type_distribution']:
+        stats[k] = dict(stats[k])
         
     return valid_data, stats
 
