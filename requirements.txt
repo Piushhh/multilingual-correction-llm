@@ -10,3 +10,4 @@ pydantic
 pytest
 python-dotenv
 pyyaml
+Levenshtein
