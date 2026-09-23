@@ -1,4 +1,7 @@
+# Baseline model — will be replaced when Member 1's custom architecture is ready.
+# Do NOT treat this as the final production model.
 model_name: "google/gemma-2b-it"
+is_baseline: true
 output_dir: "checkpoints/correction_model"
 train_file: "data/processed/train.jsonl"
 validation_file: "data/processed/validation.jsonl"
