@@ -24,7 +24,7 @@ def get_model_info(
     production-trained model. This will be updated when Member 1's
     custom model architecture is integrated.
     """
-    is_baseline = "gemma" in engine.model_id_or_path.lower()
+    is_baseline = engine.is_baseline
 
     return {
         "model_id": engine.model_id_or_path,

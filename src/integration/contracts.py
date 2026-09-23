@@ -27,7 +27,9 @@ class CorrectedBlock(BaseModel):
     changes: List[Dict[str, Any]]
     bbox: List[int]
     ocr_confidence: float
+    language: str = "unknown"
     domain: str
+    correction_metadata: Dict[str, Any] = {}
 
 class CorrectedPage(BaseModel):
     page_number: int

@@ -197,7 +197,7 @@ class TestConfiguration:
         os.environ["CORRECTION_MOCK_MODE"] = "true"
         engine = initialize_engine()
         assert engine.mock_mode is True
-        assert engine.model_id_or_path == "mock-baseline"
+        assert engine.model_id_or_path == "mock-adapter"
 
     def test_missing_config_in_production_mode_raises(self):
         """In production mode, missing config is a fatal error."""

@@ -43,7 +43,9 @@ class IntegrationPipeline:
                     changes=result["changes"],
                     bbox=block.bbox,
                     ocr_confidence=block.confidence,
-                    domain=domain_class.domain
+                    language=result.get("metadata", {}).get("language", "unknown"),
+                    domain=domain_class.domain,
+                    correction_metadata=result.get("metadata", {}),
                 )
                 corrected_blocks.append(corrected_block)
                 
