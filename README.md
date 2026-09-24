@@ -44,7 +44,7 @@ Document Image (.png / .jpg)
 
 | Role | Member | Components & Ownership |
 |:---|:---|:---|
-| **Member 1** | Aliah Jamil | `src/core_llm/`: Tokenizer, Causal Transformer, training pipelines, checkpoints, inference, `CustomLLMAdapter`, `app/api/routes/generate.py` |
+| **Member 1** | Khushi Kumari Singh | `src/core_llm/`: Tokenizer, Causal Transformer, training pipelines, checkpoints, inference, `CustomLLMAdapter`, `app/api/routes/generate.py` |
 | **Member 2** | Aliah Jamil | `src/document_ai/`: OCR extraction, Language detector, Domain classifier, Terminology DB, Pydantic schemas v1.0, pipeline CLI, OCR evaluation |
 | **Member 3** | Piush | `src/correction/`, `app/`: Correction engine, dataset preparation, training scripts, FastAPI lifespan singleton, correction API routes, schemas |
 | **Shared** | All | `src/integration/`: Contracts, adapters, pipeline; `src/evaluation/`: Metrics & error analysis; `tests/`: Test suite; `docs/` |
