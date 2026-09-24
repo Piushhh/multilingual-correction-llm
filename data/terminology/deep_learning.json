@@ -1,0 +1,14 @@
+{
+  "domain": "deep_learning",
+  "terms": [
+    "attention", "backpropagation", "gradient", "transformer",
+    "embedding", "tokenizer", "activation", "dropout",
+    "convolution", "epoch", "overfitting", "regularization",
+    "softmax", "perceptron", "optimizer", "hyperparameter",
+    "autograd", "normalization", "residual", "latent",
+    "recurrent", "feedforward", "autoencoder", "perplexity",
+    "inference", "checkpoint", "quantization", "logits",
+    "encoder", "decoder", "finetuning", "cross-entropy",
+    "embeddings", "self-attention", "tokenization", "generalization"
+  ]
+}

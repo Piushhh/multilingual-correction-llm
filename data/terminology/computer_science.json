@@ -1,0 +1,13 @@
+{
+  "domain": "computer_science",
+  "terms": [
+    "algorithm", "recursion", "heap", "stack", "queue",
+    "pointer", "compiler", "database", "deadlock", "thread",
+    "hashtable", "polymorphism", "inheritance", "bytecode",
+    "concurrency", "semaphore", "mutex", "serialization",
+    "deserialization", "asynchronous", "synchronous", "bandwidth",
+    "latency", "cache", "paging", "segmentation", "indexing",
+    "encapsulation", "abstraction", "interface", "kernel",
+    "pipeline", "interpreter", "virtualization", "filesystem"
+  ]
+}

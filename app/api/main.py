@@ -1,10 +1,20 @@
 """
 FastAPI application entry point for the Multilingual Correction LLM API.
 
+Merged from Member 3 (Piush) production main.py + Member 1 /generate route.
+
 Lifespan management:
     - On startup: initializes the CorrectionEngine singleton and loads the
       model (or enters mock mode if CORRECTION_MOCK_MODE is set).
     - On shutdown: no special cleanup required (GC handles model release).
+
+Routes:
+    GET  /health       — Application health + model status
+    POST /correct      — Member 3: correct a single OCR block
+    POST /correct/batch — Member 3: batch-correct multiple blocks
+    GET  /model/info   — Member 3: correction model metadata
+    POST /generate     — Member 1: direct generation from the custom LLM
+                         (returns 503 if checkpoints/domain/best.pt is missing)
 """
 
 import logging
@@ -19,6 +29,7 @@ from app.api.dependencies import (
     load_engine_model,
 )
 from app.api.routes import correction, model
+from app.api.routes.generate import router as generate_router
 
 logger = logging.getLogger(__name__)
 
@@ -48,7 +59,8 @@ app = FastAPI(
     version="0.2.0",
     description=(
         "REST API for multilingual OCR text correction. "
-        "Supports English, Hindi, and code-mixed text."
+        "Supports English, Hindi, and code-mixed text. "
+        "Member 1 (custom LLM) + Member 2 (OCR/domain) + Member 3 (correction engine)."
     ),
     lifespan=lifespan,
 )
@@ -86,5 +98,9 @@ def health_check() -> dict:
         )
 
 
+# Member 3 routes (correction engine)
 app.include_router(correction.router)
 app.include_router(model.router)
+
+# Member 1 route (custom LLM generation)
+app.include_router(generate_router)

@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "DocumentRegion": {
+      "description": "A single text region extracted from a page image.",
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "bbox": {
+          "items": {
+            "type": "integer"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "title": "Bbox",
+          "type": "array"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "terminology_flags": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/TerminologyFlag"
+          },
+          "title": "Terminology Flags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "bbox",
+        "confidence"
+      ],
+      "title": "DocumentRegion",
+      "type": "object"
+    },
+    "TerminologyFlag": {
+      "description": "One flag entry from the terminology checker.",
+      "properties": {
+        "word": {
+          "title": "Word",
+          "type": "string"
+        },
+        "position": {
+          "minimum": 0,
+          "title": "Position",
+          "type": "integer"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "closest_term": {
+          "title": "Closest Term",
+          "type": "string"
+        },
+        "similarity": {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Similarity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "word",
+        "position",
+        "status",
+        "closest_term",
+        "similarity"
+      ],
+      "title": "TerminologyFlag",
+      "type": "object"
+    }
+  },
+  "description": "The full structured output of process_document().\n\nversion:             always INTERFACE_VERSION \u2014 allows consumers to detect\n                     schema changes programmatically.\npage_id:             caller-supplied identifier for the page/image.\nlanguage:            one of 'en', 'hi', 'code_mixed', 'unknown'.\nlanguage_confidence: 0.0\u20131.0; 0.0 means no text was found.\ndomain:              None when no classifier was passed; otherwise one of\n                     'deep_learning', 'computer_science', 'mathematics',\n                     'general'.\ndomain_confidence:   None when domain is None; otherwise 0.0\u20131.0.\nregions:             list of text regions in reading order.",
+  "properties": {
+    "version": {
+      "default": "1.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "page_id": {
+      "title": "Page Id",
+      "type": "string"
+    },
+    "language": {
+      "title": "Language",
+      "type": "string"
+    },
+    "language_confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Language Confidence",
+      "type": "number"
+    },
+    "domain": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Domain"
+    },
+    "domain_confidence": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Domain Confidence"
+    },
+    "regions": {
+      "items": {
+        "$ref": "#/$defs/DocumentRegion"
+      },
+      "title": "Regions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "page_id",
+    "language",
+    "language_confidence",
+    "regions"
+  ],
+  "title": "DocumentAIOutput",
+  "type": "object"
+}

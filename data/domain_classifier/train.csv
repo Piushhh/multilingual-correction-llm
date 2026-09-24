@@ -1,0 +1,79 @@
+text,domain
+"The transformer architecture uses multi-head self-attention to weigh relationships between tokens.",deep_learning
+"Backpropagation computes gradients of the loss with respect to each weight using the chain rule.",deep_learning
+"A convolutional neural network applies learned filters across an image to detect local patterns.",deep_learning
+"Dropout randomly zeroes activations during training to reduce overfitting in deep networks.",deep_learning
+"The Adam optimizer combines momentum with per-parameter adaptive learning rates.",deep_learning
+"Batch normalization stabilizes training by normalizing layer activations across a mini-batch.",deep_learning
+"Recurrent neural networks maintain a hidden state updated at every timestep of a sequence.",deep_learning
+"Gradient descent iteratively updates model parameters in the direction that reduces training loss.",deep_learning
+"Self-attention allows each token to attend to all other tokens in a sequence simultaneously.",deep_learning
+"An autoencoder learns a compressed latent representation and then reconstructs the input.",deep_learning
+"Residual connections help deep networks train by allowing gradients to flow directly through layers.",deep_learning
+"Softmax converts raw logits into a probability distribution over the vocabulary.",deep_learning
+"Cross-entropy loss measures the distance between predicted probabilities and true labels.",deep_learning
+"Temperature scaling controls the randomness of token sampling during language model inference.",deep_learning
+"Fine-tuning adapts a pretrained model to a downstream task using labeled data.",deep_learning
+"Positional embeddings encode the position of each token in the input sequence.",deep_learning
+"A language model learns to predict the next token given all previous tokens in the context.",deep_learning
+"Layer normalization normalizes activations within each training example rather than across the batch.",deep_learning
+"Regularization techniques like weight decay prevent overfitting by penalizing large parameter values.",deep_learning
+"Perplexity measures how well a language model predicts a held-out test corpus.",deep_learning
+"A binary search tree keeps its left subtree smaller and its right subtree larger than the root.",computer_science
+"The time complexity of quicksort is O(n log n) on average and O(n squared) in the worst case.",computer_science
+"A hash table maps keys to values using a hash function and resolves collisions with chaining.",computer_science
+"Operating systems use virtual memory to give each process its own contiguous address space.",computer_science
+"A deadlock occurs when two or more processes are each waiting for a resource held by the other.",computer_science
+"Dijkstra's algorithm finds the shortest path from a source node to all nodes in a weighted graph.",computer_science
+"A stack follows last-in-first-out ordering while a queue follows first-in-first-out ordering.",computer_science
+"Object-oriented programming organizes code around classes that encapsulate data and behavior.",computer_science
+"A compiler translates high-level source code into machine code in a single pass or multiple passes.",computer_science
+"Concurrency allows multiple computations to overlap in time increasing overall system throughput.",computer_science
+"A semaphore is a synchronization primitive used to control access to a shared resource.",computer_science
+"Serialization converts an object into a byte stream for storage or network transmission.",computer_science
+"Cache memory stores frequently accessed data closer to the processor to reduce latency.",computer_science
+"Virtual machine abstraction allows multiple operating systems to run on the same physical hardware.",computer_science
+"An interface in object-oriented design defines a contract that implementing classes must fulfill.",computer_science
+"Paging divides virtual memory into fixed-size pages mapped to physical memory frames.",computer_science
+"The kernel manages system resources and provides core services to user-space applications.",computer_science
+"Asynchronous programming lets a program continue executing while waiting for slow I/O operations.",computer_science
+"An eigenvector of a matrix is a nonzero vector whose direction is unchanged by the transformation.",mathematics
+"The derivative of a function measures its instantaneous rate of change at a given point.",mathematics
+"A prime number has exactly two positive divisors: one and itself.",mathematics
+"The determinant of a 2x2 matrix is calculated as ad minus bc.",mathematics
+"Integration by parts is derived from the product rule for differentiation.",mathematics
+"A vector space is a set of vectors closed under addition and scalar multiplication.",mathematics
+"The central limit theorem states that the sampling distribution of the mean approaches normal.",mathematics
+"Matrix multiplication is associative but not commutative in general.",mathematics
+"An eigenvalue is a scalar by which an eigenvector is stretched during a linear transformation.",mathematics
+"Stochastic processes model systems that evolve over time with inherent randomness.",mathematics
+"Covariance measures the joint variability of two random variables around their means.",mathematics
+"A convex function has a global minimum reachable by gradient-based optimization methods.",mathematics
+"Asymptotic analysis describes the limiting behavior of a function as the input grows large.",mathematics
+"A probability distribution assigns a likelihood to each possible outcome of a random experiment.",mathematics
+"The divergence theorem relates the flux of a vector field through a closed surface to its volume integral.",mathematics
+"Orthogonal vectors have a dot product of zero indicating they are perpendicular in space.",mathematics
+"A manifold is a topological space that locally resembles Euclidean space near each point.",mathematics
+"Permutations count the number of ordered arrangements of elements from a set.",mathematics
+"Linear regression models the relationship between a dependent variable and one or more predictors.",mathematics
+"Convergence of a sequence means the terms approach a fixed limit as the index grows.",mathematics
+"The weather has been unusually warm this week across most of the region.",general
+"She picked up groceries on the way home before making dinner for the family.",general
+"The city council approved funding for a new public park near the river.",general
+"He spent the weekend hiking in the mountains with a few old friends.",general
+"The museum's new exhibit features paintings from the early twentieth century.",general
+"Traffic was heavier than usual this morning because of ongoing road construction.",general
+"The recipe calls for two cups of flour a pinch of salt and three eggs.",general
+"The local team won their match on Saturday after a close final quarter.",general
+"She enrolled in a cooking class to improve her skills in preparing Italian cuisine.",general
+"The library extended its opening hours to accommodate students during exam season.",general
+"A new community garden was established on the vacant lot beside the post office.",general
+"He read through the entire novel over the course of a quiet Sunday afternoon.",general
+"The annual charity run attracted hundreds of participants from the surrounding neighborhoods.",general
+"She organized the school fundraiser and managed to exceed the original donation target.",general
+"The city launched a campaign to encourage residents to reduce their plastic waste.",general
+"He called his grandmother every Sunday to check in and share news from the week.",general
+"The market was crowded with vendors selling fresh produce and handmade goods.",general
+"She taught herself to play piano by watching tutorials online every evening.",general
+"The documentary explored the history of a small fishing village on the Atlantic coast.",general
+"He volunteered at the shelter on weekends helping to prepare meals for residents.",general
