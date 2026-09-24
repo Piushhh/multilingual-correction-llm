@@ -1,0 +1,47 @@
+{
+  "SPELLING": [
+    "character_substitution",
+    "missing_character",
+    "extra_character",
+    "transposition",
+    "misspelling"
+  ],
+  "GRAMMAR": [
+    "subject_verb_agreement",
+    "tense",
+    "article",
+    "preposition",
+    "plurality",
+    "word_order"
+  ],
+  "OCR": [
+    "character_confusion",
+    "missing_character",
+    "extra_character",
+    "word_merge",
+    "word_split",
+    "incorrect_spacing",
+    "line_break_error",
+    "punctuation_corruption"
+  ],
+  "DOMAIN": [
+    "technical_term",
+    "abbreviation",
+    "formula_corruption",
+    "symbol_corruption"
+  ],
+  "HINDI": [
+    "spelling",
+    "matra_error",
+    "agreement",
+    "punctuation",
+    "spacing"
+  ],
+  "CODE_MIXED": [
+    "transliteration",
+    "language_boundary",
+    "grammar",
+    "spelling",
+    "tokenization"
+  ]
+}

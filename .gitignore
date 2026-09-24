@@ -12,6 +12,7 @@ data/interim/*
 data/processed/*
 data/splits/*
 !data/raw/.gitkeep
+!data/raw/starter_dataset.jsonl
 !data/interim/.gitkeep
 !data/processed/.gitkeep
 !data/splits/.gitkeep

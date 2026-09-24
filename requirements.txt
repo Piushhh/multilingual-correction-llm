@@ -10,3 +10,6 @@ pydantic
 pytest
 python-dotenv
 pyyaml
+sentencepiece
+Levenshtein
+easyocr

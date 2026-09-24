@@ -2,31 +2,27 @@
 
 A three-member research project for building a compact multilingual LLM from scratch that supports English, Hindi, code-mixed text, domain-aware correction, OCR, and document correction.
 
-## Team ownership
+## Team Ownership
 
-- `src/core_llm/`: Member 1 - tokenizer, Transformer, training, inference
-- `src/document_ai/`: Member 2 - OCR, language detection, domain intelligence
-- `src/correction/` and `app/`: Member 3 - correction pipeline and API integration
-- `src/integration/`, `src/evaluation/`, `tests/`: Shared ownership
+- `src/core_llm/` → Member 1: Tokenizer, Transformer, Training, Inference
+- `src/document_ai/` → Member 2: OCR, Language Detection, Domain Intelligence
+- `src/correction/` → Member 3: Correction Pipeline
+- `app/` → API Integration
+- `src/integration/`, `src/evaluation/`, `tests/` → Shared
 
-## Initial scope
+---
 
-- Languages: English, Hindi, and code-mixed text
-- Initial domain: Deep Learning
-- Input: Text and images
-- Output: Corrected text, structured changes, and later corrected images
+# Member 1 — Core LLM
 
-## Setup
+Member 1 implements the language model from scratch using PyTorch.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
+## Components
 
-## Run tests
+### Tokenizer
 
-```bash
-python -m pytest
-```
+A SentencePiece BPE tokenizer is used for multilingual tokenization.
+
+Location:
+
+```text
+src/core_llm/tokenizer/

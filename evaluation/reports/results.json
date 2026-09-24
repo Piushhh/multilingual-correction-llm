@@ -1,0 +1,135 @@
+{
+  "evaluation_type": "starter_smoke_test",
+  "is_synthetic": true,
+  "note": "Starter pipeline validation test on synthetic dataset. Not a research benchmark.",
+  "summary": {
+    "total_samples": 5,
+    "mean_cer": 0.11509090909090909,
+    "mean_wer": 0.3911904761904762,
+    "exact_match_rate": 0.0,
+    "mean_precision": 0.0,
+    "mean_recall": 0.0
+  },
+  "details": [
+    {
+      "id": "starter_en_01",
+      "original": "He have gone to the store.",
+      "reference": "He has gone to the store.",
+      "hypothesis": "He have gone to the store.",
+      "metrics": {
+        "cer": 0.08,
+        "wer": 0.16666666666666666,
+        "exact_match": 0.0
+      },
+      "edit_metrics": {
+        "true_corrections": 0,
+        "missed_errors": 1,
+        "incorrect_edits": 0,
+        "over_corrections": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "terminology": {
+        "terms_preserved": 1,
+        "terms_damaged": 0,
+        "terms_introduced": 0
+      }
+    },
+    {
+      "id": "starter_en_02",
+      "original": "The neurel netwerk achived state of the art.",
+      "reference": "The neural network achieved state of the art.",
+      "hypothesis": "The neurel netwerk achived state of the art.",
+      "metrics": {
+        "cer": 0.06666666666666667,
+        "wer": 0.375,
+        "exact_match": 0.0
+      },
+      "edit_metrics": {
+        "true_corrections": 0,
+        "missed_errors": 1,
+        "incorrect_edits": 0,
+        "over_corrections": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "terminology": {
+        "terms_preserved": 3,
+        "terms_damaged": 2,
+        "terms_introduced": 0
+      }
+    },
+    {
+      "id": "starter_hi_01",
+      "original": "\u0935\u0939 \u092c\u093e\u091c\u093e\u0930 \u091c\u093e \u0930\u0939\u0940 \u0939\u0948\u0964",
+      "reference": "\u0935\u0939 \u092c\u093e\u091c\u093c\u093e\u0930 \u091c\u093e \u0930\u0939\u0940 \u0939\u0948\u0964",
+      "hypothesis": "\u0935\u0939 \u092c\u093e\u091c\u093e\u0930 \u091c\u093e \u0930\u0939\u0940 \u0939\u0948\u0964",
+      "metrics": {
+        "cer": 0.05,
+        "wer": 0.2,
+        "exact_match": 0.0
+      },
+      "edit_metrics": {
+        "true_corrections": 0,
+        "missed_errors": 1,
+        "incorrect_edits": 0,
+        "over_corrections": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "terminology": {
+        "terms_preserved": 0,
+        "terms_damaged": 0,
+        "terms_introduced": 0
+      }
+    },
+    {
+      "id": "starter_cm_01",
+      "original": "Main kal wahan go karunga.",
+      "reference": "Main kal wahan jaunga.",
+      "hypothesis": "Main kal wahan go karunga.",
+      "metrics": {
+        "cer": 0.22727272727272727,
+        "wer": 0.5,
+        "exact_match": 0.0
+      },
+      "edit_metrics": {
+        "true_corrections": 0,
+        "missed_errors": 1,
+        "incorrect_edits": 0,
+        "over_corrections": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "terminology": {
+        "terms_preserved": 0,
+        "terms_damaged": 0,
+        "terms_introduced": 0
+      }
+    },
+    {
+      "id": "starter_ocr_01",
+      "original": "Th1s 1s an examp1e of 0CR err0rs.",
+      "reference": "This is an example of OCR errors.",
+      "hypothesis": "Th1s 1s an examp1e of 0CR err0rs.",
+      "metrics": {
+        "cer": 0.15151515151515152,
+        "wer": 0.7142857142857143,
+        "exact_match": 0.0
+      },
+      "edit_metrics": {
+        "true_corrections": 0,
+        "missed_errors": 3,
+        "incorrect_edits": 0,
+        "over_corrections": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "terminology": {
+        "terms_preserved": 1,
+        "terms_damaged": 0,
+        "terms_introduced": 0
+      }
+    }
+  ]
+}

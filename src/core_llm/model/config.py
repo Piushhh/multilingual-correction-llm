@@ -30,3 +30,6 @@ class ModelConfig:
             raise ValueError(
                 "embedding_dim must be divisible by num_heads"
             )
+
+        if not (0.0 <= self.dropout < 1.0):
+            raise ValueError("dropout must be in [0.0, 1.0)")

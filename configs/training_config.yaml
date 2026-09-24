@@ -1,0 +1,22 @@
+# Baseline model — will be replaced when Member 1's custom architecture is ready.
+# Do NOT treat this as the final production model.
+model_name: "google/gemma-2b-it"
+is_baseline: true
+output_dir: "checkpoints/correction_model"
+train_file: "data/processed/train.jsonl"
+validation_file: "data/processed/validation.jsonl"
+max_length: 512
+learning_rate: 0.00002
+batch_size: 4
+gradient_accumulation_steps: 4
+epochs: 3
+warmup_ratio: 0.1
+weight_decay: 0.01
+seed: 42
+save_strategy: "epoch"
+evaluation_strategy: "epoch"
+use_peft: true  # Whether to use parameter-efficient fine-tuning (LoRA)
+peft_r: 16
+peft_alpha: 32
+peft_dropout: 0.05
+experiment_name: "baseline_correction_v1"
