@@ -1,141 +1,139 @@
 # Multilingual Domain-Aware Document Correction System
 
-An end-to-end research and engineering pipeline for **multilingual OCR text extraction, language detection, domain classification, domain terminology verification, and contextual error correction** with FastAPI serving.
+An end-to-end research and engineering pipeline for **OCR text extraction, language detection, domain classification, terminology verification, and contextual error correction**, served through a FastAPI application.
 
-Supports **English**, **Hindi**, and **English-Hindi code-mixed** document images and texts across domains (**Deep Learning**, **Computer Science**, **Mathematics**, and **General**).
+Target inputs: **English**, **Hindi**, and **English-Hindi code-mixed** text or document images. Initial domains: **Deep Learning**, **Computer Science**, **Mathematics**, and **General**.
 
 ---
 
-## 1. System Architecture
+## 1. Team and Ownership
+
+Roles below follow the git history of this repository.
+
+| Role | Member | Owns | Main areas |
+|:---|:---|:---|:---|
+| **Member 1: LLM Core** | Khushi Kumari Singh | `src/core_llm/` | Tokenizer, causal Transformer, pretraining, domain-adaptive pretraining, correction fine-tuning, inference, LLM tests |
+| **Member 2: Document AI** | Aliah Jamil | `src/document_ai/` | OCR (preprocess, extract, bounding boxes), language detection, domain classifier, terminology DB, Pydantic schemas, OCR/domain evaluation |
+| **Member 3: Correction and API** | Piush | `src/correction/`, `app/` | Correction dataset, prompts, model adapters, change detection, training script, FastAPI service |
+| **Shared** | All | `src/integration/`, `src/evaluation/`, `tests/`, `docs/` | Contracts, adapters, pipeline, metrics, test suite |
+
+Evidence for the split:
+- **Khushi:** her first commit (`c30fa1a`) is entirely `src/core_llm/`: model, SentencePiece BPE tokenizer, `pretrain.py`, `domain_adapt.py`, `correction_finetune.py`, `generate.py`, `correct.py`, and four test files.
+- **Aliah:** her first commit (`80d8f66`) contains the full `src/document_ai/` package; a later commit (`dbcbf9e`) adds the Document AI schema, trained classifier, Tesseract setup guide, and end-to-end tests.
+- **Piush:** every early commit is tagged `feat(member3)`: dataset, correction inference, evaluation metrics, API, adapters.
+
+---
+
+## 2. System Architecture
 
 ```text
-Document Image (.png / .jpg)
-       │
-       ▼
-[ Member 2: DocumentAI Pipeline ]
-  ├── 1. Tesseract OCR (bilingual eng+hin) -> regions: text, bbox, confidence
-  ├── 2. Language Detection (Unicode script analysis + langdetect) -> en / hi / code_mixed / unknown
-  ├── 3. Domain Classification (TF-IDF + Logistic Regression) -> domain + confidence
-  └── 4. Terminology Verification (fuzzy matching against verified domain lexicons)
-       │
-       ▼
-[ Stage 4 & 5: Integration Layer ]
-  ├── DocumentAIAdapter: v1.0 DocumentAI output -> OCRDocument contract
-  └── IntegrationPipeline: forwards full metadata (language, domain, terminology flags)
-       │
-       ▼
-[ Member 3: Correction Engine ]
-  ├── PromptFormatter: constructs domain/language-aware correction prompt
+Document image (.png / .jpg)  or  raw text
+        │
+        ▼
+[ Member 2: Document AI ]
+  ├── Preprocessing (grayscale, denoise, deskew)
+  ├── OCR (Tesseract, eng+hin) -> regions: text, bbox, confidence
+  ├── Language detection -> en / hi / code_mixed / unknown
+  ├── Domain classification (TF-IDF + Logistic Regression)
+  └── Terminology verification (fuzzy match against domain lexicons)
+        │   structured JSON (schema v1.0)
+        ▼
+[ Shared: Integration layer ]
+  ├── DocumentAIAdapter: Document AI output -> OCRDocument contract
+  └── IntegrationPipeline: forwards language, domain, terminology flags
+        │
+        ▼
+[ Member 3: Correction engine ]
+  ├── PromptFormatter: domain- and language-aware prompt
   ├── ModelAdapter: CustomLLMAdapter (Member 1) / GemmaBaselineAdapter / MockAdapter
-  └── ChangeTracker: word-level diff analysis + category tagging (spelling, terminology, script)
-       │
-       ▼
-[ REST API: FastAPI Application ]
-  ├── GET  /health         — Service status + model readiness
-  ├── POST /correct        — Correct single OCR text block
-  ├── POST /correct/batch  — Batch correction of multiple text blocks
-  ├── GET  /model/info     — Model metadata & capabilities
-  └── POST /generate       — Direct text generation from Member 1 custom LLM
+  └── Change detection: word-level diff + category tagging
+        │
+        ▼
+[ Member 3: FastAPI ]
+  ├── GET  /health
+  ├── POST /correct
+  ├── POST /correct/batch
+  ├── GET  /model/info
+  └── POST /generate      (direct generation from the custom LLM)
 ```
 
----
-
-## 2. Team Ownership & Responsibilities
-
-| Role | Member | Components & Ownership |
-|:---|:---|:---|
-| **Member 1** | Khushi Kumari Singh | `src/core_llm/`: Tokenizer, Causal Transformer, training pipelines, checkpoints, inference, `CustomLLMAdapter`, `app/api/routes/generate.py` |
-| **Member 2** | Aliah Jamil | `src/document_ai/`: OCR extraction, Language detector, Domain classifier, Terminology DB, Pydantic schemas v1.0, pipeline CLI, OCR evaluation |
-| **Member 3** | Piush | `src/correction/`, `app/`: Correction engine, dataset preparation, training scripts, FastAPI lifespan singleton, correction API routes, schemas |
-| **Shared** | All | `src/integration/`: Contracts, adapters, pipeline; `src/evaluation/`: Metrics & error analysis; `tests/`: Test suite; `docs/` |
+The core language model is a decoder-only Transformer implemented in PyTorch in this repository (no pretrained LLM weights), trained in three phases: general pretraining, domain-adaptive pretraining, then correction fine-tuning.
 
 ---
 
-## 3. Component Details & Status
+## 3. Component Status
 
-### Member 1: Core LLM (`src/core_llm/`)
-- **Status:** **IMPLEMENTED & VERIFIED**
-- **Architecture:** 4-layer, 4-head causal Transformer LM ($d_{model}=256, d_{ff}=1024, max\_seq\_len=256$, vocabulary size 1,739 tokens).
-- **Checkpoints:** `checkpoints/base/best.pt` (~44 MB) and `checkpoints/domain/best.pt` (~44 MB).
-- **CustomLLMAdapter:** Wraps the trained model through the `ModelAdapter` interface with left-truncation, prompt-prefix stripping, and EOS token handling.
+### Member 1: LLM Core (`src/core_llm/`)
+- **Architecture:** decoder-only causal Transformer LM. Default config: 4 layers, 4 heads, `d_model=256`, context length 256 (`configs/model.yaml`).
+- **Tokenizer:** byte-level BPE, 1,739-token vocabulary (`data/tokenizer/tokenizer.json`).
+- **Merged on the unified branch:** model files, tokenizer training, dataset loader, `pretrain.py`, `train_utils.py`, `generate.py`, and `CustomLLMAdapter`.
+- **Still to be merged from `feature/khushi-work`:** `domain_adapt.py`, `correction_finetune.py`, `inference/correct.py`, `model/lm_head.py`, `model/config.py`, the SentencePiece tokenizer (`bpe_tokenizer.py`, `tokenizer.model`), corpus and tokenizer scripts, and `src/core_llm/tests/`.
+- **Checkpoints:** `*.pt` files and `checkpoints/*` are git-ignored. Train locally or share them outside Git.
 
-### Member 2: DocumentAI (`src/document_ai/`)
-- **Status:** **IMPLEMENTED & VERIFIED** (OCR marked *NOT VERIFIED* in environments without system Tesseract binary).
-- **OCR:** Multi-region extraction with coordinates and per-block confidence (`src/document_ai/ocr/extract.py`). Auto-detects `TESSERACT_CMD` environment variable.
-- **Language Detector:** Script composition analyzer supporting Devanagari, Latin, and code-mixed texts with thresholded confidence.
-- **Domain Classifier:** Word + character n-gram TF-IDF vectorizer + balanced Logistic Regression. Trained on 80 samples across 4 domains; achieves 90% validation accuracy on held-out test split.
-- **Terminology Verification:** Multi-domain dictionaries (`deep_learning.json`, `computer_science.json`, `mathematics.json`) with fuzzy string matching.
-- **Schemas:** Pydantic v1.0 interface contract (`src/document_ai/schemas.py`) with JSON Schema export (`data/schemas/document_ai_schema.json`).
+### Member 2: Document AI (`src/document_ai/`)
+- **OCR:** multi-region extraction with coordinates and per-block confidence. Reads the `TESSERACT_CMD` environment variable. OCR tests need the system Tesseract binary; see [docs/WINDOWS_TESSERACT.md](docs/WINDOWS_TESSERACT.md).
+- **Language detector:** Unicode script analysis (Devanagari vs Latin) plus `langdetect`, with code-mixed handling.
+- **Domain classifier:** word and character n-gram TF-IDF with balanced Logistic Regression. Trained on a small hand-built dataset (about 100 labelled samples in `data/domain_classifier/`). Treat it as a baseline; accuracy on so few samples is not a reliable research result.
+- **Terminology DB:** `deep_learning.json`, `computer_science.json`, `mathematics.json` with fuzzy matching (`rapidfuzz`).
+- **Schema:** Pydantic v1.0 contract in `src/document_ai/schemas.py`, exported to `data/schemas/document_ai_schema.json`.
 
-### Member 3: Correction Engine & API (`src/correction/`, `app/`)
-- **Status:** **IMPLEMENTED & VERIFIED**
-- **Inference:** `CorrectionEngine` supporting both real models and zero-dependency mock mode for test environments.
-- **FastAPI:** Lifespan management for singleton model loading, thread-safe dependency injection, and complete request validation.
+### Member 3: Correction Engine and API (`src/correction/`, `app/`)
+- **Correction engine** with real-model and zero-dependency mock modes.
+- **Dataset tooling:** schema, error taxonomy, validation, splitting, prompt formatting (`data/`, `src/correction/`).
+- **FastAPI:** lifespan singleton model loading, dependency injection, request validation.
+- **Evaluation:** correction metrics, error analysis, terminology-preservation checks (`src/evaluation/`).
 
 ---
 
-## 4. Setup & Quickstart
+## 4. Setup
 
-### Prerequisites
-- Python 3.10+ (tested on Python 3.13.5 on Windows)
-- (Optional) Tesseract OCR with English and Hindi language data (see [docs/WINDOWS_TESSERACT.md](docs/WINDOWS_TESSERACT.md))
+**Prerequisites:** Python 3.10+; optionally Tesseract OCR with English and Hindi data.
 
-### Installation
 ```bash
-# Clone the repository
-git clone <repo-url>
+git clone https://github.com/Piushhh/multilingual-correction-llm.git
 cd multilingual-correction-llm
 
-# Activate virtual environment
-# Windows:
-.\.venv\Scripts\activate
+python -m venv .venv
+# Windows:  .\.venv\Scripts\activate
+# macOS/Linux:  source .venv/bin/activate
 
-# Install runtime and dev dependencies
 pip install -r requirements-dev.txt
 ```
 
-### Running Tests
-The project features a comprehensive test suite across all three members and integration layers:
+### Run the tests
 ```bash
 python -m pytest
 ```
-**Test Results:** **78 passed, 0 failed** across all modules.
+The suite has about 78 test functions across all modules. OCR-dependent tests need Tesseract installed.
+
+### Start the API
+```bash
+uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+Interactive docs: `http://localhost:8000/docs`. The service falls back to mock mode when no model weights are present.
 
 ---
 
-## 5. Usage & Examples
+## 5. Usage Examples
 
-### DocumentAI CLI
-Process a document image and output structured JSON:
+**Document AI CLI**
 ```bash
 python -m src.document_ai.pipeline --image sample.png --out output.json
 ```
 
-### Start the REST API
+**Correct text**
 ```bash
-# Run server with uvicorn (defaults to mock mode if weights/GPUs are absent)
-uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
+curl -X POST http://localhost:8000/correct \
+  -H "Content-Type: application/json" \
+  -d '{"text": "The transformer architechture uses self-attenshun.", "language": "en", "domain": "deep_learning"}'
 ```
 
-Interactive API documentation available at `http://localhost:8000/docs`.
-
-### API Endpoints
-- **Health Check:** `GET /health`
-  ```bash
-  curl http://localhost:8000/health
-  ```
-- **Text Correction:** `POST /correct`
-  ```bash
-  curl -X POST http://localhost:8000/correct \
-    -H "Content-Type: application/json" \
-    -d '{"text": "The transformer architechture uses self-attenshun.", "language": "en", "domain": "deep_learning"}'
-  ```
-- **Custom LLM Direct Generation:** `POST /generate`
-  ```bash
-  curl -X POST http://localhost:8000/generate \
-    -H "Content-Type: application/json" \
-    -d '{"prompt": "Deep learning models", "max_new_tokens": 30, "temperature": 0.8}'
-  ```
+**Generate with the custom LLM**
+```bash
+curl -X POST http://localhost:8000/generate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "Deep learning models", "max_new_tokens": 30, "temperature": 0.8}'
+```
 
 ---
 
@@ -144,33 +142,41 @@ Interactive API documentation available at `http://localhost:8000/docs`.
 ```text
 multilingual-correction-llm/
 ├── app/
-│   ├── api/
-│   │   ├── dependencies.py       # Thread-safe CorrectionEngine singleton
-│   │   ├── main.py               # Merged FastAPI entry point (lifespan + routers)
-│   │   └── routes/
-│   │       ├── correction.py     # /correct and /correct/batch
-│   │       ├── generate.py       # /generate (Member 1 LLM endpoint)
-│   │       └── model.py          # /model/info
-│   └── schemas/correction.py     # API Pydantic schemas
-├── checkpoints/
-│   ├── base/best.pt              # Base pretrained LLM (~44MB)
-│   └── domain/best.pt            # Domain-adapted LLM (~44MB)
+│   ├── api/                  # main.py, dependencies.py, routes/ (correction, generate, model)
+│   └── schemas/              # API Pydantic schemas
+├── configs/                  # model / training YAML
 ├── data/
-│   ├── domain_classifier/        # train.csv, val.csv, classifier.joblib
-│   ├── raw/                      # train.txt, val.txt, starter_dataset.jsonl
-│   ├── schemas/                  # document_ai_schema.json (v1.0 exported)
-│   ├── terminology/              # deep_learning.json, computer_science.json, mathematics.json
-│   └── tokenizer/                # tokenizer.json (BPE)
-├── docs/
-│   ├── team-ownership.md         # Detailed ownership & boundaries
-│   └── WINDOWS_TESSERACT.md      # Tesseract OCR install guide
+│   ├── correction/           # correction pairs
+│   ├── domain_classifier/    # train.csv, val.csv, classifier.joblib
+│   ├── schemas/              # correction + Document AI JSON schemas
+│   ├── terminology/          # domain lexicons
+│   └── tokenizer/            # BPE tokenizer.json
+├── docs/                     # team-ownership, Member 1 notes, Tesseract guide
 ├── src/
-│   ├── core_llm/                 # Member 1: Model, Tokenizer, Training, Inference
-│   ├── document_ai/              # Member 2: OCR, Language, Domain, Schemas, Pipeline
-│   ├── correction/               # Member 3: Engine, Prompts, Adapters, Training
-│   ├── integration/              # Shared: Contracts, Adapters, Integration Pipeline
-│   └── evaluation/               # Shared: OCR evaluation, correction metrics
-├── tests/                        # 78 automated pytest tests
-├── requirements.txt              # Core runtime dependencies
-└── requirements-dev.txt          # Development, testing, and linting tools
+│   ├── core_llm/             # Member 1
+│   ├── document_ai/          # Member 2
+│   ├── correction/           # Member 3
+│   ├── integration/          # Shared: contracts, adapters, pipeline
+│   └── evaluation/           # Shared: metrics, error analysis
+├── tests/
+├── requirements.txt
+└── requirements-dev.txt
 ```
+
+---
+
+## 7. Git Workflow
+
+Branches: `main`, `feature/khushi-work` (Member 1), `feature/aliah-work` (Member 2), `feature/unified-integration`.
+
+1. `git pull origin main` before starting work.
+2. Work only in your own module; discuss before editing another member's files.
+3. Open a pull request into `main` and get one review.
+4. Keep datasets and model weights out of Git.
+
+## 8. Open Items
+
+- Merge Khushi's remaining `core_llm` files (Section 3) into the unified branch.
+- Update `docs/team-ownership.md`, which still lists Aliah as Member 1, to match the table above.
+- Expand the domain classifier dataset and report proper train/validation/test metrics.
+- Add Hindi correction pairs and evaluate on code-mixed text.
