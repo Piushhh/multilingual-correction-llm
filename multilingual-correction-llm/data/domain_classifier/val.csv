@@ -1,0 +1,21 @@
+text,domain
+"Attention mechanisms allow the model to focus on relevant tokens when generating each output.",deep_learning
+"Weight initialization affects training stability especially in very deep network architectures.",deep_learning
+"Transfer learning reuses representations from a pretrained model on a related downstream task.",deep_learning
+"The vanishing gradient problem makes training deep recurrent networks difficult without gating.",deep_learning
+"Knowledge distillation trains a small student model to replicate the outputs of a larger teacher.",deep_learning
+"Merge sort uses a divide-and-conquer strategy to sort arrays in O(n log n) time.",computer_science
+"Thread synchronization prevents race conditions when multiple threads access shared memory.",computer_science
+"A balanced binary search tree ensures O(log n) search insert and delete operations.",computer_science
+"Garbage collection automatically reclaims memory that is no longer reachable by the program.",computer_science
+"Network protocols define the rules for data exchange between systems over a communication channel.",computer_science
+"The Pythagorean theorem states that the square of the hypotenuse equals the sum of the squares.",mathematics
+"A Fourier transform decomposes a signal into its constituent frequency components.",mathematics
+"Bayesian inference updates the probability of a hypothesis as new evidence becomes available.",mathematics
+"A null hypothesis is rejected when the p-value falls below the chosen significance threshold.",mathematics
+"The Jacobian matrix collects all partial derivatives of a vector-valued function.",mathematics
+"The restaurant recently updated its menu with seasonal ingredients from local farms.",general
+"She repotted her plants over the weekend and rearranged them near the balcony window.",general
+"The school play received enthusiastic applause from parents and students in the audience.",general
+"He fixed the leaking tap in the kitchen after watching a home repair video online.",general
+"The neighborhood cleanup drive drew volunteers from across three different apartment blocks.",general

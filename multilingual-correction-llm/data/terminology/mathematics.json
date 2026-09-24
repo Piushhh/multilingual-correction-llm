@@ -3,6 +3,11 @@
   "terms": [
     "derivative", "integral", "eigenvector", "determinant",
     "polynomial", "matrix", "theorem", "inequality",
-    "differentiable", "probability", "variance", "logarithm"
+    "differentiable", "probability", "variance", "logarithm",
+    "eigenvalue", "stochastic", "covariance", "orthogonality",
+    "divergence", "gradient", "manifold", "topology",
+    "asymptotic", "permutation", "combination", "distribution",
+    "hypothesis", "regression", "convexity", "continuous",
+    "convergence", "linearity", "homomorphism", "isomorphism"
   ]
 }

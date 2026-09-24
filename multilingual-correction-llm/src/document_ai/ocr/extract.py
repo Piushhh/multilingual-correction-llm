@@ -16,6 +16,8 @@ Python package (pytesseract is just a wrapper):
   - Windows:        https://github.com/UB-Mannheim/tesseract/wiki
 """
 
+import os
+import shutil
 from pathlib import Path
 
 import pytesseract
@@ -24,6 +26,40 @@ from pytesseract import Output
 from src.document_ai.ocr.preprocess import preprocess_image
 from src.document_ai.ocr.bbox import to_xyxy, group_words_into_lines
 
+
+def configure_tesseract(tesseract_cmd: str = None) -> str:
+    """
+    Configure the pytesseract binary path from parameter, env var, or standard locations.
+    Returns the resolved path, or None if not found.
+    """
+    cmd = tesseract_cmd or os.environ.get("TESSERACT_CMD")
+    if not cmd:
+        common_windows_paths = [
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
+        ]
+        for p in common_windows_paths:
+            if os.path.isfile(p):
+                cmd = p
+                break
+
+    if cmd and os.path.isfile(cmd):
+        pytesseract.pytesseract.tesseract_cmd = cmd
+        return cmd
+    return getattr(pytesseract.pytesseract, "tesseract_cmd", "tesseract")
+
+
+def is_tesseract_available() -> bool:
+    """Check if Tesseract binary is accessible and executable."""
+    cmd = configure_tesseract()
+    if cmd and os.path.isfile(cmd):
+        return True
+    return shutil.which(cmd) is not None
+
+
+# Run auto-configuration on module load
+configure_tesseract()
 
 # Tesseract language codes. "eng+hin" runs both models and lets Tesseract
 # pick per-token -- this is what makes code-mixed En-Hi text usable without
