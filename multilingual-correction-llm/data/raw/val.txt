@@ -1,0 +1,30 @@
+Attention lets a model focus on the most relevant tokens in a sequence.
+Attention model को sequence में सबसे relevant tokens पर focus करने देता है।
+A transformer processes an entire sequence in parallel rather than one token at a time.
+Transformer एक sequence को parallel में process करता है, token by token नहीं।
+The embedding layer maps discrete token IDs to continuous vectors.
+Embedding layer discrete token IDs को continuous vectors में map करती है।
+Positional information is necessary because attention has no built-in sense of order.
+Positional information जरूरी है क्योंकि attention में order का कोई built-in sense नहीं होता।
+Layer normalization is applied before the attention and feed forward sublayers.
+Layer normalization attention और feed forward sublayers से पहले apply की जाती है।
+Weight tying shares parameters between the input embedding and output projection.
+Weight tying input embedding और output projection के बीच parameters share करती है।
+A validation set must never be used to update model weights directly.
+Validation set का उपयोग कभी भी model weights को सीधे update करने के लिए नहीं करना चाहिए।
+Perplexity is simply the exponential of the average cross entropy loss.
+Perplexity असल में average cross entropy loss का exponential होती है।
+Fine tuning continues training a pretrained model on a narrower dataset.
+Fine tuning किसी pretrained model को एक narrower dataset पर आगे train करता है।
+Byte level BPE avoids unknown tokens by operating on raw bytes.
+Byte level BPE raw bytes पर काम करके unknown tokens से बचता है।
+A checkpoint stores both the model weights and the optimizer state.
+Checkpoint model weights और optimizer state दोनों को store करता है।
+Domain adaptive pretraining specializes a general model on technical vocabulary.
+Domain adaptive pretraining एक general model को technical vocabulary पर specialize करता है।
+OCR mistakes often confuse visually similar characters.
+OCR की गलतियां अक्सर दिखने में similar characters को confuse कर देती हैं।
+A correction model should fix errors without altering the intended meaning.
+Correction model को meaning बदले बिना errors ठीक करनी चाहिए।
+Top-k and top-p sampling both reduce the chance of picking a very unlikely token.
+Top-k और top-p sampling दोनों एक बहुत unlikely token चुनने की संभावना को कम करते हैं।

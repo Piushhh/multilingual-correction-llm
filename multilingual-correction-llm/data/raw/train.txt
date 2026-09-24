@@ -1,0 +1,384 @@
+The transformer architecture uses self attention.
+Transformer architecture में self attention का उपयोग होता है।
+The model uses an attention mechanism to understand relationships between tokens.
+यह मॉडल tokens के बीच संबंध समझने के लिए attention mechanism का उपयोग करता है।
+Machine learning is a branch of artificial intelligence.
+Machine learning artificial intelligence की एक branch है।
+Deep learning uses neural networks to learn complex patterns.
+Deep learning complex patterns सीखने के लिए neural networks का उपयोग करता है।
+Natural language processing helps computers understand human language.
+Natural language processing computers को human language समझने में मदद करता है।
+A neural network contains multiple layers of connected neurons.
+एक neural network में connected neurons की कई layers होती हैं।
+The input layer receives the input data.
+Input layer input data को receive करती है।
+The hidden layers transform the input into useful representations.
+Hidden layers input को useful representations में transform करती हैं।
+The output layer produces the final prediction.
+Output layer final prediction produce करती है।
+Training a model requires a suitable dataset.
+Model को train करने के लिए एक suitable dataset की आवश्यकता होती है।
+The dataset contains examples used during model training.
+Dataset में model training के दौरान उपयोग होने वाले examples होते हैं।
+Data preprocessing is an important step in machine learning.
+Data preprocessing machine learning में एक important step है।
+The text should be cleaned before training the model.
+Model को train करने से पहले text को clean करना चाहिए।
+Tokenization converts text into smaller units called tokens.
+Tokenization text को छोटे units में convert करता है जिन्हें tokens कहा जाता है।
+A tokenizer converts words or subwords into numerical IDs.
+Tokenizer words या subwords को numerical IDs में convert करता है।
+The vocabulary contains all tokens known by the tokenizer.
+Vocabulary में tokenizer द्वारा पहचाने जाने वाले सभी tokens होते हैं।
+The model receives token IDs as input.
+Model input के रूप में token IDs receive करता है।
+Embeddings convert token IDs into dense vectors.
+Embeddings token IDs को dense vectors में convert करते हैं।
+Each token has a corresponding embedding vector.
+हर token का एक corresponding embedding vector होता है।
+Positional embeddings provide information about token positions.
+Positional embeddings tokens की position की information provide करते हैं।
+Transformers can process relationships between different tokens.
+Transformers different tokens के बीच relationships को process कर सकते हैं।
+Self attention calculates how important each token is to other tokens.
+Self attention यह calculate करता है कि एक token दूसरे tokens के लिए कितना important है।
+Attention scores determine the importance of different tokens.
+Attention scores different tokens की importance determine करते हैं।
+The query, key, and value vectors are used in self attention.
+Self attention में query, key और value vectors का उपयोग होता है।
+Multi head attention uses multiple attention heads.
+Multi head attention multiple attention heads का उपयोग करता है।
+Each attention head can learn different relationships.
+हर attention head अलग-अलग relationships सीख सकता है।
+The feed forward network processes the output of the attention layer.
+Feed forward network attention layer के output को process करता है।
+Layer normalization helps stabilize the training process.
+Layer normalization training process को stable रखने में मदद करता है।
+Residual connections help information flow through the network.
+Residual connections network में information flow को improve करते हैं।
+The transformer block contains attention and feed forward layers.
+Transformer block में attention और feed forward layers होती हैं।
+Multiple transformer blocks can be stacked together.
+Multiple transformer blocks को एक साथ stack किया जा सकता है।
+A language model predicts the next token in a sequence.
+Language model sequence में next token को predict करता है।
+Causal language models generate text from left to right.
+Causal language models text को left to right generate करते हैं।
+The model cannot attend to future tokens during causal training.
+Causal training के दौरान model future tokens को attend नहीं कर सकता।
+A causal mask prevents the model from seeing future information.
+Causal mask model को future information देखने से रोकता है।
+The training objective is to predict the next token.
+Training objective next token को predict करना है।
+Cross entropy is commonly used as the language modeling loss.
+Cross entropy language modeling में commonly used loss function है।
+The loss measures the difference between predicted and actual tokens.
+Loss predicted और actual tokens के बीच difference को measure करता है।
+A lower validation loss usually indicates better performance on the validation data.
+Lower validation loss validation data पर better performance indicate कर सकता है।
+Perplexity is a metric used to evaluate language models.
+Perplexity language models को evaluate करने के लिए इस्तेमाल होने वाला metric है।
+The optimizer updates model parameters during training.
+Optimizer training के दौरान model parameters को update करता है।
+AdamW is commonly used for transformer training.
+AdamW transformer training में commonly use किया जाता है।
+The learning rate controls the size of parameter updates.
+Learning rate parameter updates के size को control करता है।
+A very large learning rate can make training unstable.
+बहुत बड़ा learning rate training को unstable बना सकता है।
+A very small learning rate can make training slow.
+बहुत छोटा learning rate training को slow बना सकता है।
+Batch size determines how many examples are processed together.
+Batch size determine करता है कि कितने examples एक साथ process होंगे।
+An epoch represents one complete pass through the training data.
+एक epoch training data के through एक complete pass को represent करता है।
+Gradient clipping can help prevent exploding gradients.
+Gradient clipping exploding gradients को prevent करने में मदद करता है।
+The model parameters are saved in a checkpoint.
+Model parameters को checkpoint में save किया जाता है।
+A checkpoint allows training to be resumed later.
+Checkpoint की मदद से training को बाद में resume किया जा सकता है।
+The training dataset should be different from the validation dataset.
+Training dataset validation dataset से अलग होना चाहिए।
+Validation data is used to evaluate the model during training.
+Validation data training के दौरान model को evaluate करने के लिए use होता है।
+The test data should not be used to train the model.
+Test data को model training में use नहीं करना चाहिए।
+A random seed can make experiments reproducible.
+Random seed experiments को reproducible बनाने में मदद करता है।
+Reproducibility is important when comparing different experiments.
+Different experiments को compare करने के लिए reproducibility important है।
+The GPU can accelerate neural network training.
+GPU neural network training को accelerate कर सकता है।
+CUDA allows PyTorch to use NVIDIA GPUs.
+CUDA PyTorch को NVIDIA GPUs use करने की अनुमति देता है।
+PyTorch provides tools for building and training neural networks.
+PyTorch neural networks build और train करने के लिए tools provide करता है।
+A tensor is a basic data structure used by PyTorch.
+Tensor PyTorch में इस्तेमाल होने वाला basic data structure है।
+Tensors can be stored on the CPU or GPU.
+Tensors को CPU या GPU पर store किया जा सकता है।
+The model should be moved to the correct device before training.
+Training से पहले model को correct device पर move करना चाहिए।
+The tokenizer should support both English and Hindi text.
+Tokenizer को English और Hindi दोनों text support करना चाहिए।
+Hindi text contains characters from the Devanagari script.
+Hindi text Devanagari script के characters contain करता है।
+Multilingual models need to handle multiple languages.
+Multilingual models को multiple languages handle करनी होती हैं।
+Code mixed text combines words from multiple languages.
+Code mixed text multiple languages के words को combine करता है।
+Many users write Hindi and English together in the same sentence.
+बहुत से users एक ही sentence में Hindi और English साथ में लिखते हैं।
+The model should understand technical terms in both languages.
+Model को दोनों languages में technical terms समझने चाहिए।
+Attention mechanism का उपयोग transformer models में किया जाता है।
+Transformer models में multiple layers होती हैं।
+Neural network training के लिए पर्याप्त data की आवश्यकता होती है।
+Model की accuracy dataset की quality पर depend करती है।
+Clean data model की performance improve कर सकता है।
+Training data में duplicate examples नहीं होने चाहिए।
+Text normalization language processing में useful होती है।
+Tokenization के बाद text numerical representation में बदल जाता है।
+Embeddings semantic information को represent करते हैं।
+Transformer model context को समझने के लिए attention का उपयोग करता है।
+Self attention sentence के अलग-अलग words के बीच relationship सीखता है।
+Multi head attention अलग-अलग प्रकार के relationships capture कर सकता है।
+Language model अगले token की probability calculate करता है।
+Model prediction probability distribution के रूप में output दे सकता है।
+Training के दौरान loss को minimize करने की कोशिश की जाती है।
+Validation loss model की generalization ability को monitor करने में मदद करता है।
+Learning rate को carefully select करना चाहिए।
+Batch size GPU memory के अनुसार choose किया जा सकता है।
+Large models को train करने के लिए अधिक computational resources चाहिए।
+Small models experimentation और debugging के लिए useful होते हैं।
+Checkpoint से model की training state को restore किया जा सकता है।
+The model learns statistical patterns from the training corpus.
+The corpus contains sentences from different languages and domains.
+A multilingual corpus should contain diverse linguistic patterns.
+Technical documents contain specialized vocabulary.
+Domain adaptation helps a model learn domain-specific terminology.
+A general language model may not understand specialized technical terms well.
+Domain specific training can improve understanding of technical language.
+Deep learning models are widely used in computer vision and natural language processing.
+Convolutional neural networks are commonly used for image processing.
+Recurrent neural networks process sequential information.
+Transformers have become popular for language modeling.
+BERT is a transformer based model designed for language understanding.
+GPT style models are commonly trained using causal language modeling.
+Encoder models and decoder models have different architectures.
+An encoder processes input representations.
+A decoder generates output tokens.
+Sequence to sequence models can be used for text transformation tasks.
+Text correction can be treated as a sequence transformation problem.
+The input may contain spelling errors and grammatical errors.
+The model can learn to generate a corrected version of the input.
+A correction system should preserve the original meaning.
+The corrected sentence should be grammatically clear.
+The system should avoid changing technical terminology unnecessarily.
+OCR errors can introduce incorrect characters into documents.
+OCR stands for optical character recognition.
+Scanned documents often require OCR before text processing.
+OCR output may contain missing spaces and incorrect characters.
+Document correction can improve the quality of extracted text.
+A document processing pipeline can include OCR, cleaning, tokenization, and correction.
+The correction model receives noisy text as input.
+The model generates a cleaner version of the text.
+Noise can include spelling errors, character substitutions, and missing punctuation.
+The system should preserve important numbers and symbols.
+Technical documents may contain formulas, abbreviations, and special terms.
+The tokenizer should handle punctuation and special characters correctly.
+The vocabulary size affects the number of parameters in the embedding layer.
+A larger vocabulary can represent more tokens directly.
+Subword tokenization helps handle unknown or rare words.
+BPE learns frequently occurring subword patterns.
+Byte level tokenization can represent a wide range of characters.
+The tokenizer file is saved for later inference.
+The same tokenizer should be used during training and inference.
+Changing the tokenizer after training can cause compatibility problems.
+The model configuration defines vocabulary size and architecture parameters.
+The context length determines how many tokens the model can process at once.
+The hidden dimension determines the size of token representations.
+The number of attention heads controls how many attention patterns are learned.
+The number of transformer layers controls the depth of the network.
+The feed forward dimension is usually larger than the hidden dimension.
+Dropout can reduce overfitting during training.
+Overfitting occurs when a model memorizes training data.
+A validation set helps detect overfitting.
+Training loss should be monitored throughout the experiment.
+Model evaluation should use the same type of input across experiments.
+English is widely used in technical documentation.
+हिंदी भारत में widely spoken languages में से एक है।
+English और Hindi को एक ही document में use किया जा सकता है।
+Technical documents में English और Hindi दोनों terms हो सकते हैं।
+Machine learning model को train करने के लिए data चाहिए।
+AI systems को reliable data की आवश्यकता होती है।
+Data science में statistics और programming दोनों का उपयोग होता है।
+Python machine learning के लिए popular programming language है।
+NumPy numerical computation के लिए useful library है।
+Pandas data analysis और data manipulation के लिए useful है।
+Matplotlib data visualization के लिए use किया जाता है।
+Scikit learn machine learning algorithms provide करता है।
+PyTorch deep learning models develop करने के लिए use होता है।
+TensorFlow भी neural network training के लिए use किया जाता है।
+Natural language processing text data को process करता है।
+NLP में tokenization एक basic preprocessing step है।
+Sentiment analysis text की भावना को identify करता है।
+Text classification input text को categories में assign करता है।
+Named entity recognition लोगों, स्थानों और organizations को identify कर सकता है।
+Machine translation एक language को दूसरी language में convert करता है।
+Text summarization long documents को shorter form में बदलता है।
+Question answering systems questions के answers generate करते हैं।
+Retrieval augmented generation external documents से information retrieve करता है।
+RAG systems में retrieval और generation दोनों components होते हैं।
+Embeddings similar text को vector space में nearby represent कर सकते हैं।
+Cosine similarity दो vectors की similarity measure कर सकती है।
+Vector databases embeddings को store और search कर सकते हैं।
+Semantic search keywords के बजाय meaning को consider करता है।
+A document can be divided into smaller chunks before embedding.
+Chunk size affects retrieval quality.
+Overlapping chunks can preserve context between neighboring sections.
+The retrieved context is passed to the language model.
+The language model generates an answer using the retrieved context.
+A prompt provides instructions and context to a language model.
+Prompt engineering can improve the quality of generated responses.
+The model should follow the instructions provided in the prompt.
+A good prompt should clearly describe the task.
+The inference pipeline loads the trained checkpoint.
+The tokenizer converts input text into token IDs.
+The model processes the token IDs.
+The output logits represent scores for every vocabulary token.
+Softmax converts logits into probabilities.
+The next token can be selected using the highest probability.
+Temperature controls the randomness of generation.
+Greedy decoding selects the token with the highest probability.
+Sampling can generate more diverse text.
+Maximum new tokens controls the length of generated output.
+Generation should stop when the end of sequence token is produced.
+The inference interface should be simple to use.
+A model.generate method can provide a convenient generation API.
+The same preprocessing should be used during training and inference.
+The model should be evaluated on English, Hindi, and code mixed prompts.
+The model should be tested on technical terminology.
+The model should preserve important information during correction.
+The correction system should not remove useful content.
+A multilingual model should not translate text unless translation is requested.
+The goal is to correct the document while preserving its meaning.
+The model should handle common spelling mistakes.
+The model should handle missing punctuation.
+The model should handle extra spaces.
+The model should handle common OCR errors.
+The correction system can be evaluated using character error rate.
+Word error rate can also be used for text correction evaluation.
+A lower character error rate indicates fewer character level errors.
+A lower word error rate indicates fewer word level errors.
+Evaluation metrics should be calculated on unseen examples.
+The validation dataset should contain representative examples.
+The training corpus should contain sufficient language diversity.
+The corpus should contain both short and long sentences.
+Different sentence structures help the model learn language patterns.
+Questions and statements can both be included in the corpus.
+The model should learn punctuation such as commas and periods.
+Numbers can appear in technical documents.
+Special characters can appear in programming related text.
+Python code contains indentation and special symbols.
+The tokenizer should process code related text without crashing.
+Machine learning uses data to learn patterns.
+Deep learning uses multiple neural network layers.
+Artificial intelligence includes many areas of computer science.
+Supervised learning uses labeled examples.
+Unsupervised learning works with unlabeled data.
+Reinforcement learning learns through rewards and actions.
+Classification predicts a category.
+Regression predicts a continuous value.
+Clustering groups similar examples together.
+Feature engineering creates useful input features.
+Model training adjusts parameters using gradients.
+Backpropagation calculates gradients for neural network parameters.
+The optimizer uses gradients to update model weights.
+The gradient shows how the loss changes with respect to a parameter.
+The training loop repeats forward and backward passes.
+During the forward pass the model calculates predictions.
+During the backward pass gradients are calculated.
+The optimizer then updates the parameters.
+After each epoch the model can be evaluated on validation data.
+The best checkpoint can be selected using validation loss.
+Saving checkpoints protects training progress.
+Long training experiments should save checkpoints regularly.
+The training process should log important metrics.
+Loss values can be stored for later analysis.
+Experiments should record their model configuration.
+The same random seed should be used when reproducibility is required.
+Different hyperparameters can produce different model performance.
+Hyperparameter tuning can improve the training process.
+The number of layers is a model hyperparameter.
+The learning rate is a training hyperparameter.
+The batch size is also a training hyperparameter.
+The sequence length affects memory usage.
+Longer sequences require more attention computation.
+GPU memory limits the maximum practical batch size.
+Gradient accumulation can simulate a larger batch size.
+Mixed precision can reduce GPU memory usage.
+The model architecture should match the available hardware.
+Small experiments should be completed before large training runs.
+A tiny model is useful for checking whether the training pipeline works.
+The tokenizer should be tested before starting model training.
+The dataset should be tested before starting model training.
+The model should produce logits with the expected dimensions.
+The training loop should reduce loss on a small dataset.
+A successful tiny training run confirms that the pipeline works.
+The base model can later be trained on a larger corpus.
+Domain adaptive pretraining can continue from the base checkpoint.
+The domain corpus should focus on deep learning terminology.
+The same tokenizer should be reused for domain adaptation.
+The domain model should start from the trained base model.
+The domain learning rate may be smaller than the initial training rate.
+The domain model can be evaluated using domain specific prompts.
+The model should understand terms such as gradient descent and backpropagation.
+The model should understand terms such as attention and embeddings.
+The model should understand terms such as tokenizer and vocabulary.
+The model should understand terms such as validation and checkpoint.
+The model should understand both general language and technical language.
+The final system combines language modeling and document correction.
+A clean architecture makes the project easier to maintain.
+Each module should have a clear responsibility.
+The tokenizer handles text encoding and decoding.
+The model handles neural network computation.
+The training module handles optimization.
+The inference module handles text generation.
+The checkpoint directory stores trained model states.
+Configuration files store experiment parameters.
+Tests help detect errors before integration.
+Git branches allow team members to work independently.
+The feature branch contains changes made by one team member.
+Changes should be tested before creating a pull request.
+The final model will be integrated with the document processing system.
+Member one is responsible for the LLM core and model training pipeline.
+The LLM core contains embeddings, attention, transformer blocks, and the transformer model.
+The training pipeline loads data and updates model parameters.
+The inference interface provides a simple way to generate text.
+The document correction system uses the trained language model.
+The complete pipeline should work from input text to corrected text.
+The model should be tested with multilingual documents.
+The system should handle English sentences correctly.
+The system should handle Hindi sentences correctly।
+The system should handle mixed English and Hindi sentences correctly.
+Technical terms should remain consistent during correction.
+The corrected output should preserve the original intent.
+A robust multilingual system requires diverse training examples.
+The quality of the dataset directly affects model behavior.
+Good data preparation is an important part of machine learning.
+The corpus should be checked for encoding problems.
+UTF-8 encoding should be used for multilingual text.
+Hindi characters should be stored correctly in the training file.
+The dataset should be inspected before tokenizer training.
+Empty lines should be handled consistently.
+Duplicate examples should be avoided when possible.
+Training and validation examples should not overlap.
+The validation set should represent the types of text expected during evaluation.
+A balanced corpus can contain multiple language patterns.
+English examples can provide general technical knowledge.
+Hindi examples can provide multilingual language patterns.
+Code mixed examples can represent real user input.
+Technical examples can teach domain vocabulary.
+Together these examples create a useful prototype corpus.
