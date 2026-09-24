@@ -147,16 +147,20 @@ def test_api_full_suite():
         assert len(res.json()["responses"]) == 2
 
         # 5. /generate (Member 1 LLM endpoint)
-        res = client.post(
-            "/generate",
-            json={
-                "prompt": "Deep learning models",
-                "max_new_tokens": 15,
-                "temperature": 0.7,
-            },
-        )
-        assert res.status_code == 200
-        gen_data = res.json()
-        assert "text" in gen_data
-        assert "model_id" in gen_data
-        assert isinstance(gen_data["text"], str)
+        from unittest.mock import patch
+        from src.correction.model_adapter import MockAdapter
+        
+        with patch("app.api.routes.generate._get_custom_llm_adapter", return_value=MockAdapter()):
+            res = client.post(
+                "/generate",
+                json={
+                    "prompt": "Deep learning models",
+                    "max_new_tokens": 15,
+                    "temperature": 0.7,
+                },
+            )
+            assert res.status_code == 200
+            gen_data = res.json()
+            assert "text" in gen_data
+            assert "model_id" in gen_data
+            assert isinstance(gen_data["text"], str)

@@ -42,6 +42,23 @@ _LANGUAGE_CODE_TO_NAME = {
 }
 
 
+def configure_easyocr_reader():
+    """
+    Configure and return an EasyOCR Reader instance with the languages
+    and settings defined by Khushi's OCR integration.
+    """
+    try:
+        import easyocr
+        return easyocr.Reader(
+            ["en", "hi"],
+            gpu=False,
+        )
+    except ImportError:
+        import logging
+        logging.getLogger(__name__).warning("easyocr is not installed")
+        return None
+
+
 def adapt_document_ai_to_ocr_document(document_ai_output: Dict[str, Any]) -> OCRDocument:
     """
     Convert a Member 2 DocumentAI v1.0 output dict into a Member 3 OCRDocument.

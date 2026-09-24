@@ -33,16 +33,6 @@ def configure_tesseract(tesseract_cmd: str = None) -> str:
     Returns the resolved path, or None if not found.
     """
     cmd = tesseract_cmd or os.environ.get("TESSERACT_CMD")
-    if not cmd:
-        common_windows_paths = [
-            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
-            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
-            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
-        ]
-        for p in common_windows_paths:
-            if os.path.isfile(p):
-                cmd = p
-                break
 
     if cmd and os.path.isfile(cmd):
         pytesseract.pytesseract.tesseract_cmd = cmd

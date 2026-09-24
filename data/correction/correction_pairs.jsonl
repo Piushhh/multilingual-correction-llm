@@ -1,0 +1,18 @@
+{"incorrect":"Deep learnig is a subfeld of machne learning.","correct":"Deep learning is a subfield of machine learning.","language":"en","domain":"deep_learning"}
+{"incorrect":"Deep learning uses neural netwroks with multiple layers.","correct":"Deep learning uses neural networks with multiple layers.","language":"en","domain":"deep_learning"}
+{"incorrect":"Neural netwroks learn paternns from training data.","correct":"Neural networks learn patterns from training data.","language":"en","domain":"deep_learning"}
+{"incorrect":"A neural network consits of input hidden and output layers.","correct":"A neural network consists of input, hidden, and output layers.","language":"en","domain":"deep_learning"}
+{"incorrect":"Backpropogation is used to calcluate gradients.","correct":"Backpropagation is used to calculate gradients.","language":"en","domain":"deep_learning"}
+{"incorrect":"Gradient descent minmizes the loss funtion.","correct":"Gradient descent minimizes the loss function.","language":"en","domain":"deep_learning"}
+{"incorrect":"The lerning rate controls parameter updates.","correct":"The learning rate controls parameter updates.","language":"en","domain":"deep_learning"}
+{"incorrect":"Convolutional neural netwroks are used for image procesing.","correct":"Convolutional neural networks are used for image processing.","language":"en","domain":"deep_learning"}
+{"incorrect":"Transformers use atenttion mechanisms to process sequences.","correct":"Transformers use attention mechanisms to process sequences.","language":"en","domain":"deep_learning"}
+{"incorrect":"Overfiting occurs when a model performs well on training data.","correct":"Overfitting occurs when a model performs well on training data.","language":"en","domain":"deep_learning"}
+{"incorrect":"डीप लर्निंग मशीन लर्निग की एक शाखा है।","correct":"डीप लर्निंग मशीन लर्निंग की एक शाखा है।","language":"hi","domain":"deep_learning"}
+{"incorrect":"डीप लर्निंग में कई परतों वाले न्यूरल नेटवक्र का उपयोग किया जाता है।","correct":"डीप लर्निंग में कई परतों वाले न्यूरल नेटवर्क का उपयोग किया जाता है।","language":"hi","domain":"deep_learning"}
+{"incorrect":"न्यूरल नेटवर्क प्रशिक्षण डेटा से पैटर्न सीखते हैं।","correct":"न्यूरल नेटवर्क प्रशिक्षण डेटा से पैटर्न सीखते हैं।","language":"hi","domain":"deep_learning"}
+{"incorrect":"बैकप्रोपेगेशन का उपयोग ग्रेडिएंट की गणना करने के लिए किया जाता है।","correct":"बैकप्रोपेगेशन का उपयोग ग्रेडिएंट की गणना करने के लिए किया जाता है।","language":"hi","domain":"deep_learning"}
+{"incorrect":"ग्रेडिएंट डिसेंट का उपयोग लॉस फक्शन को कम करने के लिए किया जाता है।","correct":"ग्रेडिएंट डिसेंट का उपयोग लॉस फ़ंक्शन को कम करने के लिए किया जाता है।","language":"hi","domain":"deep_learning"}
+{"incorrect":"लर्निंग रेट मॉडल के पैरामीटर अपडेट के आकार को नियंत्रित करता है।","correct":"लर्निंग रेट मॉडल के पैरामीटर अपडेट के आकार को नियंत्रित करता है।","language":"hi","domain":"deep_learning"}
+{"incorrect":"कन्वोल्यूशनल न्यूरल नेटवर्क का उपयोग इमेज प्रोसेसिग में किया जाता है।","correct":"कन्वोल्यूशनल न्यूरल नेटवर्क का उपयोग इमेज प्रोसेसिंग में किया जाता है।","language":"hi","domain":"deep_learning"}
+{"incorrect":"ट्रांसफॉर्मर मॉडल अनुक्रमों को संसाधित करने के लिए अटेंशन मेकैनिज्म का उपयोग करते हैं।","correct":"ट्रांसफॉर्मर मॉडल अनुक्रमों को संसाधित करने के लिए अटेंशन मैकेनिज्म का उपयोग करते हैं।","language":"hi","domain":"deep_learning"}
