@@ -1,0 +1,5 @@
+Convolutional neural networks extract hierarchical spatial representations from raw input images.
+The transformer architecture relies on multi-head self-attention mechanisms for sequence modeling.
+Gradient descent with momentum accelerates optimization along directions of low curvature.
+Backpropagation computes partial derivatives of the loss function with respect to weights.
+Regularization techniques such as weight decay and dropout prevent catastrophic overfitting.

@@ -1,0 +1,5 @@
+यह transformer model बहु-शीर्ष self-attention mechanism का प्रभावी रूप से उपयोग करता है।
+Deep learning में backpropagation की मदद से weights और biases को optimize किया जाता है।
+Convolutional layers स्थानीय spatial features को extract करने के लिए filter kernels apply करती हैं।
+Overfitting से बचने के लिए dropout layer और L2 regularization का प्रयोग आवश्यक है।
+Adam optimizer सीखने की दर को adaptive step sizes के साथ dynamically adjust करता है।
