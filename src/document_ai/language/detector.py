@@ -24,8 +24,11 @@ project scope.
 import re
 
 try:
+    from langdetect import DetectorFactory, LangDetectException
     from langdetect import detect as _langdetect_detect
-    from langdetect import LangDetectException
+
+    # Force determinism in statistical language detection (Task 5)
+    DetectorFactory.seed = 0
     _LANGDETECT_AVAILABLE = True
 except ImportError:  # pragma: no cover - exercised only if dependency missing
     _LANGDETECT_AVAILABLE = False
