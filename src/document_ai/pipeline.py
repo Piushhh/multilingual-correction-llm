@@ -40,7 +40,7 @@ from src.document_ai.ocr.preprocess import PreprocessConfig
 from src.document_ai.language.detector import detect_language
 from src.document_ai.domain.classifier import DomainClassifier
 from src.document_ai.domain.terminology import TerminologyDatabase, DEFAULT_TERMINOLOGY_DIR
-from src.document_ai.schemas import DocumentAIOutput, INTERFACE_VERSION
+from src.document_ai.schemas import DocumentAIOutput, DocumentAIBatchOutput, INTERFACE_VERSION
 
 logger = logging.getLogger(__name__)
 
@@ -193,16 +193,100 @@ def process_document(
     return validated.model_dump()
 
 
+def process_pdf(
+    pdf_path,
+    document_id=None,
+    dpi=200,
+    domain_classifier=None,
+    terminology_db=None,
+    languages="eng+hin",
+    preprocess_config: Optional[PreprocessConfig] = None,
+    no_domain: bool = False,
+    min_domain_confidence: float = 0.40,
+) -> Dict[str, Any]:
+    """
+    Process a PDF file page-by-page using PyMuPDF (fitz).
+    Renders each page to an image and runs process_document, returning
+    a validated DocumentAIBatchOutput dict with page IDs doc_p001, doc_p002, etc.
+    """
+    try:
+        import fitz  # PyMuPDF
+    except ImportError as exc:
+        raise ImportError(
+            "PyMuPDF is required for process_pdf. Install it with: pip install pymupdf"
+        ) from exc
+
+    import os
+    import tempfile
+
+    pdf_file = Path(pdf_path)
+    if not pdf_file.exists():
+        raise FileNotFoundError(f"PDF not found: {pdf_path}")
+
+    doc_id = document_id or pdf_file.stem
+    doc = fitz.open(str(pdf_file))
+    pages_output = []
+
+    for page_idx in range(len(doc)):
+        page = doc[page_idx]
+        page_num = page_idx + 1
+        page_id = f"{doc_id}_p{page_num:03d}"
+
+        zoom = dpi / 72.0
+        mat = fitz.Matrix(zoom, zoom)
+        pix = page.get_pixmap(matrix=mat)
+
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+            tmp_path = tmp.name
+        try:
+            pix.save(tmp_path)
+            page_res = process_document(
+                image_path=tmp_path,
+                page_id=page_id,
+                domain_classifier=domain_classifier,
+                terminology_db=terminology_db,
+                languages=languages,
+                preprocess_config=preprocess_config,
+                no_domain=no_domain,
+                min_domain_confidence=min_domain_confidence,
+            )
+            pages_output.append(page_res)
+        finally:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+
+    batch_output = {
+        "version": INTERFACE_VERSION,
+        "document_id": doc_id,
+        "page_count": len(pages_output),
+        "pages": pages_output,
+    }
+
+    try:
+        validated = DocumentAIBatchOutput(**batch_output)
+    except ValidationError as exc:
+        raise PipelineOutputError(
+            f"[DocumentAI pipeline] Batch output failed schema validation:\n{exc}"
+        ) from exc
+
+    return validated.model_dump()
+
+
 def _build_parser():
     parser = argparse.ArgumentParser(
         description=(
-            "Member 2 DocumentAI CLI — process a document image and write "
+            "Member 2 DocumentAI CLI — process a document image or PDF and write "
             "structured JSON output."
         )
     )
-    parser.add_argument(
-        "--image", required=True, metavar="PATH",
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument(
+        "--image", metavar="PATH",
         help="Path to the input image (JPEG, PNG, TIFF, etc.).",
+    )
+    group.add_argument(
+        "--pdf", metavar="PATH",
+        help="Path to input multi-page PDF document.",
     )
     parser.add_argument(
         "--out", default="-", metavar="PATH",
@@ -210,7 +294,7 @@ def _build_parser():
     )
     parser.add_argument(
         "--page-id", default=None, metavar="ID",
-        help="Page identifier to embed in the output. Defaults to image filename stem.",
+        help="Document / page identifier to embed in the output. Defaults to filename stem.",
     )
     parser.add_argument(
         "--lang", default="eng+hin", metavar="LANGS",
@@ -235,24 +319,32 @@ def main(argv=None):
     parser = _build_parser()
     args = parser.parse_args(argv)
 
-    image_path = Path(args.image)
-    if not image_path.exists():
-        print(f"ERROR: Image not found: {image_path}", file=sys.stderr)
-        sys.exit(1)
-
-    page_id = args.page_id or image_path.stem
-
     terminology_db = TerminologyDatabase({}) if args.no_terminology else None
 
     try:
-        result = process_document(
-            image_path=str(image_path),
-            page_id=page_id,
-            domain_classifier=args.classifier,
-            no_domain=args.no_domain,
-            terminology_db=terminology_db,
-            languages=args.lang,
-        )
+        if args.pdf:
+            result = process_pdf(
+                pdf_path=args.pdf,
+                document_id=args.page_id,
+                domain_classifier=args.classifier,
+                no_domain=args.no_domain,
+                terminology_db=terminology_db,
+                languages=args.lang,
+            )
+        else:
+            image_path = Path(args.image)
+            if not image_path.exists():
+                print(f"ERROR: Image not found: {image_path}", file=sys.stderr)
+                sys.exit(1)
+            page_id = args.page_id or image_path.stem
+            result = process_document(
+                image_path=str(image_path),
+                page_id=page_id,
+                domain_classifier=args.classifier,
+                no_domain=args.no_domain,
+                terminology_db=terminology_db,
+                languages=args.lang,
+            )
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         sys.exit(1)

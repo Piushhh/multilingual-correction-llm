@@ -26,6 +26,8 @@ class OCRBlock(BaseModel):
     domain: Optional[str] = None
     domain_confidence: Optional[float] = None
     terminology_flags: List[Dict[str, Any]] = []
+    words: List[Dict[str, Any]] = []
+    protected_terms: List[str] = []
 
 
 class OCRPage(BaseModel):
