@@ -1,0 +1,62 @@
+name: CI Test Suite
+
+on:
+  push:
+    branches:
+      - main
+      - feature/aliah-work
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+      - feature/aliah-work
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Pytest on Ubuntu (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install system Tesseract and Devanagari fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-hin fonts-noto-core
+          echo "Installed Tesseract version:"
+          tesseract --version
+          echo "Installed language data packs:"
+          tesseract --list-langs
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+
+      - name: Verify Tesseract Python binding
+        run: |
+          python -c "
+          from src.document_ai.ocr.extract import is_tesseract_available
+          print('Tesseract available in Python:', is_tesseract_available())
+          assert is_tesseract_available(), 'Tesseract should be available in CI environment'
+          "
+
+      - name: Run full test suite with pytest
+        run: |
+          python -m pytest -v --tb=short
