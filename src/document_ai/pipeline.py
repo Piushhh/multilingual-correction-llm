@@ -28,15 +28,46 @@ the classifier is trained).
 
 import argparse
 import json
+import logging
 import sys
 from pathlib import Path
+from typing import Any, Dict, Optional, Union
 
 from pydantic import ValidationError
 
 from src.document_ai.ocr.extract import extract_regions, extract_full_text
+from src.document_ai.ocr.preprocess import PreprocessConfig
 from src.document_ai.language.detector import detect_language
+from src.document_ai.domain.classifier import DomainClassifier
 from src.document_ai.domain.terminology import TerminologyDatabase, DEFAULT_TERMINOLOGY_DIR
 from src.document_ai.schemas import DocumentAIOutput, INTERFACE_VERSION
+
+logger = logging.getLogger(__name__)
+
+DEFAULT_CLASSIFIER_PATH = Path("data/domain_classifier/classifier.joblib")
+
+
+class PipelineOutputError(RuntimeError):
+    """
+    Raised when the DocumentAI pipeline produces output that violates
+    the v1.0 interface schema. Chains the underlying pydantic ValidationError.
+    """
+    pass
+
+
+def _try_load_default_classifier(classifier_path: Optional[Union[str, Path]] = None) -> Optional[DomainClassifier]:
+    """Attempt to load the domain classifier from disk, failing gracefully if missing or incompatible."""
+    target_path = Path(classifier_path) if classifier_path else DEFAULT_CLASSIFIER_PATH
+    if not target_path.exists():
+        return None
+    try:
+        return DomainClassifier.load(target_path)
+    except Exception as exc:
+        logger.warning(
+            f"Failed to load domain classifier from {target_path} ({exc}); "
+            "continuing without domain classification."
+        )
+        return None
 
 
 def process_document(
@@ -45,33 +76,68 @@ def process_document(
     domain_classifier=None,
     terminology_db=None,
     languages="eng+hin",
+    preprocess_config: Optional[PreprocessConfig] = None,
+    no_domain: bool = False,
+    min_domain_confidence: float = 0.40,
 ):
     """
     Run the full Member 2 pipeline on a single page image.
 
-    domain_classifier: an optional src.document_ai.domain.classifier.DomainClassifier
-        (already loaded/trained). If None, `domain`/`domain_confidence` are null.
+    domain_classifier: an optional DomainClassifier or path to one.
+        If None and `no_domain=False`, attempts to load data/domain_classifier/classifier.joblib.
+        If missing or `no_domain=True`, `domain`/`domain_confidence` are null.
     terminology_db: an optional TerminologyDatabase. If None, one is loaded
         from data/terminology/ (or is empty if that directory doesn't exist yet).
+    preprocess_config: optional PreprocessConfig to override preprocessing defaults.
+    min_domain_confidence: threshold below which domain is labelled as "general".
 
     Returns:
         A validated DocumentAIOutput dict (pydantic model .model_dump()).
 
     Raises:
-        pydantic.ValidationError: if the pipeline produces output that violates
-            the v1.0 schema (bug in pipeline code, not in caller input).
+        PipelineOutputError: if the pipeline produces output that violates
+            the v1.0 schema (bug in pipeline code, not caller input).
     """
-    regions = extract_regions(image_path, languages=languages)
+    regions, meta = extract_regions(
+        image_path,
+        languages=languages,
+        config=preprocess_config,
+        return_metadata=True,
+    )
     full_text = extract_full_text(regions)
 
     language_result = detect_language(full_text)
 
+    # Resolve domain classifier
+    active_classifier = None
+    if not no_domain:
+        if isinstance(domain_classifier, DomainClassifier):
+            active_classifier = domain_classifier
+        elif isinstance(domain_classifier, (str, Path)):
+            active_classifier = _try_load_default_classifier(domain_classifier)
+        elif domain_classifier is None:
+            active_classifier = _try_load_default_classifier()
+
     domain = None
     domain_confidence = None
-    if domain_classifier is not None and full_text.strip():
-        domain_result = domain_classifier.predict(full_text)
-        domain = domain_result["domain"]
-        domain_confidence = domain_result["confidence"]
+    domain_scores = None
+    if active_classifier is not None and full_text.strip():
+        try:
+            domain_result = active_classifier.predict(full_text)
+            pred_domain = domain_result["domain"]
+            pred_conf = domain_result["confidence"]
+            domain_scores = domain_result.get("scores")
+
+            if pred_conf < min_domain_confidence:
+                domain = "general"
+                domain_confidence = pred_conf
+            else:
+                domain = pred_domain
+                domain_confidence = pred_conf
+        except Exception as exc:
+            logger.warning(f"Domain classifier prediction failed: {exc}")
+            domain = None
+            domain_confidence = None
 
     if terminology_db is None:
         terminology_db = TerminologyDatabase.load(DEFAULT_TERMINOLOGY_DIR)
@@ -79,12 +145,26 @@ def process_document(
     output_regions = []
     for region in regions:
         flags = terminology_db.check_text(region["text"])
+        # Per-region language detection with length guard (>= 8 chars to avoid noisy fragments)
+        reg_text = region["text"].strip()
+        reg_lang = None
+        if len(reg_text) >= 8:
+            reg_lang = detect_language(reg_text)["language"]
+
+        # Collect protected terms found in this region
+        protected_in_reg = []
+        if hasattr(terminology_db, "find_protected_terms"):
+            protected_in_reg = terminology_db.find_protected_terms(reg_text)
+
         output_regions.append(
             {
                 "text": region["text"],
                 "bbox": region["bbox"],
                 "confidence": region["confidence"],
                 "terminology_flags": flags,
+                "words": region.get("words"),
+                "language": reg_lang,
+                "protected_terms": protected_in_reg,
             }
         )
 
@@ -96,14 +176,16 @@ def process_document(
         "domain": domain,
         "domain_confidence": domain_confidence,
         "regions": output_regions,
+        "page_width": meta.get("original_width"),
+        "page_height": meta.get("original_height"),
+        "domain_scores": domain_scores,
     }
 
-    # Validate against the schema — raises ValidationError if the pipeline
-    # itself produces bad data (this is a bug-catching gate, not input validation).
+    # Validate against the schema — catches pipeline bugs
     try:
         validated = DocumentAIOutput(**raw_output)
     except ValidationError as exc:
-        raise ValidationError(
+        raise PipelineOutputError(
             f"[DocumentAI pipeline] Output failed schema validation "
             f"(this is a pipeline bug, not a caller error):\n{exc}"
         ) from exc
@@ -124,21 +206,23 @@ def _build_parser():
     )
     parser.add_argument(
         "--out", default="-", metavar="PATH",
-        help=(
-            "Output path for the JSON result. "
-            "Defaults to stdout ('-')."
-        ),
+        help="Output path for the JSON result. Defaults to stdout ('-').",
     )
     parser.add_argument(
         "--page-id", default=None, metavar="ID",
-        help=(
-            "Page identifier to embed in the output. "
-            "Defaults to the image filename stem."
-        ),
+        help="Page identifier to embed in the output. Defaults to image filename stem.",
     )
     parser.add_argument(
         "--lang", default="eng+hin", metavar="LANGS",
         help="Tesseract language codes (default: eng+hin).",
+    )
+    parser.add_argument(
+        "--classifier", default=None, metavar="PATH",
+        help="Path to trained domain classifier joblib model (default: data/domain_classifier/classifier.joblib).",
+    )
+    parser.add_argument(
+        "--no-domain", action="store_true",
+        help="Disable domain classification.",
     )
     parser.add_argument(
         "--no-terminology", action="store_true",
@@ -164,6 +248,8 @@ def main(argv=None):
         result = process_document(
             image_path=str(image_path),
             page_id=page_id,
+            domain_classifier=args.classifier,
+            no_domain=args.no_domain,
             terminology_db=terminology_db,
             languages=args.lang,
         )

@@ -29,6 +29,42 @@
           },
           "title": "Terminology Flags",
           "type": "array"
+        },
+        "words": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Words"
+        },
+        "language": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language"
+        },
+        "protected_terms": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Protected Terms",
+          "type": "array"
         }
       },
       "required": [
@@ -77,7 +113,7 @@
       "type": "object"
     }
   },
-  "description": "The full structured output of process_document().\n\nversion:             always INTERFACE_VERSION \u2014 allows consumers to detect\n                     schema changes programmatically.\npage_id:             caller-supplied identifier for the page/image.\nlanguage:            one of 'en', 'hi', 'code_mixed', 'unknown'.\nlanguage_confidence: 0.0\u20131.0; 0.0 means no text was found.\ndomain:              None when no classifier was passed; otherwise one of\n                     'deep_learning', 'computer_science', 'mathematics',\n                     'general'.\ndomain_confidence:   None when domain is None; otherwise 0.0\u20131.0.\nregions:             list of text regions in reading order.",
+  "description": "The full structured output of process_document().\n\nversion:             always INTERFACE_VERSION \u2014 allows consumers to detect\n                     schema changes programmatically.\npage_id:             caller-supplied identifier for the page/image.\nlanguage:            one of 'en', 'hi', 'code_mixed', 'unknown'.\nlanguage_confidence: 0.0\u20131.0; 0.0 means no text was found.\ndomain:              None when no classifier was passed; otherwise one of\n                     'deep_learning', 'computer_science', 'mathematics',\n                     'general'.\ndomain_confidence:   None when domain is None; otherwise 0.0\u20131.0.\nregions:             list of text regions in reading order.\npage_width:          optional original page width in pixels.\npage_height:         optional original page height in pixels.\ndomain_scores:       optional dict mapping domain labels to probabilities.",
   "properties": {
     "version": {
       "default": "1.0",
@@ -128,6 +164,45 @@
       },
       "title": "Regions",
       "type": "array"
+    },
+    "page_width": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Page Width"
+    },
+    "page_height": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Page Height"
+    },
+    "domain_scores": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Domain Scores"
     }
   },
   "required": [

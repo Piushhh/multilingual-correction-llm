@@ -19,11 +19,17 @@ Python package (pytesseract is just a wrapper):
 import os
 import shutil
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
 import pytesseract
 from pytesseract import Output
 
-from src.document_ai.ocr.preprocess import preprocess_image
+from src.document_ai.ocr.preprocess import (
+    GeometryTransform,
+    PreprocessConfig,
+    preprocess_image,
+    preprocess_with_geometry,
+)
 from src.document_ai.ocr.bbox import to_xyxy, group_words_into_lines
 
 
@@ -102,6 +108,9 @@ def run_tesseract(image, languages=DEFAULT_LANGUAGES, min_confidence=0):
                 # Store as 0-1 to match the interface's `confidence` field,
                 # which is documented as 0-1 in the team's example output.
                 "confidence": round(confidence / 100.0, 4),
+                "block_num": data.get("block_num", [0] * n_boxes)[i],
+                "par_num": data.get("par_num", [0] * n_boxes)[i],
+                "line_num": data.get("line_num", [0] * n_boxes)[i],
             }
         )
 
@@ -113,21 +122,62 @@ def extract_regions(
     languages=DEFAULT_LANGUAGES,
     min_confidence=0,
     preprocess=True,
+    config: Optional[PreprocessConfig] = None,
+    return_metadata: bool = False,
 ):
     """
-    Full extraction pipeline for one image: preprocess -> OCR -> group words
-    into line-level regions.
+    Full extraction pipeline for one image: preprocess -> OCR -> map boxes to
+    original image space -> group words into line-level regions.
 
     Returns a list of region dicts matching the team's agreed interface
-    shape: [{"text": ..., "bbox": [...], "confidence": ...}, ...]
-    (language/domain are added later by the pipeline, not here -- this
-    module's only job is turning pixels into text + geometry).
+    shape: [{"text": ..., "bbox": [...], "confidence": ..., "words": [...]}, ...]
+    All bbox values are mapped back to original image coordinates (problem C).
+
+    If return_metadata is True, returns (regions, metadata_dict).
     """
-    image = preprocess_image(image_path) if preprocess else _load_raw(image_path)
+    if preprocess:
+        prep_res = preprocess_with_geometry(image_path, config=config)
+        image = prep_res.image
+        geometry = prep_res.geometry
+    else:
+        image = _load_raw(image_path)
+        h, w = image.shape[:2]
+        geometry = GeometryTransform(
+            original_width=w,
+            original_height=h,
+            scale=1.0,
+            rotation_deg=0.0,
+            processed_width=w,
+            processed_height=h,
+        )
+
+    metadata = {
+        "original_width": geometry.original_width,
+        "original_height": geometry.original_height,
+        "geometry": geometry,
+    }
+
+    if not is_tesseract_available():
+        import logging
+        logging.getLogger(__name__).warning("Tesseract is not available on this system.")
+        return ([], metadata) if return_metadata else []
 
     words = run_tesseract(image, languages=languages, min_confidence=min_confidence)
 
-    return group_words_into_lines(words)
+    # Map word bboxes back to original image space
+    mapped_words = []
+    for w in words:
+        mapped_box = geometry.map_bbox_to_original(w["bbox"])
+        mw = dict(w)
+        mw["processed_bbox"] = w["bbox"]
+        mw["bbox"] = mapped_box
+        mapped_words.append(mw)
+
+    regions = group_words_into_lines(mapped_words)
+
+    if return_metadata:
+        return regions, metadata
+    return regions
 
 
 def _load_raw(image_path):

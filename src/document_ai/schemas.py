@@ -12,6 +12,10 @@ Interface versioning policy:
     and update CHANGELOG below, all tests, and all adapters.
 
 CHANGELOG:
+  1.0.1 (additive):
+    - DocumentRegion: words, language, protected_terms
+    - DocumentAIOutput: page_width, page_height, domain_scores
+    - DocumentAIBatchOutput: multi-page batch container
   1.0 (initial): page_id, language, language_confidence, domain,
                  domain_confidence, regions[text, bbox, confidence,
                  terminology_flags]
@@ -48,6 +52,10 @@ class DocumentRegion(BaseModel):
     bbox: List[int] = Field(min_length=4, max_length=4)
     confidence: float = Field(ge=0.0, le=1.0)
     terminology_flags: List[TerminologyFlag] = []
+    # Additive optional fields (v1.0.1)
+    words: Optional[List[Dict[str, Any]]] = None
+    language: Optional[str] = None
+    protected_terms: List[str] = []
 
     @field_validator("bbox")
     @classmethod
@@ -77,6 +85,9 @@ class DocumentAIOutput(BaseModel):
                          'general'.
     domain_confidence:   None when domain is None; otherwise 0.0–1.0.
     regions:             list of text regions in reading order.
+    page_width:          optional original page width in pixels.
+    page_height:         optional original page height in pixels.
+    domain_scores:       optional dict mapping domain labels to probabilities.
     """
 
     version: str = INTERFACE_VERSION
@@ -86,6 +97,9 @@ class DocumentAIOutput(BaseModel):
     domain: Optional[str] = None
     domain_confidence: Optional[float] = None
     regions: List[DocumentRegion]
+    page_width: Optional[int] = None
+    page_height: Optional[int] = None
+    domain_scores: Optional[Dict[str, float]] = None
 
     @field_validator("language")
     @classmethod
@@ -114,6 +128,16 @@ class DocumentAIOutput(BaseModel):
         if self.domain_confidence is not None and not (0.0 <= self.domain_confidence <= 1.0):
             raise ValueError("domain_confidence must be in [0.0, 1.0]")
         return self
+
+
+class DocumentAIBatchOutput(BaseModel):
+    """
+    Multi-page document output container (e.g. from PDF processing).
+    """
+    version: str = INTERFACE_VERSION
+    document_id: str
+    page_count: int = Field(ge=0)
+    pages: List[DocumentAIOutput]
 
 
 def export_json_schema(output_path: str = None) -> Dict[str, Any]:
