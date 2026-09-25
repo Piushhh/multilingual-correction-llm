@@ -11,3 +11,7 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = [
+    "slow: marks tests that take longer than 5 seconds (deselect with -m 'not slow')",
+    "ocr: marks tests that require a live Tesseract installation",
+]
