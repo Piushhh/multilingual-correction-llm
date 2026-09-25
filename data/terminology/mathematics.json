@@ -1,13 +1,1366 @@
 {
   "domain": "mathematics",
+  "version": "2.0",
+  "term_count": 150,
   "terms": [
-    "derivative", "integral", "eigenvector", "determinant",
-    "polynomial", "matrix", "theorem", "inequality",
-    "differentiable", "probability", "variance", "logarithm",
-    "eigenvalue", "stochastic", "covariance", "orthogonality",
-    "divergence", "gradient", "manifold", "topology",
-    "asymptotic", "permutation", "combination", "distribution",
-    "hypothesis", "regression", "convexity", "continuous",
-    "convergence", "linearity", "homomorphism", "isomorphism"
+    {
+      "term": "derivative",
+      "hindi": "व्युत्पन्न / अवकलज",
+      "aliases": [
+        "differentiation",
+        "rate of change"
+      ],
+      "protected": true
+    },
+    {
+      "term": "integral",
+      "hindi": "समाकलन",
+      "aliases": [
+        "integration",
+        "definite integral",
+        "indefinite integral"
+      ],
+      "protected": true
+    },
+    {
+      "term": "eigenvector",
+      "hindi": "आइगेनवेक्टर / विशेषता सदिश",
+      "aliases": [
+        "characteristic vector",
+        "eigenvalue eigenvector"
+      ],
+      "protected": true
+    },
+    {
+      "term": "determinant",
+      "hindi": "सारणिक / डिटर्मिनेंट",
+      "aliases": [
+        "matrix determinant",
+        "det(A)"
+      ],
+      "protected": true
+    },
+    {
+      "term": "polynomial",
+      "hindi": "बहुपद",
+      "aliases": [
+        "polynomial function",
+        "degree of polynomial"
+      ],
+      "protected": false
+    },
+    {
+      "term": "matrix",
+      "hindi": "आव्यूह / मैट्रिक्स",
+      "aliases": [
+        "matrices",
+        "matrix algebra"
+      ],
+      "protected": true
+    },
+    {
+      "term": "theorem",
+      "hindi": "प्रमेय",
+      "aliases": [
+        "mathematical theorem",
+        "lemma"
+      ],
+      "protected": false
+    },
+    {
+      "term": "inequality",
+      "hindi": "असमानता / असमिका",
+      "aliases": [
+        "cauchy-schwarz inequality",
+        "triangle inequality"
+      ],
+      "protected": false
+    },
+    {
+      "term": "differentiable",
+      "hindi": "विभेदनीय / अवकलनीय",
+      "aliases": [
+        "differentiability",
+        "smooth function"
+      ],
+      "protected": false
+    },
+    {
+      "term": "probability",
+      "hindi": "प्रायिकता / संभावना",
+      "aliases": [
+        "probability theory",
+        "random variable"
+      ],
+      "protected": false
+    },
+    {
+      "term": "variance",
+      "hindi": "विचरण / वेरिएंस",
+      "aliases": [
+        "sigma squared",
+        "statistical variance"
+      ],
+      "protected": false
+    },
+    {
+      "term": "logarithm",
+      "hindi": "लघुगणक",
+      "aliases": [
+        "log",
+        "natural logarithm",
+        "ln"
+      ],
+      "protected": false
+    },
+    {
+      "term": "eigenvalue",
+      "hindi": "आइगेनवेल्यू / विशेषता मान",
+      "aliases": [
+        "characteristic value",
+        "lambda"
+      ],
+      "protected": true
+    },
+    {
+      "term": "linear-algebra",
+      "hindi": "रैखिक बीजगणित",
+      "aliases": [
+        "vector algebra",
+        "matrix operations"
+      ],
+      "protected": true
+    },
+    {
+      "term": "vector-space",
+      "hindi": "सदिश अंतरिक्ष",
+      "aliases": [
+        "linear space",
+        "hilbert space",
+        "banach space"
+      ],
+      "protected": true
+    },
+    {
+      "term": "subspace",
+      "hindi": "उप-अंतरिक्ष",
+      "aliases": [
+        "linear subspace",
+        "vector subspace"
+      ],
+      "protected": false
+    },
+    {
+      "term": "basis",
+      "hindi": "आधार / बेसिस",
+      "aliases": [
+        "orthonormal basis",
+        "coordinate basis"
+      ],
+      "protected": true
+    },
+    {
+      "term": "dimension",
+      "hindi": "विमा / आयाम",
+      "aliases": [
+        "vector space dimension",
+        "degrees of freedom"
+      ],
+      "protected": false
+    },
+    {
+      "term": "linear-transformation",
+      "hindi": "रैखिक रूपांतरण",
+      "aliases": [
+        "linear map",
+        "linear operator"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kernel-space",
+      "hindi": "कर्नेल अंतरिक्ष / नल स्पेस",
+      "aliases": [
+        "null space",
+        "nullity"
+      ],
+      "protected": true
+    },
+    {
+      "term": "rank",
+      "hindi": "रैंक / कोटि",
+      "aliases": [
+        "matrix rank",
+        "rank-nullity theorem"
+      ],
+      "protected": true
+    },
+    {
+      "term": "inversion",
+      "hindi": "व्युत्क्रमण",
+      "aliases": [
+        "matrix inverse",
+        "invertible matrix"
+      ],
+      "protected": false
+    },
+    {
+      "term": "orthogonal",
+      "hindi": "लांबिक / ऑर्थोगोनल",
+      "aliases": [
+        "orthogonality",
+        "perpendicular vectors"
+      ],
+      "protected": true
+    },
+    {
+      "term": "orthonormal",
+      "hindi": "लांबिक सामान्यीकृत",
+      "aliases": [
+        "orthonormality",
+        "unit orthogonal vector"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gram-schmidt",
+      "hindi": "ग्राम-श्मिट",
+      "aliases": [
+        "gram schmidt orthogonalization",
+        "basis construction"
+      ],
+      "protected": true
+    },
+    {
+      "term": "svd",
+      "hindi": "एसवीडी",
+      "aliases": [
+        "singular value decomposition",
+        "matrix factorization"
+      ],
+      "protected": true
+    },
+    {
+      "term": "qr-factorization",
+      "hindi": "क्यूआर गुणनखंडन",
+      "aliases": [
+        "qr decomposition",
+        "gram-schmidt qr"
+      ],
+      "protected": true
+    },
+    {
+      "term": "lu-decomposition",
+      "hindi": "एल्यू अपघटन",
+      "aliases": [
+        "lower upper factorization",
+        "gaussian elimination"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cholesky",
+      "hindi": "चोलेस्की",
+      "aliases": [
+        "cholesky decomposition",
+        "positive definite matrix"
+      ],
+      "protected": true
+    },
+    {
+      "term": "positive-definite",
+      "hindi": "धनात्मक निश्चित",
+      "aliases": [
+        "positive semi-definite",
+        "spd matrix"
+      ],
+      "protected": true
+    },
+    {
+      "term": "inner-product",
+      "hindi": "आंतरिक उत्पाद",
+      "aliases": [
+        "dot product",
+        "scalar product"
+      ],
+      "protected": false
+    },
+    {
+      "term": "norm",
+      "hindi": "मानदंड / नॉर्म",
+      "aliases": [
+        "l1 norm",
+        "l2 norm",
+        "frobenius norm"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cauchy-schwarz",
+      "hindi": "कॉची-श्वार्ज",
+      "aliases": [
+        "cauchy-schwarz inequality",
+        "inner product bound"
+      ],
+      "protected": true
+    },
+    {
+      "term": "limit",
+      "hindi": "सीमा / लिमिट",
+      "aliases": [
+        "mathematical limit",
+        "epsilon-delta definition"
+      ],
+      "protected": false
+    },
+    {
+      "term": "continuity",
+      "hindi": "निरंतरता / सांतत्य",
+      "aliases": [
+        "continuous function",
+        "uniform continuity"
+      ],
+      "protected": false
+    },
+    {
+      "term": "infinitesimal",
+      "hindi": "अनंतसूक्ष्म",
+      "aliases": [
+        "infinitesimal calculus",
+        "differential element"
+      ],
+      "protected": false
+    },
+    {
+      "term": "partial-derivative",
+      "hindi": "आंशिक अवकलज",
+      "aliases": [
+        "partial differentiation",
+        "del operator"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gradient-vector",
+      "hindi": "ग्रेडिएंट सदिश",
+      "aliases": [
+        "del f",
+        "spatial gradient"
+      ],
+      "protected": true
+    },
+    {
+      "term": "divergence",
+      "hindi": "अपसरण / डाइवर्जेंस",
+      "aliases": [
+        "div operator",
+        "vector field flux"
+      ],
+      "protected": true
+    },
+    {
+      "term": "curl",
+      "hindi": "कर्ल / घूर्णन",
+      "aliases": [
+        "rotor",
+        "vector curl"
+      ],
+      "protected": true
+    },
+    {
+      "term": "laplacian",
+      "hindi": "लाप्लासियन",
+      "aliases": [
+        "laplace operator",
+        "del squared"
+      ],
+      "protected": true
+    },
+    {
+      "term": "hessian",
+      "hindi": "हेसियन",
+      "aliases": [
+        "hessian matrix",
+        "second derivative matrix"
+      ],
+      "protected": true
+    },
+    {
+      "term": "jacobian",
+      "hindi": "जैकबियन",
+      "aliases": [
+        "jacobian matrix",
+        "multivariate derivative tensor"
+      ],
+      "protected": true
+    },
+    {
+      "term": "taylor-series",
+      "hindi": "टेलर श्रृंखला",
+      "aliases": [
+        "taylor polynomial",
+        "maclaurin series"
+      ],
+      "protected": true
+    },
+    {
+      "term": "power-series",
+      "hindi": "घात श्रृंखला",
+      "aliases": [
+        "radius of convergence",
+        "analytic function"
+      ],
+      "protected": false
+    },
+    {
+      "term": "fourier-transform",
+      "hindi": "फूरियर रूपांतरण",
+      "aliases": [
+        "fourier series",
+        "fft",
+        "frequency analysis"
+      ],
+      "protected": true
+    },
+    {
+      "term": "laplace-transform",
+      "hindi": "लाप्लास रूपांतरण",
+      "aliases": [
+        "s-domain transform",
+        "differential equation transform"
+      ],
+      "protected": true
+    },
+    {
+      "term": "complex-analysis",
+      "hindi": "जटिल विश्लेषण",
+      "aliases": [
+        "holomorphic function",
+        "cauchy-riemann equations"
+      ],
+      "protected": true
+    },
+    {
+      "term": "holomorphic",
+      "hindi": "होलोमोर्फिक",
+      "aliases": [
+        "analytic complex function",
+        "complex differentiable"
+      ],
+      "protected": true
+    },
+    {
+      "term": "contour-integral",
+      "hindi": "कंटूर समाकलन",
+      "aliases": [
+        "cauchy integral theorem",
+        "residue calculus"
+      ],
+      "protected": true
+    },
+    {
+      "term": "residue-theorem",
+      "hindi": "अवशेष प्रमेय",
+      "aliases": [
+        "cauchy residue theorem",
+        "pole analysis"
+      ],
+      "protected": true
+    },
+    {
+      "term": "riemann-integral",
+      "hindi": "रीमैन समाकलन",
+      "aliases": [
+        "riemann sum",
+        "partition integration"
+      ],
+      "protected": true
+    },
+    {
+      "term": "lebesgue-integral",
+      "hindi": "लेबेस्ग समाकलन",
+      "aliases": [
+        "measure-theoretic integration",
+        "lebesgue measure"
+      ],
+      "protected": true
+    },
+    {
+      "term": "measure-theory",
+      "hindi": "माप सिद्धांत",
+      "aliases": [
+        "sigma-algebra",
+        "measurable space"
+      ],
+      "protected": true
+    },
+    {
+      "term": "sigma-algebra",
+      "hindi": "सिग्मा-बीजगणित",
+      "aliases": [
+        "borel sigma algebra",
+        "measurable sets"
+      ],
+      "protected": true
+    },
+    {
+      "term": "topology",
+      "hindi": "टोपोलॉजी / संस्थिति विज्ञान",
+      "aliases": [
+        "topological space",
+        "open and closed sets"
+      ],
+      "protected": true
+    },
+    {
+      "term": "compactness",
+      "hindi": "सघनता / कॉम्पेक्टनेस",
+      "aliases": [
+        "compact set",
+        "heine-borel theorem"
+      ],
+      "protected": true
+    },
+    {
+      "term": "connectedness",
+      "hindi": "संबद्धता",
+      "aliases": [
+        "connected topological space",
+        "path connected"
+      ],
+      "protected": false
+    },
+    {
+      "term": "homeomorphism",
+      "hindi": "होमियोमॉर्फिज्म",
+      "aliases": [
+        "topological equivalence",
+        "continuous bijection"
+      ],
+      "protected": true
+    },
+    {
+      "term": "metric-space",
+      "hindi": "दूरीक अंतरिक्ष / मेट्रिक स्पेस",
+      "aliases": [
+        "metric function",
+        "triangle inequality distance"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cauchy-sequence",
+      "hindi": "कॉची अनुक्रम",
+      "aliases": [
+        "completeness",
+        "convergent sequence"
+      ],
+      "protected": true
+    },
+    {
+      "term": "hilbert-space",
+      "hindi": "हिल्बर्ट अंतरिक्ष",
+      "aliases": [
+        "complete inner product space",
+        "infinite dimensional vector space"
+      ],
+      "protected": true
+    },
+    {
+      "term": "banach-space",
+      "hindi": "बानाख अंतरिक्ष",
+      "aliases": [
+        "complete normed space",
+        "functional analysis"
+      ],
+      "protected": true
+    },
+    {
+      "term": "group-theory",
+      "hindi": "समूह सिद्धांत",
+      "aliases": [
+        "algebraic group",
+        "abelian group",
+        "symmetry group"
+      ],
+      "protected": true
+    },
+    {
+      "term": "abelian-group",
+      "hindi": "एबेलियन समूह",
+      "aliases": [
+        "commutative group",
+        "additive group"
+      ],
+      "protected": true
+    },
+    {
+      "term": "subgroup",
+      "hindi": "उपसमूह",
+      "aliases": [
+        "normal subgroup",
+        "lagrange theorem on groups"
+      ],
+      "protected": false
+    },
+    {
+      "term": "homomorphism",
+      "hindi": "होमोमोर्फिज्म / समाकारिता",
+      "aliases": [
+        "group homomorphism",
+        "isomorphism"
+      ],
+      "protected": true
+    },
+    {
+      "term": "isomorphism",
+      "hindi": "आइसोमोर्फिज्म / तुल्यकारिता",
+      "aliases": [
+        "bijective homomorphism",
+        "structural equivalence"
+      ],
+      "protected": true
+    },
+    {
+      "term": "ring-theory",
+      "hindi": "वलय सिद्धांत",
+      "aliases": [
+        "commutative ring",
+        "integral domain"
+      ],
+      "protected": true
+    },
+    {
+      "term": "field-theory",
+      "hindi": "क्षेत्र सिद्धांत",
+      "aliases": [
+        "galois field",
+        "algebraic field extension"
+      ],
+      "protected": true
+    },
+    {
+      "term": "prime-number",
+      "hindi": "अभाज्य संख्या",
+      "aliases": [
+        "prime factorization",
+        "sieve of eratosthenes"
+      ],
+      "protected": false
+    },
+    {
+      "term": "gcd",
+      "hindi": "महत्तम समापवर्तक",
+      "aliases": [
+        "greatest common divisor",
+        "euclidean algorithm"
+      ],
+      "protected": false
+    },
+    {
+      "term": "modular-arithmetic",
+      "hindi": "मॉड्यूलर अंकगणित",
+      "aliases": [
+        "modulo n",
+        "congruence relation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "fermat-little-theorem",
+      "hindi": "फर्मेट का छोटा प्रमेय",
+      "aliases": [
+        "modular exponentiation theorem",
+        "primality"
+      ],
+      "protected": true
+    },
+    {
+      "term": "euler-totient",
+      "hindi": "यूलर टोटिएंट फलन",
+      "aliases": [
+        "phi function",
+        "totient theorem"
+      ],
+      "protected": true
+    },
+    {
+      "term": "combinatorics",
+      "hindi": "क्रमपरिवर्तन और संयोजन",
+      "aliases": [
+        "permutations",
+        "combinations",
+        "binomial theorem"
+      ],
+      "protected": false
+    },
+    {
+      "term": "permutation",
+      "hindi": "क्रमपरिवर्तन",
+      "aliases": [
+        "ordered arrangement",
+        "npr"
+      ],
+      "protected": false
+    },
+    {
+      "term": "combination",
+      "hindi": "संयोजन",
+      "aliases": [
+        "selection without order",
+        "ncr"
+      ],
+      "protected": false
+    },
+    {
+      "term": "binomial-theorem",
+      "hindi": "द्विपद प्रमेय",
+      "aliases": [
+        "binomial expansion",
+        "pascal triangle"
+      ],
+      "protected": true
+    },
+    {
+      "term": "pigeonhole-principle",
+      "hindi": "कबूतर का सिद्धांत",
+      "aliases": [
+        "dirichlet box principle",
+        "combinatorial existence"
+      ],
+      "protected": false
+    },
+    {
+      "term": "graph-theory",
+      "hindi": "ग्राफ सिद्धांत",
+      "aliases": [
+        "eulerian path",
+        "hamiltonian cycle"
+      ],
+      "protected": false
+    },
+    {
+      "term": "differential-equation",
+      "hindi": "अवकल समीकरण",
+      "aliases": [
+        "ode",
+        "ordinary differential equation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "partial-differential-equation",
+      "hindi": "आंशिक अवकल समीकरण",
+      "aliases": [
+        "pde",
+        "heat equation",
+        "wave equation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "boundary-value-problem",
+      "hindi": "सीमा मान समस्या",
+      "aliases": [
+        "dirichlet boundary",
+        "neumann boundary"
+      ],
+      "protected": false
+    },
+    {
+      "term": "initial-value-problem",
+      "hindi": "प्रारंभिक मान समस्या",
+      "aliases": [
+        "cauchy problem",
+        "ivp"
+      ],
+      "protected": false
+    },
+    {
+      "term": "euler-method",
+      "hindi": "यूलर विधि",
+      "aliases": [
+        "numerical integration ode",
+        "forward euler"
+      ],
+      "protected": true
+    },
+    {
+      "term": "runge-kutta",
+      "hindi": "रुंगे-कुट्टा",
+      "aliases": [
+        "rk4",
+        "fourth-order ode solver"
+      ],
+      "protected": true
+    },
+    {
+      "term": "convex-optimization",
+      "hindi": "उत्तल अनुकूलन",
+      "aliases": [
+        "convex programming",
+        "convex set",
+        "convex function"
+      ],
+      "protected": true
+    },
+    {
+      "term": "convex-hull",
+      "hindi": "उत्तल आवरण",
+      "aliases": [
+        "minimal convex set",
+        "bounding polygon"
+      ],
+      "protected": false
+    },
+    {
+      "term": "lagrange-multiplier",
+      "hindi": "लाग्रेंज गुणक",
+      "aliases": [
+        "constrained optimization",
+        "lagrangian duality"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kkt-conditions",
+      "hindi": "केकेटी शर्तें",
+      "aliases": [
+        "karush-kuhn-tucker",
+        "nonlinear optimization optimality"
+      ],
+      "protected": true
+    },
+    {
+      "term": "linear-programming",
+      "hindi": "रैखिक प्रोग्रामिंग",
+      "aliases": [
+        "simplex method",
+        "dual linear program"
+      ],
+      "protected": true
+    },
+    {
+      "term": "simplex-algorithm",
+      "hindi": "सिम्प्लेक्स एल्गोरिदम",
+      "aliases": [
+        "dantzig simplex",
+        "polytope vertex search"
+      ],
+      "protected": true
+    },
+    {
+      "term": "expected-value",
+      "hindi": "अपेक्षित मान / प्रत्याशा",
+      "aliases": [
+        "mathematical expectation",
+        "mean of distribution"
+      ],
+      "protected": false
+    },
+    {
+      "term": "standard-deviation",
+      "hindi": "मानक विचलन",
+      "aliases": [
+        "sigma",
+        "square root of variance"
+      ],
+      "protected": false
+    },
+    {
+      "term": "covariance",
+      "hindi": "सहप्रसरण / सह-विचरण",
+      "aliases": [
+        "covariance matrix",
+        "joint variability"
+      ],
+      "protected": false
+    },
+    {
+      "term": "correlation",
+      "hindi": "सहसंबंध",
+      "aliases": [
+        "pearson correlation coefficient",
+        "r value"
+      ],
+      "protected": false
+    },
+    {
+      "term": "normal-distribution",
+      "hindi": "सामान्य वितरण",
+      "aliases": [
+        "gaussian distribution",
+        "bell curve"
+      ],
+      "protected": true
+    },
+    {
+      "term": "binomial-distribution",
+      "hindi": "द्विपद वितरण",
+      "aliases": [
+        "bernoulli trials",
+        "discrete binomial"
+      ],
+      "protected": true
+    },
+    {
+      "term": "poisson-distribution",
+      "hindi": "पॉइसन वितरण",
+      "aliases": [
+        "poisson process",
+        "rare event count"
+      ],
+      "protected": true
+    },
+    {
+      "term": "exponential-distribution",
+      "hindi": "घातीय वितरण",
+      "aliases": [
+        "memoryless distribution",
+        "waiting time"
+      ],
+      "protected": true
+    },
+    {
+      "term": "central-limit-theorem",
+      "hindi": "केंद्रीय सीमा प्रमेय",
+      "aliases": [
+        "clt",
+        "asymptotic normality"
+      ],
+      "protected": true
+    },
+    {
+      "term": "law-of-large-numbers",
+      "hindi": "बड़ी संख्याओं का नियम",
+      "aliases": [
+        "lln",
+        "weak and strong law"
+      ],
+      "protected": true
+    },
+    {
+      "term": "bayes-theorem",
+      "hindi": "बेयस प्रमेय",
+      "aliases": [
+        "conditional probability formula",
+        "posterior calculation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "prior-probability",
+      "hindi": "पूर्व प्रायिकता",
+      "aliases": [
+        "prior distribution",
+        "unconditional probability"
+      ],
+      "protected": false
+    },
+    {
+      "term": "posterior-probability",
+      "hindi": "उत्तर प्रायिकता",
+      "aliases": [
+        "posterior distribution",
+        "bayesian inference"
+      ],
+      "protected": false
+    },
+    {
+      "term": "likelihood",
+      "hindi": "संभावना / संभावना फलन",
+      "aliases": [
+        "likelihood function",
+        "maximum likelihood estimation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "maximum-likelihood",
+      "hindi": "अधिकतम संभावना",
+      "aliases": [
+        "mle",
+        "parameter estimation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "hypothesis-testing",
+      "hindi": "परिकल्पना परीक्षण",
+      "aliases": [
+        "null hypothesis",
+        "alternative hypothesis"
+      ],
+      "protected": false
+    },
+    {
+      "term": "p-value",
+      "hindi": "पी-मान",
+      "aliases": [
+        "statistical significance level",
+        "alpha threshold"
+      ],
+      "protected": true
+    },
+    {
+      "term": "confidence-interval",
+      "hindi": "विश्वास अंतराल",
+      "aliases": [
+        "margin of error",
+        "95% confidence interval"
+      ],
+      "protected": false
+    },
+    {
+      "term": "markov-chain",
+      "hindi": "मार्कोव श्रृंखला",
+      "aliases": [
+        "markov process",
+        "transition matrix"
+      ],
+      "protected": true
+    },
+    {
+      "term": "stochastic-process",
+      "hindi": "स्टोकेस्टिक प्रक्रिया",
+      "aliases": [
+        "random process",
+        "martingale"
+      ],
+      "protected": false
+    },
+    {
+      "term": "monte-carlo",
+      "hindi": "मोंटे कार्लो",
+      "aliases": [
+        "monte carlo simulation",
+        "random sampling integration"
+      ],
+      "protected": true
+    },
+    {
+      "term": "mcmc",
+      "hindi": "एमसीएमसी",
+      "aliases": [
+        "markov chain monte carlo",
+        "metropolis-hastings"
+      ],
+      "protected": true
+    },
+    {
+      "term": "manifold",
+      "hindi": "मैनिफोल्ड / बहुरूप",
+      "aliases": [
+        "riemannian manifold",
+        "differential manifold"
+      ],
+      "protected": true
+    },
+    {
+      "term": "tangent-space",
+      "hindi": "स्पर्शरेखा अंतरिक्ष",
+      "aliases": [
+        "tangent bundle",
+        "tangent vector"
+      ],
+      "protected": false
+    },
+    {
+      "term": "curvature",
+      "hindi": "वक्रता / कर्वेचर",
+      "aliases": [
+        "riemann curvature tensor",
+        "gaussian curvature"
+      ],
+      "protected": false
+    },
+    {
+      "term": "geodesic",
+      "hindi": "जियोडेसिक / न्यूनतम पथ",
+      "aliases": [
+        "geodesic curve",
+        "shortest path on surface"
+      ],
+      "protected": true
+    },
+    {
+      "term": "affine-space",
+      "hindi": "एफाइन अंतरिक्ष",
+      "aliases": [
+        "affine geometry",
+        "affine combination"
+      ],
+      "protected": false
+    },
+    {
+      "term": "simplex",
+      "hindi": "सिम्प्लेक्स",
+      "aliases": [
+        "n-dimensional tetrahedron",
+        "barycentric coordinates"
+      ],
+      "protected": false
+    },
+    {
+      "term": "hyperplane",
+      "hindi": "हाइपरप्लेन",
+      "aliases": [
+        "separating hyperplane",
+        "affine subspace codimension 1"
+      ],
+      "protected": false
+    },
+    {
+      "term": "euclidean-distance",
+      "hindi": "यूक्लिडियन दूरी",
+      "aliases": [
+        "l2 distance",
+        "pythagorean metric"
+      ],
+      "protected": false
+    },
+    {
+      "term": "manhattan-distance",
+      "hindi": "मैनहट्टन दूरी",
+      "aliases": [
+        "l1 distance",
+        "city block metric"
+      ],
+      "protected": false
+    },
+    {
+      "term": "minkowski-distance",
+      "hindi": "मिंकोवस्की दूरी",
+      "aliases": [
+        "generalized lp metric",
+        "p-norm distance"
+      ],
+      "protected": false
+    },
+    {
+      "term": "hamming-distance",
+      "hindi": "हैमिंग दूरी",
+      "aliases": [
+        "binary string difference",
+        "bit errors"
+      ],
+      "protected": false
+    },
+    {
+      "term": "jaccard-index",
+      "hindi": "जैकार्ड सूचकांक",
+      "aliases": [
+        "jaccard similarity",
+        "intersection over union"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kl-divergence",
+      "hindi": "केएल अपसरण",
+      "aliases": [
+        "kullback-leibler divergence",
+        "relative entropy"
+      ],
+      "protected": true
+    },
+    {
+      "term": "entropy",
+      "hindi": "एन्ट्रॉपी / अव्यवस्था",
+      "aliases": [
+        "shannon entropy",
+        "information entropy"
+      ],
+      "protected": true
+    },
+    {
+      "term": "mutual-information",
+      "hindi": "पारस्परिक जानकारी",
+      "aliases": [
+        "information gain",
+        "joint entropy reduction"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cosine",
+      "hindi": "कोसाइन",
+      "aliases": [
+        "trigonometric cosine",
+        "cos angle"
+      ],
+      "protected": false
+    },
+    {
+      "term": "sine",
+      "hindi": "साइन",
+      "aliases": [
+        "trigonometric sine",
+        "sin angle"
+      ],
+      "protected": false
+    },
+    {
+      "term": "tangent",
+      "hindi": "टेंजेंट / स्पर्शरेखा",
+      "aliases": [
+        "tan function",
+        "derivative tangent line"
+      ],
+      "protected": false
+    },
+    {
+      "term": "hypotenuse",
+      "hindi": "कर्ण",
+      "aliases": [
+        "pythagorean theorem hypotenuse",
+        "right angle triangle"
+      ],
+      "protected": false
+    },
+    {
+      "term": "pythagoras-theorem",
+      "hindi": "पाइथागोरस प्रमेय",
+      "aliases": [
+        "right angled triangle rule",
+        "a^2 + b^2 = c^2"
+      ],
+      "protected": true
+    },
+    {
+      "term": "arithmetic-progression",
+      "hindi": "अंकगणितीय प्रगति",
+      "aliases": [
+        "ap series",
+        "common difference"
+      ],
+      "protected": false
+    },
+    {
+      "term": "geometric-progression",
+      "hindi": "ज्यामितीय प्रगति",
+      "aliases": [
+        "gp series",
+        "common ratio"
+      ],
+      "protected": false
+    },
+    {
+      "term": "fibonacci-sequence",
+      "hindi": "फाइबोनैचि अनुक्रम",
+      "aliases": [
+        "golden ratio sequence",
+        "recurrence relation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "golden-ratio",
+      "hindi": "स्वर्ण अनुपात",
+      "aliases": [
+        "phi",
+        "1.618 golden proportion"
+      ],
+      "protected": true
+    },
+    {
+      "term": "asymptote",
+      "hindi": "अनंतस्पर्शी",
+      "aliases": [
+        "vertical asymptote",
+        "horizontal asymptote curve"
+      ],
+      "protected": false
+    },
+    {
+      "term": "convexity",
+      "hindi": "उत्तलता",
+      "aliases": [
+        "jensen inequality",
+        "epigraph"
+      ],
+      "protected": false
+    },
+    {
+      "term": "concavity",
+      "hindi": "अवतलता",
+      "aliases": [
+        "strictly concave function",
+        "negative second derivative"
+      ],
+      "protected": false
+    },
+    {
+      "term": "inflection-point",
+      "hindi": "परिवर्तन बिंदु / मोड़",
+      "aliases": [
+        "second derivative zero change",
+        "curvature change"
+      ],
+      "protected": false
+    },
+    {
+      "term": "extrema",
+      "hindi": "चरम मान / एक्सट्रीमा",
+      "aliases": [
+        "local maximum",
+        "global minimum"
+      ],
+      "protected": false
+    },
+    {
+      "term": "optimization",
+      "hindi": "अनुकूलन",
+      "aliases": [
+        "mathematical optimization",
+        "extremization"
+      ],
+      "protected": false
+    },
+    {
+      "term": "calculus",
+      "hindi": "कैलकुलस / कलन",
+      "aliases": [
+        "differential and integral calculus",
+        "analysis"
+      ],
+      "protected": true
+    },
+    {
+      "term": "real-analysis",
+      "hindi": "वास्तविक विश्लेषण",
+      "aliases": [
+        "lebesgue measure",
+        "bolzano-weierstrass theorem"
+      ],
+      "protected": true
+    },
+    {
+      "term": "complex-number",
+      "hindi": "मिश्र संख्या / जटिल संख्या",
+      "aliases": [
+        "imaginary unit i",
+        "argand plane"
+      ],
+      "protected": false
+    },
+    {
+      "term": "polar-coordinates",
+      "hindi": "ध्रुवीय निर्देशांक",
+      "aliases": [
+        "radius and angle",
+        "r-theta mapping"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cartesian-coordinates",
+      "hindi": "कार्तीय निर्देशांक",
+      "aliases": [
+        "orthogonal x-y-z coordinate system",
+        "euclidean space"
+      ],
+      "protected": false
+    }
   ]
 }

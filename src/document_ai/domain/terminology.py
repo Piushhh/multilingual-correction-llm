@@ -40,23 +40,34 @@ class TerminologyDatabase:
         }
     """
 
-    def __init__(self, terms_by_domain):
+    def __init__(self, terms_by_domain, term_metadata=None):
         # Store as {domain: set(lowercased terms)} plus a flat lookup used
         # for fuzzy matching across all loaded domains at once.
-        self.terms_by_domain = {
-            domain: {t.lower() for t in terms} for domain, terms in terms_by_domain.items()
-        }
+        self.terms_by_domain = {}
+        for domain, terms in terms_by_domain.items():
+            self.terms_by_domain[domain] = {t.lower() for t in terms}
+
         self._all_terms = sorted(
             {t for terms in self.terms_by_domain.values() for t in terms}
         )
+        self.term_metadata = term_metadata or {}
+        # Pre-compile protected terms
+        self._protected_lookup = {}
+        for (term_key, domain), meta in self.term_metadata.items():
+            if meta.get("protected"):
+                canonical = meta.get("term", term_key)
+                self._protected_lookup[term_key.lower()] = canonical
+                for alias in meta.get("aliases", []):
+                    self._protected_lookup[alias.lower()] = canonical
 
     @classmethod
     def load(cls, terminology_dir=DEFAULT_TERMINOLOGY_DIR, domains=None):
         terminology_dir = Path(terminology_dir)
         terms_by_domain = {}
+        term_metadata = {}
 
         if not terminology_dir.exists():
-            return cls(terms_by_domain)
+            return cls(terms_by_domain, term_metadata)
 
         for json_file in sorted(terminology_dir.glob("*.json")):
             with open(json_file, "r", encoding="utf-8") as f:
@@ -66,12 +77,48 @@ class TerminologyDatabase:
             if domains is not None and domain not in domains:
                 continue
 
-            terms_by_domain[domain] = data.get("terms", [])
+            raw_terms = data.get("terms", [])
+            flat_terms = []
+            for item in raw_terms:
+                if isinstance(item, str):
+                    flat_terms.append(item.lower())
+                    term_metadata[(item.lower(), domain)] = {
+                        "term": item.lower(),
+                        "protected": False,
+                    }
+                elif isinstance(item, dict):
+                    term_str = item.get("term", "").lower()
+                    if term_str:
+                        flat_terms.append(term_str)
+                        for alias in item.get("aliases", []):
+                            flat_terms.append(alias.lower())
+                        term_metadata[(term_str, domain)] = item
 
-        return cls(terms_by_domain)
+            terms_by_domain[domain] = flat_terms
+
+        return cls(terms_by_domain, term_metadata)
 
     def is_verified_term(self, word):
         return word.lower() in self._all_terms
+
+    def find_protected_terms(self, text: str):
+        """
+        Scan text for protected terms that should not be altered by OCR correction.
+        Matches whole words or phrases in English, Hindi, and aliases.
+        """
+        if not text or not self._protected_lookup:
+            return []
+
+        text_lower = text.lower()
+        found = set()
+
+        for pattern_str, canonical in self._protected_lookup.items():
+            # Check for word boundary match
+            esc_pattern = re.escape(pattern_str)
+            if re.search(r"(?:\b|\W|^)" + esc_pattern + r"(?:\b|\W|$)", text_lower):
+                found.add(canonical)
+
+        return sorted(list(found))
 
     def check_text(
         self,

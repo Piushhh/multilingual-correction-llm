@@ -1,14 +1,1377 @@
 {
   "domain": "deep_learning",
+  "version": "2.0",
+  "term_count": 152,
   "terms": [
-    "attention", "backpropagation", "gradient", "transformer",
-    "embedding", "tokenizer", "activation", "dropout",
-    "convolution", "epoch", "overfitting", "regularization",
-    "softmax", "perceptron", "optimizer", "hyperparameter",
-    "autograd", "normalization", "residual", "latent",
-    "recurrent", "feedforward", "autoencoder", "perplexity",
-    "inference", "checkpoint", "quantization", "logits",
-    "encoder", "decoder", "finetuning", "cross-entropy",
-    "embeddings", "self-attention", "tokenization", "generalization"
+    {
+      "term": "attention",
+      "hindi": "अटेंशन / ध्यान",
+      "aliases": [
+        "attention mechanism",
+        "self-attention"
+      ],
+      "protected": true
+    },
+    {
+      "term": "transformer",
+      "hindi": "ट्रांसफार्मर",
+      "aliases": [
+        "transformers",
+        "transformer architecture"
+      ],
+      "protected": true
+    },
+    {
+      "term": "backpropagation",
+      "hindi": "बैकप्रोपेगेशन / पश्च-प्रसार",
+      "aliases": [
+        "backprop",
+        "bp"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gradient",
+      "hindi": "ग्रेडिएंट / ढाल",
+      "aliases": [
+        "gradients",
+        "gradient vector"
+      ],
+      "protected": false
+    },
+    {
+      "term": "embedding",
+      "hindi": "एम्बेडिंग / संसेचन",
+      "aliases": [
+        "embeddings",
+        "word embeddings"
+      ],
+      "protected": false
+    },
+    {
+      "term": "tokenizer",
+      "hindi": "टोकनाइज़र",
+      "aliases": [
+        "tokenization",
+        "subword tokenizer"
+      ],
+      "protected": false
+    },
+    {
+      "term": "activation",
+      "hindi": "सक्रियण",
+      "aliases": [
+        "activation function",
+        "non-linearity"
+      ],
+      "protected": false
+    },
+    {
+      "term": "dropout",
+      "hindi": "ड्रॉपआउट",
+      "aliases": [
+        "dropout layer",
+        "inverted dropout"
+      ],
+      "protected": true
+    },
+    {
+      "term": "convolution",
+      "hindi": "कन्वोल्यूशन / संवलन",
+      "aliases": [
+        "conv2d",
+        "convolutional layer"
+      ],
+      "protected": false
+    },
+    {
+      "term": "epoch",
+      "hindi": "युग / चक्र",
+      "aliases": [
+        "epochs",
+        "training epoch"
+      ],
+      "protected": false
+    },
+    {
+      "term": "overfitting",
+      "hindi": "अति-अनुकूलन / ओवरफिटिंग",
+      "aliases": [
+        "overfit",
+        "model overfitting"
+      ],
+      "protected": false
+    },
+    {
+      "term": "regularization",
+      "hindi": "नियमितीकरण",
+      "aliases": [
+        "l1 regularization",
+        "l2 regularization"
+      ],
+      "protected": false
+    },
+    {
+      "term": "softmax",
+      "hindi": "सॉफ्टमैक्स",
+      "aliases": [
+        "softmax layer",
+        "softmax activation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "perceptron",
+      "hindi": "परसेप्ट्रॉन",
+      "aliases": [
+        "multilayer perceptron",
+        "mlp"
+      ],
+      "protected": true
+    },
+    {
+      "term": "optimizer",
+      "hindi": "ऑप्टिमाइज़र / अनुकूलक",
+      "aliases": [
+        "adam optimizer",
+        "optimization algorithm"
+      ],
+      "protected": false
+    },
+    {
+      "term": "hyperparameter",
+      "hindi": "हाइपरपैरामीटर",
+      "aliases": [
+        "hyperparameters",
+        "hparams"
+      ],
+      "protected": false
+    },
+    {
+      "term": "autograd",
+      "hindi": "ऑटोग्रेड",
+      "aliases": [
+        "automatic differentiation",
+        "autodiff"
+      ],
+      "protected": true
+    },
+    {
+      "term": "normalization",
+      "hindi": "सामान्यीकरण",
+      "aliases": [
+        "batch norm",
+        "layer norm"
+      ],
+      "protected": false
+    },
+    {
+      "term": "residual",
+      "hindi": "अवशिष्ट / रेजिडुअल",
+      "aliases": [
+        "residual connection",
+        "skip connection"
+      ],
+      "protected": true
+    },
+    {
+      "term": "latent",
+      "hindi": "अव्यक्त / लेटेंट",
+      "aliases": [
+        "latent space",
+        "latent representation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "recurrent",
+      "hindi": "आवर्ती",
+      "aliases": [
+        "rnn",
+        "recurrent neural network"
+      ],
+      "protected": true
+    },
+    {
+      "term": "feedforward",
+      "hindi": "अग्रगामी / फीडफॉरवर्ड",
+      "aliases": [
+        "ffn",
+        "feedforward network"
+      ],
+      "protected": true
+    },
+    {
+      "term": "autoencoder",
+      "hindi": "ऑटोएनकोडर",
+      "aliases": [
+        "vae",
+        "variational autoencoder"
+      ],
+      "protected": true
+    },
+    {
+      "term": "perplexity",
+      "hindi": "पर्प्लेक्सिटी / संशय",
+      "aliases": [
+        "ppl",
+        "language model perplexity"
+      ],
+      "protected": false
+    },
+    {
+      "term": "inference",
+      "hindi": "अनुमान / इन्फेरेंस",
+      "aliases": [
+        "model inference",
+        "serving"
+      ],
+      "protected": false
+    },
+    {
+      "term": "checkpoint",
+      "hindi": "चेकपॉइंट",
+      "aliases": [
+        "model checkpoint",
+        "weights checkpoint"
+      ],
+      "protected": false
+    },
+    {
+      "term": "quantization",
+      "hindi": "क्वांटाइजेशन / परिमाणीकरण",
+      "aliases": [
+        "int8 quantization",
+        "weight quantization"
+      ],
+      "protected": true
+    },
+    {
+      "term": "logits",
+      "hindi": "लॉगिट्स",
+      "aliases": [
+        "raw logits",
+        "unnormalized log probabilities"
+      ],
+      "protected": false
+    },
+    {
+      "term": "encoder",
+      "hindi": "एनकोडर / संकेतक",
+      "aliases": [
+        "encoder block",
+        "feature encoder"
+      ],
+      "protected": true
+    },
+    {
+      "term": "decoder",
+      "hindi": "डिकोडर / विसंकेतक",
+      "aliases": [
+        "decoder block",
+        "autoregressive decoder"
+      ],
+      "protected": true
+    },
+    {
+      "term": "finetuning",
+      "hindi": "फाइन-ट्यूनिंग",
+      "aliases": [
+        "fine-tuning",
+        "parameter fine-tuning"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cross-entropy",
+      "hindi": "क्रॉस-एन्ट्रॉपी",
+      "aliases": [
+        "categorical cross entropy",
+        "xent"
+      ],
+      "protected": true
+    },
+    {
+      "term": "generalization",
+      "hindi": "सामान्यीकरण",
+      "aliases": [
+        "generalization gap",
+        "out-of-distribution generalization"
+      ],
+      "protected": false
+    },
+    {
+      "term": "tensor",
+      "hindi": "टेंसर",
+      "aliases": [
+        "multidimensional array",
+        "tensors"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gradient-descent",
+      "hindi": "ग्रेडिएंट डिसेंट",
+      "aliases": [
+        "sgd",
+        "stochastic gradient descent"
+      ],
+      "protected": true
+    },
+    {
+      "term": "loss-function",
+      "hindi": "हानि फलन",
+      "aliases": [
+        "objective function",
+        "cost function"
+      ],
+      "protected": false
+    },
+    {
+      "term": "learning-rate",
+      "hindi": "सीखने की दर",
+      "aliases": [
+        "lr",
+        "step size"
+      ],
+      "protected": false
+    },
+    {
+      "term": "batch-size",
+      "hindi": "बैच का आकार",
+      "aliases": [
+        "minibatch size",
+        "batch size"
+      ],
+      "protected": false
+    },
+    {
+      "term": "momentum",
+      "hindi": "संवेग / मोमेंटम",
+      "aliases": [
+        "nesterov momentum",
+        "gradient momentum"
+      ],
+      "protected": false
+    },
+    {
+      "term": "relu",
+      "hindi": "रेलू",
+      "aliases": [
+        "rectified linear unit",
+        "relu activation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gelu",
+      "hindi": "गेलू",
+      "aliases": [
+        "gaussian error linear unit",
+        "gelu activation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "sigmoid",
+      "hindi": "सिग्मॉइड",
+      "aliases": [
+        "sigmoid function",
+        "logistic sigmoid"
+      ],
+      "protected": true
+    },
+    {
+      "term": "tanh",
+      "hindi": "टेनएच",
+      "aliases": [
+        "hyperbolic tangent",
+        "tanh activation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "weight-decay",
+      "hindi": "वेट डिके",
+      "aliases": [
+        "l2 penalty",
+        "parameter shrinkage"
+      ],
+      "protected": false
+    },
+    {
+      "term": "early-stopping",
+      "hindi": "पूर्व समाप्ति",
+      "aliases": [
+        "early stop",
+        "early stopping criterion"
+      ],
+      "protected": false
+    },
+    {
+      "term": "data-augmentation",
+      "hindi": "डेटा संवर्धन",
+      "aliases": [
+        "image augmentation",
+        "data augmentations"
+      ],
+      "protected": false
+    },
+    {
+      "term": "adversarial",
+      "hindi": "प्रतिकूल / एडवरसैरियल",
+      "aliases": [
+        "adversarial attack",
+        "adversarial training"
+      ],
+      "protected": false
+    },
+    {
+      "term": "gan",
+      "hindi": "गैन",
+      "aliases": [
+        "generative adversarial network",
+        "gans"
+      ],
+      "protected": true
+    },
+    {
+      "term": "diffusion",
+      "hindi": "डिफ्यूजन / विसरण",
+      "aliases": [
+        "diffusion models",
+        "ddpm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "lora",
+      "hindi": "लोरा",
+      "aliases": [
+        "low-rank adaptation",
+        "lora fine-tuning"
+      ],
+      "protected": true
+    },
+    {
+      "term": "qlora",
+      "hindi": "क्यूपी-लोरा",
+      "aliases": [
+        "quantized lora",
+        "4-bit lora"
+      ],
+      "protected": true
+    },
+    {
+      "term": "peft",
+      "hindi": "पेफ्ट",
+      "aliases": [
+        "parameter-efficient fine-tuning",
+        "peft library"
+      ],
+      "protected": true
+    },
+    {
+      "term": "rope",
+      "hindi": "रोप",
+      "aliases": [
+        "rotary position embedding",
+        "rotary positional embeddings"
+      ],
+      "protected": true
+    },
+    {
+      "term": "flashattention",
+      "hindi": "फ्लैश-अटेंशन",
+      "aliases": [
+        "flash attention 2",
+        "flash-attn"
+      ],
+      "protected": true
+    },
+    {
+      "term": "dpo",
+      "hindi": "डीपीओ",
+      "aliases": [
+        "direct preference optimization",
+        "dpo training"
+      ],
+      "protected": true
+    },
+    {
+      "term": "rlhf",
+      "hindi": "आरएलएचएफ",
+      "aliases": [
+        "reinforcement learning from human feedback",
+        "rlhf alignment"
+      ],
+      "protected": true
+    },
+    {
+      "term": "ppo",
+      "hindi": "पीपीओ",
+      "aliases": [
+        "proximal policy optimization",
+        "ppo algorithm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "beam-search",
+      "hindi": "बीम सर्च",
+      "aliases": [
+        "beam decoding",
+        "beam width"
+      ],
+      "protected": false
+    },
+    {
+      "term": "temperature",
+      "hindi": "तापमान / टेम्परेचर",
+      "aliases": [
+        "sampling temperature",
+        "temperature parameter"
+      ],
+      "protected": false
+    },
+    {
+      "term": "top-k",
+      "hindi": "टॉप-के",
+      "aliases": [
+        "top-k sampling",
+        "top k filtering"
+      ],
+      "protected": false
+    },
+    {
+      "term": "top-p",
+      "hindi": "टॉप-पी",
+      "aliases": [
+        "nucleus sampling",
+        "top-p sampling"
+      ],
+      "protected": false
+    },
+    {
+      "term": "rag",
+      "hindi": "रैग",
+      "aliases": [
+        "retrieval-augmented generation",
+        "rag pipeline"
+      ],
+      "protected": true
+    },
+    {
+      "term": "vector-database",
+      "hindi": "वेक्टर डेटाबेस",
+      "aliases": [
+        "vector store",
+        "vector db"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cosine-similarity",
+      "hindi": "कोसाइन समानता",
+      "aliases": [
+        "cosine distance",
+        "cos similarity"
+      ],
+      "protected": false
+    },
+    {
+      "term": "dot-product",
+      "hindi": "डॉट उत्पाद",
+      "aliases": [
+        "inner product",
+        "scalar product"
+      ],
+      "protected": false
+    },
+    {
+      "term": "contrastive",
+      "hindi": "विरोधाभासी / कंट्रास्टिव",
+      "aliases": [
+        "contrastive loss",
+        "contrastive learning"
+      ],
+      "protected": false
+    },
+    {
+      "term": "siamese-network",
+      "hindi": "सिएमीज नेटवर्क",
+      "aliases": [
+        "siamese twin network",
+        "dual encoder"
+      ],
+      "protected": true
+    },
+    {
+      "term": "clip",
+      "hindi": "क्लिप",
+      "aliases": [
+        "contrastive language-image pretraining",
+        "clip model"
+      ],
+      "protected": true
+    },
+    {
+      "term": "bert",
+      "hindi": "बर्ट",
+      "aliases": [
+        "bidirectional encoder representations",
+        "bert model"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gpt",
+      "hindi": "जीपीटी",
+      "aliases": [
+        "generative pretrained transformer",
+        "gpt model"
+      ],
+      "protected": true
+    },
+    {
+      "term": "t5",
+      "hindi": "टी5",
+      "aliases": [
+        "text-to-text transfer transformer",
+        "t5 encoder-decoder"
+      ],
+      "protected": true
+    },
+    {
+      "term": "llama",
+      "hindi": "लामा",
+      "aliases": [
+        "llama architecture",
+        "open llama"
+      ],
+      "protected": true
+    },
+    {
+      "term": "mistral",
+      "hindi": "मिस्ट्रल",
+      "aliases": [
+        "mistral architecture",
+        "mistral 7b"
+      ],
+      "protected": true
+    },
+    {
+      "term": "mixtral",
+      "hindi": "मिक्सट्रल",
+      "aliases": [
+        "sparse mixture of experts",
+        "moe"
+      ],
+      "protected": true
+    },
+    {
+      "term": "expert",
+      "hindi": "विशेषज्ञ / एक्सपर्ट",
+      "aliases": [
+        "mixture of experts",
+        "routing network"
+      ],
+      "protected": false
+    },
+    {
+      "term": "gating",
+      "hindi": "गेटिंग",
+      "aliases": [
+        "gating network",
+        "router"
+      ],
+      "protected": false
+    },
+    {
+      "term": "context-window",
+      "hindi": "संदर्भ विंडो",
+      "aliases": [
+        "context length",
+        "max tokens"
+      ],
+      "protected": false
+    },
+    {
+      "term": "self-supervised",
+      "hindi": "स्व-पर्यवेक्षित",
+      "aliases": [
+        "self-supervised learning",
+        "ssl"
+      ],
+      "protected": false
+    },
+    {
+      "term": "semi-supervised",
+      "hindi": "अर्ध-पर्यवेक्षित",
+      "aliases": [
+        "semi-supervised training",
+        "pseudo-labeling"
+      ],
+      "protected": false
+    },
+    {
+      "term": "unsupervised",
+      "hindi": "अपर्यवेक्षित",
+      "aliases": [
+        "unsupervised learning",
+        "clustering"
+      ],
+      "protected": false
+    },
+    {
+      "term": "supervised",
+      "hindi": "पर्यवेक्षित",
+      "aliases": [
+        "supervised learning",
+        "labeled data"
+      ],
+      "protected": false
+    },
+    {
+      "term": "zero-shot",
+      "hindi": "शून्य-शॉट",
+      "aliases": [
+        "zero-shot inference",
+        "zero-shot learning"
+      ],
+      "protected": false
+    },
+    {
+      "term": "few-shot",
+      "hindi": "फ्यू-शॉट",
+      "aliases": [
+        "few-shot in-context learning",
+        "few-shot prompting"
+      ],
+      "protected": false
+    },
+    {
+      "term": "in-context-learning",
+      "hindi": "संदर्भ में सीखना",
+      "aliases": [
+        "icl",
+        "prompt learning"
+      ],
+      "protected": false
+    },
+    {
+      "term": "chain-of-thought",
+      "hindi": "विचारों की श्रृंखला",
+      "aliases": [
+        "cot",
+        "cot prompting"
+      ],
+      "protected": false
+    },
+    {
+      "term": "hallucination",
+      "hindi": "मतिभ्रम / हैलुसिनेशन",
+      "aliases": [
+        "model hallucination",
+        "factual inaccuracies"
+      ],
+      "protected": false
+    },
+    {
+      "term": "grounding",
+      "hindi": "आधार / ग्राउंडिंग",
+      "aliases": [
+        "factual grounding",
+        "grounded generation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "alignment",
+      "hindi": "संरेखण / अलाइनमेंट",
+      "aliases": [
+        "ai alignment",
+        "preference alignment"
+      ],
+      "protected": false
+    },
+    {
+      "term": "pruning",
+      "hindi": "छंटाई / प्रूनिंग",
+      "aliases": [
+        "model pruning",
+        "structured pruning"
+      ],
+      "protected": true
+    },
+    {
+      "term": "distillation",
+      "hindi": "आसवन / डिस्टिलेशन",
+      "aliases": [
+        "knowledge distillation",
+        "teacher-student model"
+      ],
+      "protected": true
+    },
+    {
+      "term": "teacher-student",
+      "hindi": "शिक्षक-छात्र",
+      "aliases": [
+        "teacher model",
+        "student network"
+      ],
+      "protected": false
+    },
+    {
+      "term": "fp16",
+      "hindi": "एफपी16",
+      "aliases": [
+        "half precision",
+        "16-bit float"
+      ],
+      "protected": true
+    },
+    {
+      "term": "bf16",
+      "hindi": "बीएफ16",
+      "aliases": [
+        "bfloat16",
+        "brain floating point"
+      ],
+      "protected": true
+    },
+    {
+      "term": "fp32",
+      "hindi": "एफपी32",
+      "aliases": [
+        "single precision",
+        "32-bit float"
+      ],
+      "protected": true
+    },
+    {
+      "term": "int8",
+      "hindi": "इंट8",
+      "aliases": [
+        "8-bit integer",
+        "int8 quantization"
+      ],
+      "protected": true
+    },
+    {
+      "term": "int4",
+      "hindi": "इंट4",
+      "aliases": [
+        "4-bit integer",
+        "awq",
+        "gptq"
+      ],
+      "protected": true
+    },
+    {
+      "term": "backprop-through-time",
+      "hindi": "समय के माध्यम से बैकप्रॉप",
+      "aliases": [
+        "bptt",
+        "recurrent backprop"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gru",
+      "hindi": "जीआरयू",
+      "aliases": [
+        "gated recurrent unit",
+        "gru cell"
+      ],
+      "protected": true
+    },
+    {
+      "term": "lstm",
+      "hindi": "एलएसटीएम",
+      "aliases": [
+        "long short-term memory",
+        "lstm network"
+      ],
+      "protected": true
+    },
+    {
+      "term": "vanishing-gradient",
+      "hindi": "लुप्तप्राय ग्रेडिएंट",
+      "aliases": [
+        "vanishing gradient problem",
+        "gradient vanishing"
+      ],
+      "protected": false
+    },
+    {
+      "term": "exploding-gradient",
+      "hindi": "विस्फोटक ग्रेडिएंट",
+      "aliases": [
+        "exploding gradient problem",
+        "gradient explosion"
+      ],
+      "protected": false
+    },
+    {
+      "term": "gradient-clipping",
+      "hindi": "ग्रेडिएंट क्लिपिंग",
+      "aliases": [
+        "clip gradients",
+        "norm clipping"
+      ],
+      "protected": false
+    },
+    {
+      "term": "warmup",
+      "hindi": "वार्मअप",
+      "aliases": [
+        "learning rate warmup",
+        "linear warmup"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cosine-decay",
+      "hindi": "कोसाइन क्षय",
+      "aliases": [
+        "cosine annealing",
+        "cosine schedule"
+      ],
+      "protected": false
+    },
+    {
+      "term": "mini-batch",
+      "hindi": "मिनी-बैच",
+      "aliases": [
+        "minibatch",
+        "batch stochastic gradient descent"
+      ],
+      "protected": false
+    },
+    {
+      "term": "epoch-loss",
+      "hindi": "युग हानि",
+      "aliases": [
+        "training loss",
+        "epoch metric"
+      ],
+      "protected": false
+    },
+    {
+      "term": "validation-loss",
+      "hindi": "सत्यापन हानि",
+      "aliases": [
+        "val loss",
+        "validation error"
+      ],
+      "protected": false
+    },
+    {
+      "term": "test-accuracy",
+      "hindi": "परीक्षण सटीकता",
+      "aliases": [
+        "test acc",
+        "generalization score"
+      ],
+      "protected": false
+    },
+    {
+      "term": "auc-roc",
+      "hindi": "एयूसी-आरओसी",
+      "aliases": [
+        "area under the curve",
+        "roc curve"
+      ],
+      "protected": true
+    },
+    {
+      "term": "precision",
+      "hindi": "सटीकता / प्रिसिजन",
+      "aliases": [
+        "positive predictive value",
+        "precision score"
+      ],
+      "protected": false
+    },
+    {
+      "term": "recall",
+      "hindi": "पुनरावलोकन / रिकॉल",
+      "aliases": [
+        "true positive rate",
+        "sensitivity"
+      ],
+      "protected": false
+    },
+    {
+      "term": "f1-score",
+      "hindi": "एफ1-स्कोर",
+      "aliases": [
+        "f-measure",
+        "harmonic mean precision recall"
+      ],
+      "protected": true
+    },
+    {
+      "term": "confusion-matrix",
+      "hindi": "भ्रम आव्यूह",
+      "aliases": [
+        "error matrix",
+        "classification contingency table"
+      ],
+      "protected": false
+    },
+    {
+      "term": "bpe",
+      "hindi": "बीपीई",
+      "aliases": [
+        "byte-pair encoding",
+        "bpe tokenizer"
+      ],
+      "protected": true
+    },
+    {
+      "term": "wordpiece",
+      "hindi": "वर्डपीस",
+      "aliases": [
+        "wordpiece tokenization",
+        "subword algorithm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "unigram-tokenizer",
+      "hindi": "यूनिग्राम टोकनाइज़र",
+      "aliases": [
+        "sentencepiece unigram",
+        "spm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "sentencepiece",
+      "hindi": "सेंटेंसपीस",
+      "aliases": [
+        "sentencepiece library",
+        "spm model"
+      ],
+      "protected": true
+    },
+    {
+      "term": "multi-head",
+      "hindi": "मल्टी-हेड",
+      "aliases": [
+        "multihead self-attention",
+        "mha"
+      ],
+      "protected": true
+    },
+    {
+      "term": "multi-query",
+      "hindi": "मल्टी-क्वेरी",
+      "aliases": [
+        "multi-query attention",
+        "mqa"
+      ],
+      "protected": true
+    },
+    {
+      "term": "grouped-query",
+      "hindi": "समूह-क्वेरी",
+      "aliases": [
+        "grouped-query attention",
+        "gqa"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kv-cache",
+      "hindi": "केवी-कैश",
+      "aliases": [
+        "key-value cache",
+        "paged attention"
+      ],
+      "protected": true
+    },
+    {
+      "term": "vllm",
+      "hindi": "वीएलएलएम",
+      "aliases": [
+        "vllm serving",
+        "paged attention framework"
+      ],
+      "protected": true
+    },
+    {
+      "term": "speculative-decoding",
+      "hindi": "सट्टा डिकोडिंग",
+      "aliases": [
+        "draft model decoding",
+        "assisted generation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "continuous-batching",
+      "hindi": "निरंतर बैचिंग",
+      "aliases": [
+        "dynamic batching",
+        "iteration-level scheduling"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cuda",
+      "hindi": "कूडा",
+      "aliases": [
+        "nvidia cuda",
+        "cuda kernel"
+      ],
+      "protected": true
+    },
+    {
+      "term": "triton",
+      "hindi": "ट्राइटन",
+      "aliases": [
+        "openai triton",
+        "triton language"
+      ],
+      "protected": true
+    },
+    {
+      "term": "gpu-memory",
+      "hindi": "जीपीयू मेमोरी",
+      "aliases": [
+        "vram",
+        "device memory"
+      ],
+      "protected": false
+    },
+    {
+      "term": "distributed-training",
+      "hindi": "वितरित प्रशिक्षण",
+      "aliases": [
+        "ddp",
+        "fsdp",
+        "deepspeed"
+      ],
+      "protected": false
+    },
+    {
+      "term": "tensor-parallelism",
+      "hindi": "टेंसर समानांतरता",
+      "aliases": [
+        "tp",
+        "megatron-lm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "pipeline-parallelism",
+      "hindi": "पाइपलाइन समानांतरता",
+      "aliases": [
+        "pp",
+        "piped training"
+      ],
+      "protected": true
+    },
+    {
+      "term": "data-parallelism",
+      "hindi": "डेटा समानांतरता",
+      "aliases": [
+        "ddp",
+        "distributed data parallel"
+      ],
+      "protected": true
+    },
+    {
+      "term": "fsdp",
+      "hindi": "एफएसडीपी",
+      "aliases": [
+        "fully sharded data parallel",
+        "zero-3"
+      ],
+      "protected": true
+    },
+    {
+      "term": "deepspeed",
+      "hindi": "डीपस्पीड",
+      "aliases": [
+        "microsoft deepspeed",
+        "zero optimizer"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cross-validation",
+      "hindi": "क्रॉस-सत्यापन",
+      "aliases": [
+        "k-fold cross validation",
+        "stratified k-fold"
+      ],
+      "protected": false
+    },
+    {
+      "term": "underfitting",
+      "hindi": "अल्प-अनुकूलन / अंडरफिटिंग",
+      "aliases": [
+        "high bias",
+        "underfit model"
+      ],
+      "protected": false
+    },
+    {
+      "term": "inductive-bias",
+      "hindi": "आगमनात्मक पूर्वाग्रह",
+      "aliases": [
+        "architectural prior",
+        "translational invariance"
+      ],
+      "protected": false
+    },
+    {
+      "term": "pooling",
+      "hindi": "पूलिंग",
+      "aliases": [
+        "max pooling",
+        "average pooling"
+      ],
+      "protected": false
+    },
+    {
+      "term": "stride",
+      "hindi": "स्ट्राइड",
+      "aliases": [
+        "convolution stride",
+        "filter step"
+      ],
+      "protected": false
+    },
+    {
+      "term": "dilation",
+      "hindi": "विस्तारण / डाइलेशन",
+      "aliases": [
+        "dilated convolution",
+        "atrous convolution"
+      ],
+      "protected": false
+    },
+    {
+      "term": "receptive-field",
+      "hindi": "ग्रहणशील क्षेत्र",
+      "aliases": [
+        "effective receptive field",
+        "rf"
+      ],
+      "protected": false
+    },
+    {
+      "term": "skip-gram",
+      "hindi": "स्किप-ग्राम",
+      "aliases": [
+        "skipgram model",
+        "word2vec skipgram"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cbow",
+      "hindi": "सीबो",
+      "aliases": [
+        "continuous bag of words",
+        "word2vec cbow"
+      ],
+      "protected": true
+    },
+    {
+      "term": "glove",
+      "hindi": "ग्लोव",
+      "aliases": [
+        "global vectors for word representation",
+        "glove embeddings"
+      ],
+      "protected": true
+    },
+    {
+      "term": "fasttext",
+      "hindi": "फास्टटेक्स्ट",
+      "aliases": [
+        "subword embeddings",
+        "facebook fasttext"
+      ],
+      "protected": true
+    },
+    {
+      "term": "weight-initialization",
+      "hindi": "भार आरंभीकरण",
+      "aliases": [
+        "xavier init",
+        "he initialization"
+      ],
+      "protected": false
+    },
+    {
+      "term": "gradient-accumulation",
+      "hindi": "ग्रेडिएंट संचय",
+      "aliases": [
+        "accumulate gradients",
+        "grad accum"
+      ],
+      "protected": false
+    },
+    {
+      "term": "mixed-precision",
+      "hindi": "मिश्रित परिशुद्धता",
+      "aliases": [
+        "amp",
+        "automatic mixed precision"
+      ],
+      "protected": true
+    },
+    {
+      "term": "loss-landscape",
+      "hindi": "हानि परिदृश्य",
+      "aliases": [
+        "optimization landscape",
+        "flat minima"
+      ],
+      "protected": false
+    },
+    {
+      "term": "saddle-point",
+      "hindi": "सैडल बिंदु",
+      "aliases": [
+        "saddle points",
+        "non-convex optimization"
+      ],
+      "protected": false
+    },
+    {
+      "term": "gradient-flow",
+      "hindi": "ग्रेडिएंट प्रवाह",
+      "aliases": [
+        "gradient dynamics",
+        "information flow"
+      ],
+      "protected": false
+    },
+    {
+      "term": "activation-map",
+      "hindi": "सक्रियण मानचित्र",
+      "aliases": [
+        "feature heatmap",
+        "cam"
+      ],
+      "protected": false
+    },
+    {
+      "term": "positional-encoding",
+      "hindi": "स्थितीय एन्कोडिंग",
+      "aliases": [
+        "sinusoidal positional encoding",
+        "absolute position"
+      ],
+      "protected": true
+    }
   ]
 }

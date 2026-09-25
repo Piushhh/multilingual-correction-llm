@@ -1,13 +1,1393 @@
 {
   "domain": "computer_science",
+  "version": "2.0",
+  "term_count": 152,
   "terms": [
-    "algorithm", "recursion", "heap", "stack", "queue",
-    "pointer", "compiler", "database", "deadlock", "thread",
-    "hashtable", "polymorphism", "inheritance", "bytecode",
-    "concurrency", "semaphore", "mutex", "serialization",
-    "deserialization", "asynchronous", "synchronous", "bandwidth",
-    "latency", "cache", "paging", "segmentation", "indexing",
-    "encapsulation", "abstraction", "interface", "kernel",
-    "pipeline", "interpreter", "virtualization", "filesystem"
+    {
+      "term": "algorithm",
+      "hindi": "एल्गोरिदम / कलन विधि",
+      "aliases": [
+        "algorithms",
+        "computational procedure"
+      ],
+      "protected": true
+    },
+    {
+      "term": "recursion",
+      "hindi": "पुनरावृत्ति / रिकर्शन",
+      "aliases": [
+        "recursive call",
+        "recursion base case"
+      ],
+      "protected": true
+    },
+    {
+      "term": "heap",
+      "hindi": "हीप",
+      "aliases": [
+        "min-heap",
+        "max-heap",
+        "binary heap"
+      ],
+      "protected": true
+    },
+    {
+      "term": "stack",
+      "hindi": "स्टैक",
+      "aliases": [
+        "call stack",
+        "lifo structure"
+      ],
+      "protected": true
+    },
+    {
+      "term": "queue",
+      "hindi": "कतार / क्यू",
+      "aliases": [
+        "priority queue",
+        "fifo structure"
+      ],
+      "protected": true
+    },
+    {
+      "term": "pointer",
+      "hindi": "पॉइंटर / सूचक",
+      "aliases": [
+        "raw pointer",
+        "memory pointer",
+        "smart pointer"
+      ],
+      "protected": true
+    },
+    {
+      "term": "compiler",
+      "hindi": "कंपाइलर",
+      "aliases": [
+        "code compiler",
+        "optimizing compiler"
+      ],
+      "protected": true
+    },
+    {
+      "term": "database",
+      "hindi": "डेटाबेस",
+      "aliases": [
+        "relational database",
+        "rdbms",
+        "nosql"
+      ],
+      "protected": true
+    },
+    {
+      "term": "deadlock",
+      "hindi": "डेडलॉक",
+      "aliases": [
+        "circular wait deadlock",
+        "resource deadlock"
+      ],
+      "protected": true
+    },
+    {
+      "term": "thread",
+      "hindi": "थ्रेड",
+      "aliases": [
+        "worker thread",
+        "concurrent thread"
+      ],
+      "protected": true
+    },
+    {
+      "term": "hashtable",
+      "hindi": "हैश टेबल",
+      "aliases": [
+        "hash map",
+        "hash dictionary"
+      ],
+      "protected": true
+    },
+    {
+      "term": "polymorphism",
+      "hindi": "बहुरूपता / पॉलीमॉर्फिज्म",
+      "aliases": [
+        "dynamic polymorphism",
+        "method overriding"
+      ],
+      "protected": true
+    },
+    {
+      "term": "inheritance",
+      "hindi": "विरासत / इनहेरिटेंस",
+      "aliases": [
+        "class inheritance",
+        "subtyping"
+      ],
+      "protected": true
+    },
+    {
+      "term": "bytecode",
+      "hindi": "बाइटकोड",
+      "aliases": [
+        "jvm bytecode",
+        "python bytecode"
+      ],
+      "protected": true
+    },
+    {
+      "term": "binary-tree",
+      "hindi": "बाइनरी ट्री",
+      "aliases": [
+        "binary search tree",
+        "bst"
+      ],
+      "protected": true
+    },
+    {
+      "term": "avl-tree",
+      "hindi": "एवीएल ट्री",
+      "aliases": [
+        "self-balancing tree",
+        "avl balanced bst"
+      ],
+      "protected": true
+    },
+    {
+      "term": "red-black-tree",
+      "hindi": "रेड-ब्लैक ट्री",
+      "aliases": [
+        "rbtree",
+        "balanced binary tree"
+      ],
+      "protected": true
+    },
+    {
+      "term": "b-tree",
+      "hindi": "बी-ट्री",
+      "aliases": [
+        "b-plus tree",
+        "database index tree"
+      ],
+      "protected": true
+    },
+    {
+      "term": "trie",
+      "hindi": "ट्राई",
+      "aliases": [
+        "prefix tree",
+        "radix tree"
+      ],
+      "protected": true
+    },
+    {
+      "term": "graph",
+      "hindi": "ग्राफ",
+      "aliases": [
+        "directed graph",
+        "undirected graph"
+      ],
+      "protected": true
+    },
+    {
+      "term": "adjacency-list",
+      "hindi": "संलग्नता सूची",
+      "aliases": [
+        "adj list",
+        "graph representation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "adjacency-matrix",
+      "hindi": "संलग्नता आव्यूह",
+      "aliases": [
+        "adj matrix",
+        "graph matrix"
+      ],
+      "protected": false
+    },
+    {
+      "term": "depth-first-search",
+      "hindi": "गहराई-प्रथम खोज",
+      "aliases": [
+        "dfs",
+        "depth first traversal"
+      ],
+      "protected": true
+    },
+    {
+      "term": "breadth-first-search",
+      "hindi": "चौड़ाई-प्रथम खोज",
+      "aliases": [
+        "bfs",
+        "breadth first traversal"
+      ],
+      "protected": true
+    },
+    {
+      "term": "dijkstra",
+      "hindi": "डिजक्स्ट्रा",
+      "aliases": [
+        "dijkstra algorithm",
+        "shortest path"
+      ],
+      "protected": true
+    },
+    {
+      "term": "bellman-ford",
+      "hindi": "बेलमैन-फोर्ड",
+      "aliases": [
+        "bellman ford algorithm",
+        "negative edge shortest path"
+      ],
+      "protected": true
+    },
+    {
+      "term": "floyd-warshall",
+      "hindi": "फ्लोयड-मार्शल",
+      "aliases": [
+        "all-pairs shortest path",
+        "floyd warshall algorithm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kruskal",
+      "hindi": "क्रुस्कल",
+      "aliases": [
+        "kruskal algorithm",
+        "minimum spanning tree"
+      ],
+      "protected": true
+    },
+    {
+      "term": "prim",
+      "hindi": "प्रिम",
+      "aliases": [
+        "prim algorithm",
+        "mst algorithm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "topological-sort",
+      "hindi": "टोपोलॉजिकल सॉर्ट",
+      "aliases": [
+        "topo sort",
+        "dag ordering"
+      ],
+      "protected": true
+    },
+    {
+      "term": "dynamic-programming",
+      "hindi": "डायनामिक प्रोग्रामिंग",
+      "aliases": [
+        "dp",
+        "memoization",
+        "tabulation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "memoization",
+      "hindi": "मेमोइजेशन",
+      "aliases": [
+        "cached computation",
+        "memoized function"
+      ],
+      "protected": true
+    },
+    {
+      "term": "greedy-algorithm",
+      "hindi": "लालची एल्गोरिदम",
+      "aliases": [
+        "greedy heuristic",
+        "local optimal choice"
+      ],
+      "protected": false
+    },
+    {
+      "term": "divide-and-conquer",
+      "hindi": "विभाजित करो और जीतो",
+      "aliases": [
+        "divide and conquer approach",
+        "d&c"
+      ],
+      "protected": false
+    },
+    {
+      "term": "quicksort",
+      "hindi": "क्विकसॉर्ट",
+      "aliases": [
+        "quick sort",
+        "pivot partitioning"
+      ],
+      "protected": true
+    },
+    {
+      "term": "mergesort",
+      "hindi": "मर्जसॉर्ट",
+      "aliases": [
+        "merge sort",
+        "stable sort"
+      ],
+      "protected": true
+    },
+    {
+      "term": "heapsort",
+      "hindi": "हीपसॉर्ट",
+      "aliases": [
+        "heap sort",
+        "in-place heap sorting"
+      ],
+      "protected": true
+    },
+    {
+      "term": "bubble-sort",
+      "hindi": "बबल सॉर्ट",
+      "aliases": [
+        "bubble sorting algorithm",
+        "sinking sort"
+      ],
+      "protected": false
+    },
+    {
+      "term": "insertion-sort",
+      "hindi": "प्रविष्टि सॉर्ट",
+      "aliases": [
+        "insertion sorting",
+        "online sorting"
+      ],
+      "protected": false
+    },
+    {
+      "term": "binary-search",
+      "hindi": "बाइनरी सर्च",
+      "aliases": [
+        "dichotomic search",
+        "half-interval search"
+      ],
+      "protected": true
+    },
+    {
+      "term": "asymptotic",
+      "hindi": "अनंतस्पर्शी / असम्टोटिक",
+      "aliases": [
+        "big-o",
+        "big-theta",
+        "big-omega"
+      ],
+      "protected": true
+    },
+    {
+      "term": "big-o",
+      "hindi": "बिग-ओ",
+      "aliases": [
+        "big o notation",
+        "order of growth"
+      ],
+      "protected": true
+    },
+    {
+      "term": "time-complexity",
+      "hindi": "समय जटिलता",
+      "aliases": [
+        "computational time complexity",
+        "worst-case time"
+      ],
+      "protected": false
+    },
+    {
+      "term": "space-complexity",
+      "hindi": "स्थान जटिलता",
+      "aliases": [
+        "memory complexity",
+        "auxiliary space"
+      ],
+      "protected": false
+    },
+    {
+      "term": "np-complete",
+      "hindi": "एनपी-पूर्ण",
+      "aliases": [
+        "np-completeness",
+        "cook-levin theorem"
+      ],
+      "protected": true
+    },
+    {
+      "term": "np-hard",
+      "hindi": "एनपी-कठिन",
+      "aliases": [
+        "np-hardness",
+        "reduction"
+      ],
+      "protected": true
+    },
+    {
+      "term": "turing-machine",
+      "hindi": "ट्यूरिंग मशीन",
+      "aliases": [
+        "universal turing machine",
+        "utm"
+      ],
+      "protected": true
+    },
+    {
+      "term": "halting-problem",
+      "hindi": "हल्टिंग समस्या",
+      "aliases": [
+        "undecidable problem",
+        "turing halting"
+      ],
+      "protected": true
+    },
+    {
+      "term": "automata",
+      "hindi": "ऑटोमेटा",
+      "aliases": [
+        "finite automata",
+        "dfa",
+        "nfa"
+      ],
+      "protected": true
+    },
+    {
+      "term": "context-free-grammar",
+      "hindi": "संदर्भ-मुक्त व्याकरण",
+      "aliases": [
+        "cfg",
+        "pushdown automata"
+      ],
+      "protected": true
+    },
+    {
+      "term": "regular-expression",
+      "hindi": "रेगुलर एक्सप्रेशन",
+      "aliases": [
+        "regex",
+        "regexp"
+      ],
+      "protected": true
+    },
+    {
+      "term": "operating-system",
+      "hindi": "ऑपरेटिंग सिस्टम",
+      "aliases": [
+        "os",
+        "kernel"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kernel",
+      "hindi": "कर्नेल",
+      "aliases": [
+        "monolithic kernel",
+        "microkernel"
+      ],
+      "protected": true
+    },
+    {
+      "term": "virtual-memory",
+      "hindi": "वर्चुअल मेमोरी",
+      "aliases": [
+        "paging",
+        "swap memory"
+      ],
+      "protected": true
+    },
+    {
+      "term": "paging",
+      "hindi": "पेजिंग",
+      "aliases": [
+        "page table",
+        "page fault"
+      ],
+      "protected": true
+    },
+    {
+      "term": "tlb",
+      "hindi": "टीएलबी",
+      "aliases": [
+        "translation lookaside buffer",
+        "mmu cache"
+      ],
+      "protected": true
+    },
+    {
+      "term": "context-switch",
+      "hindi": "संदर्भ स्विच",
+      "aliases": [
+        "process switch",
+        "thread context switch"
+      ],
+      "protected": false
+    },
+    {
+      "term": "process",
+      "hindi": "प्रक्रिया / प्रोसेस",
+      "aliases": [
+        "os process",
+        "process control block",
+        "pcb"
+      ],
+      "protected": false
+    },
+    {
+      "term": "multiprocessing",
+      "hindi": "मल्टीप्रोसेसिंग",
+      "aliases": [
+        "parallel processing",
+        "forking"
+      ],
+      "protected": false
+    },
+    {
+      "term": "multithreading",
+      "hindi": "मल्टीथ्रेडिंग",
+      "aliases": [
+        "concurrent threads",
+        "thread pool"
+      ],
+      "protected": false
+    },
+    {
+      "term": "mutex",
+      "hindi": "म्यूटेक्स",
+      "aliases": [
+        "mutual exclusion",
+        "binary lock"
+      ],
+      "protected": true
+    },
+    {
+      "term": "semaphore",
+      "hindi": "सेमाफोर",
+      "aliases": [
+        "counting semaphore",
+        "signaling mechanism"
+      ],
+      "protected": true
+    },
+    {
+      "term": "race-condition",
+      "hindi": "रेस स्थिति",
+      "aliases": [
+        "data race",
+        "concurrency bug"
+      ],
+      "protected": false
+    },
+    {
+      "term": "critical-section",
+      "hindi": "महत्वपूर्ण खंड",
+      "aliases": [
+        "synchronized block",
+        "protected region"
+      ],
+      "protected": false
+    },
+    {
+      "term": "atomic-operation",
+      "hindi": "परमाणु संक्रिया / एटॉमिक",
+      "aliases": [
+        "atomicity",
+        "compare-and-swap",
+        "cas"
+      ],
+      "protected": true
+    },
+    {
+      "term": "deadlock-prevention",
+      "hindi": "डेडलॉक रोकथाम",
+      "aliases": [
+        "banker's algorithm",
+        "resource ordering"
+      ],
+      "protected": false
+    },
+    {
+      "term": "scheduling",
+      "hindi": "शेड्यूलिंग",
+      "aliases": [
+        "cpu scheduling",
+        "round-robin",
+        "sjf"
+      ],
+      "protected": false
+    },
+    {
+      "term": "round-robin",
+      "hindi": "राउंड रॉबिन",
+      "aliases": [
+        "rr scheduling",
+        "time-sliced scheduling"
+      ],
+      "protected": true
+    },
+    {
+      "term": "file-system",
+      "hindi": "फाइल सिस्टम",
+      "aliases": [
+        "fs",
+        "ext4",
+        "ntfs",
+        "zfs"
+      ],
+      "protected": false
+    },
+    {
+      "term": "inode",
+      "hindi": "आईनोड",
+      "aliases": [
+        "inode table",
+        "file metadata pointer"
+      ],
+      "protected": true
+    },
+    {
+      "term": "tcp",
+      "hindi": "टीसीपी",
+      "aliases": [
+        "transmission control protocol",
+        "tcp handshake"
+      ],
+      "protected": true
+    },
+    {
+      "term": "udp",
+      "hindi": "यूडीपी",
+      "aliases": [
+        "user datagram protocol",
+        "connectionless socket"
+      ],
+      "protected": true
+    },
+    {
+      "term": "ip-address",
+      "hindi": "आईपी पता",
+      "aliases": [
+        "ipv4",
+        "ipv6",
+        "internet protocol"
+      ],
+      "protected": true
+    },
+    {
+      "term": "dns",
+      "hindi": "डीएनएस",
+      "aliases": [
+        "domain name system",
+        "dns resolver"
+      ],
+      "protected": true
+    },
+    {
+      "term": "http",
+      "hindi": "एचटीटीपी",
+      "aliases": [
+        "hypertext transfer protocol",
+        "http/2",
+        "http/3"
+      ],
+      "protected": true
+    },
+    {
+      "term": "https",
+      "hindi": "एचटीटीपीएस",
+      "aliases": [
+        "secure http",
+        "tls/ssl"
+      ],
+      "protected": true
+    },
+    {
+      "term": "tls",
+      "hindi": "टीएलएस",
+      "aliases": [
+        "transport layer security",
+        "ssl certificate"
+      ],
+      "protected": true
+    },
+    {
+      "term": "socket",
+      "hindi": "सॉकेट",
+      "aliases": [
+        "network socket",
+        "berkeley socket"
+      ],
+      "protected": false
+    },
+    {
+      "term": "packet",
+      "hindi": "पैकेट",
+      "aliases": [
+        "network packet",
+        "ip packet"
+      ],
+      "protected": false
+    },
+    {
+      "term": "router",
+      "hindi": "राउटर",
+      "aliases": [
+        "routing table",
+        "network router"
+      ],
+      "protected": false
+    },
+    {
+      "term": "firewall",
+      "hindi": "फ़ायरवॉल",
+      "aliases": [
+        "network packet filter",
+        "security gateway"
+      ],
+      "protected": false
+    },
+    {
+      "term": "load-balancer",
+      "hindi": "लोड बैलेंसर",
+      "aliases": [
+        "reverse proxy load balancer",
+        "haproxy"
+      ],
+      "protected": false
+    },
+    {
+      "term": "api",
+      "hindi": "एपीआई",
+      "aliases": [
+        "application programming interface",
+        "rest api"
+      ],
+      "protected": true
+    },
+    {
+      "term": "rest",
+      "hindi": "रेस्ट",
+      "aliases": [
+        "representational state transfer",
+        "restful service"
+      ],
+      "protected": true
+    },
+    {
+      "term": "graphql",
+      "hindi": "ग्राफक्यूएल",
+      "aliases": [
+        "graphql query",
+        "graphql schema"
+      ],
+      "protected": true
+    },
+    {
+      "term": "rpc",
+      "hindi": "आरपीसी",
+      "aliases": [
+        "remote procedure call",
+        "grpc"
+      ],
+      "protected": true
+    },
+    {
+      "term": "grpc",
+      "hindi": "जीआरपीसी",
+      "aliases": [
+        "google remote procedure call",
+        "protobuf"
+      ],
+      "protected": true
+    },
+    {
+      "term": "protobuf",
+      "hindi": "प्रोटोबफ़",
+      "aliases": [
+        "protocol buffers",
+        "serialization protocol"
+      ],
+      "protected": true
+    },
+    {
+      "term": "json",
+      "hindi": "जेसन",
+      "aliases": [
+        "javascript object notation",
+        "json document"
+      ],
+      "protected": true
+    },
+    {
+      "term": "xml",
+      "hindi": "एक्सएमएल",
+      "aliases": [
+        "extensible markup language",
+        "xml parser"
+      ],
+      "protected": true
+    },
+    {
+      "term": "sql",
+      "hindi": "एसक्यूएल",
+      "aliases": [
+        "structured query language",
+        "relational query"
+      ],
+      "protected": true
+    },
+    {
+      "term": "nosql",
+      "hindi": "नोएसक्यूएल",
+      "aliases": [
+        "document database",
+        "key-value store"
+      ],
+      "protected": true
+    },
+    {
+      "term": "acid",
+      "hindi": "एसिड",
+      "aliases": [
+        "atomicity consistency isolation durability",
+        "acid transactions"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cap-theorem",
+      "hindi": "सीएपी प्रमेय",
+      "aliases": [
+        "brewer cap theorem",
+        "consistency availability partition"
+      ],
+      "protected": true
+    },
+    {
+      "term": "sharding",
+      "hindi": "शार्डिंग",
+      "aliases": [
+        "database sharding",
+        "horizontal partitioning"
+      ],
+      "protected": true
+    },
+    {
+      "term": "replication",
+      "hindi": "प्रतिकृति / प्रतिकृतिकरण",
+      "aliases": [
+        "primary-replica",
+        "master-slave"
+      ],
+      "protected": false
+    },
+    {
+      "term": "distributed-systems",
+      "hindi": "वितरित प्रणालियां",
+      "aliases": [
+        "distributed computing",
+        "consensus"
+      ],
+      "protected": false
+    },
+    {
+      "term": "consensus",
+      "hindi": "आम सहमति / सर्वसम्मति",
+      "aliases": [
+        "distributed consensus",
+        "byzantine fault"
+      ],
+      "protected": false
+    },
+    {
+      "term": "paxos",
+      "hindi": "पैक्सोस",
+      "aliases": [
+        "paxos consensus algorithm",
+        "multi-paxos"
+      ],
+      "protected": true
+    },
+    {
+      "term": "raft",
+      "hindi": "राफ्ट",
+      "aliases": [
+        "raft consensus protocol",
+        "leader election"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cache",
+      "hindi": "कैश",
+      "aliases": [
+        "memory cache",
+        "redis",
+        "memcached"
+      ],
+      "protected": true
+    },
+    {
+      "term": "lru-cache",
+      "hindi": "एलआरयू कैश",
+      "aliases": [
+        "least recently used cache",
+        "cache eviction"
+      ],
+      "protected": true
+    },
+    {
+      "term": "redis",
+      "hindi": "रेडिस",
+      "aliases": [
+        "in-memory data store",
+        "redis key-value"
+      ],
+      "protected": true
+    },
+    {
+      "term": "docker",
+      "hindi": "डॉकर",
+      "aliases": [
+        "container engine",
+        "docker container"
+      ],
+      "protected": true
+    },
+    {
+      "term": "container",
+      "hindi": "कंटेनर",
+      "aliases": [
+        "os virtualization",
+        "container image"
+      ],
+      "protected": false
+    },
+    {
+      "term": "kubernetes",
+      "hindi": "कुबेरनेट्स",
+      "aliases": [
+        "k8s",
+        "container orchestration"
+      ],
+      "protected": true
+    },
+    {
+      "term": "microservices",
+      "hindi": "माइक्रोसर्विसेज",
+      "aliases": [
+        "microservice architecture",
+        "decoupled services"
+      ],
+      "protected": false
+    },
+    {
+      "term": "monolith",
+      "hindi": "मोनोलिथ",
+      "aliases": [
+        "monolithic application",
+        "single deployment unit"
+      ],
+      "protected": false
+    },
+    {
+      "term": "ci-cd",
+      "hindi": "सीआई-सीडी",
+      "aliases": [
+        "continuous integration continuous deployment",
+        "pipeline automation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "git",
+      "hindi": "गिट",
+      "aliases": [
+        "distributed version control",
+        "git commit"
+      ],
+      "protected": true
+    },
+    {
+      "term": "garbage-collection",
+      "hindi": "कचरा संग्रह / गार्बेज कलेक्शन",
+      "aliases": [
+        "gc",
+        "memory reclamation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "memory-leak",
+      "hindi": "मेमोरी रिसाव",
+      "aliases": [
+        "unreleased heap memory",
+        "dangling allocation"
+      ],
+      "protected": false
+    },
+    {
+      "term": "buffer-overflow",
+      "hindi": "बफर ओवरफ्लो",
+      "aliases": [
+        "stack overflow",
+        "memory corruption"
+      ],
+      "protected": false
+    },
+    {
+      "term": "sql-injection",
+      "hindi": "एसक्यूएल इंजेक्शन",
+      "aliases": [
+        "sqli",
+        "database exploitation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "xss",
+      "hindi": "एक्सएसएस",
+      "aliases": [
+        "cross-site scripting",
+        "client-side injection"
+      ],
+      "protected": true
+    },
+    {
+      "term": "csrf",
+      "hindi": "सीएसआरएफ",
+      "aliases": [
+        "cross-site request forgery",
+        "session hijacking"
+      ],
+      "protected": true
+    },
+    {
+      "term": "cryptography",
+      "hindi": "क्रिप्टोग्राफी / गूढ़लेखन",
+      "aliases": [
+        "encryption",
+        "decryption"
+      ],
+      "protected": false
+    },
+    {
+      "term": "symmetric-key",
+      "hindi": "सममित कुंजी",
+      "aliases": [
+        "aes",
+        "block cipher"
+      ],
+      "protected": false
+    },
+    {
+      "term": "asymmetric-key",
+      "hindi": "असममित कुंजी",
+      "aliases": [
+        "rsa",
+        "public key cryptography"
+      ],
+      "protected": false
+    },
+    {
+      "term": "rsa",
+      "hindi": "आरएसए",
+      "aliases": [
+        "rsa algorithm",
+        "public-key cryptosystem"
+      ],
+      "protected": true
+    },
+    {
+      "term": "aes",
+      "hindi": "एईएस",
+      "aliases": [
+        "advanced encryption standard",
+        "symmetric cipher"
+      ],
+      "protected": true
+    },
+    {
+      "term": "hash-function",
+      "hindi": "हैश फलन",
+      "aliases": [
+        "sha-256",
+        "cryptographic hash"
+      ],
+      "protected": false
+    },
+    {
+      "term": "digital-signature",
+      "hindi": "डिजिटल हस्ताक्षर",
+      "aliases": [
+        "signature verification",
+        "asymmetric signature"
+      ],
+      "protected": false
+    },
+    {
+      "term": "parser",
+      "hindi": "पार्सर",
+      "aliases": [
+        "syntax parser",
+        "ast generator"
+      ],
+      "protected": true
+    },
+    {
+      "term": "lexer",
+      "hindi": "लेक्सर",
+      "aliases": [
+        "lexical analyzer",
+        "scanner"
+      ],
+      "protected": true
+    },
+    {
+      "term": "ast",
+      "hindi": "एएसटी",
+      "aliases": [
+        "abstract syntax tree",
+        "parse tree"
+      ],
+      "protected": true
+    },
+    {
+      "term": "interpreter",
+      "hindi": "दुभाषिया / इंटरप्रेटर",
+      "aliases": [
+        "code interpreter",
+        "runtime evaluation"
+      ],
+      "protected": true
+    },
+    {
+      "term": "jit-compiler",
+      "hindi": "जिट कंपाइलर",
+      "aliases": [
+        "just-in-time compilation",
+        "jit execution"
+      ],
+      "protected": true
+    },
+    {
+      "term": "refactoring",
+      "hindi": "रीफैक्टरिंग",
+      "aliases": [
+        "code refactoring",
+        "clean code"
+      ],
+      "protected": false
+    },
+    {
+      "term": "design-pattern",
+      "hindi": "डिजाइन पैटर्न",
+      "aliases": [
+        "gang of four",
+        "software pattern"
+      ],
+      "protected": false
+    },
+    {
+      "term": "singleton",
+      "hindi": "सिंगलटन",
+      "aliases": [
+        "singleton pattern",
+        "single instance"
+      ],
+      "protected": true
+    },
+    {
+      "term": "factory-pattern",
+      "hindi": "फैक्ट्री पैटर्न",
+      "aliases": [
+        "factory method",
+        "abstract factory"
+      ],
+      "protected": true
+    },
+    {
+      "term": "observer-pattern",
+      "hindi": "पर्यवेक्षक पैटर्न",
+      "aliases": [
+        "publish-subscribe",
+        "event listener"
+      ],
+      "protected": true
+    },
+    {
+      "term": "unit-testing",
+      "hindi": "यूनिट परीक्षण",
+      "aliases": [
+        "unit tests",
+        "pytest",
+        "junit"
+      ],
+      "protected": false
+    },
+    {
+      "term": "integration-testing",
+      "hindi": "एकीकरण परीक्षण",
+      "aliases": [
+        "system test",
+        "end-to-end testing"
+      ],
+      "protected": false
+    },
+    {
+      "term": "mocking",
+      "hindi": "मॉकिंग",
+      "aliases": [
+        "test mock",
+        "stubbing"
+      ],
+      "protected": false
+    },
+    {
+      "term": "profiler",
+      "hindi": "प्रोफाइलर",
+      "aliases": [
+        "performance profiler",
+        "cpu profiler"
+      ],
+      "protected": false
+    },
+    {
+      "term": "benchmarking",
+      "hindi": "बेंचमार्किंग",
+      "aliases": [
+        "runtime performance benchmark",
+        "load testing"
+      ],
+      "protected": false
+    },
+    {
+      "term": "cloud-computing",
+      "hindi": "क्लाउड कंप्यूटिंग",
+      "aliases": [
+        "aws",
+        "gcp",
+        "azure"
+      ],
+      "protected": false
+    },
+    {
+      "term": "serverless",
+      "hindi": "सर्वरलेस",
+      "aliases": [
+        "aws lambda",
+        "cloud functions"
+      ],
+      "protected": false
+    },
+    {
+      "term": "virtualization",
+      "hindi": "वर्चुअलाइजेशन",
+      "aliases": [
+        "hypervisor",
+        "virtual machine",
+        "vm"
+      ],
+      "protected": false
+    },
+    {
+      "term": "hypervisor",
+      "hindi": "हाइपरवाइजर",
+      "aliases": [
+        "type 1 hypervisor",
+        "type 2 hypervisor"
+      ],
+      "protected": true
+    },
+    {
+      "term": "big-data",
+      "hindi": "बड़ा डेटा / बिग डेटा",
+      "aliases": [
+        "hadoop",
+        "spark",
+        "mapreduce"
+      ],
+      "protected": false
+    },
+    {
+      "term": "mapreduce",
+      "hindi": "मैपरिड्यूस",
+      "aliases": [
+        "map and reduce distributed processing",
+        "hadoop mapreduce"
+      ],
+      "protected": true
+    },
+    {
+      "term": "spark",
+      "hindi": "स्पार्क",
+      "aliases": [
+        "apache spark",
+        "in-memory distributed compute"
+      ],
+      "protected": true
+    },
+    {
+      "term": "kafka",
+      "hindi": "काफ्का",
+      "aliases": [
+        "apache kafka",
+        "event stream processing"
+      ],
+      "protected": true
+    },
+    {
+      "term": "event-loop",
+      "hindi": "इवेंट लूप",
+      "aliases": [
+        "async event loop",
+        "non-blocking io"
+      ],
+      "protected": true
+    },
+    {
+      "term": "callback",
+      "hindi": "कॉलबैक",
+      "aliases": [
+        "callback function",
+        "promise callback"
+      ],
+      "protected": false
+    },
+    {
+      "term": "coroutine",
+      "hindi": "कोरूटीन",
+      "aliases": [
+        "async await coroutine",
+        "green thread"
+      ],
+      "protected": true
+    },
+    {
+      "term": "serialization",
+      "hindi": "क्रमांकन / सीरियलाइजेशन",
+      "aliases": [
+        "data serialization",
+        "marshaling"
+      ],
+      "protected": false
+    },
+    {
+      "term": "deserialization",
+      "hindi": "विसंकेतन / डीसीरियलाइजेशन",
+      "aliases": [
+        "unmarshaling",
+        "json parse"
+      ],
+      "protected": false
+    },
+    {
+      "term": "thread-pool",
+      "hindi": "थ्रेड पूल",
+      "aliases": [
+        "worker thread pool",
+        "executor service"
+      ],
+      "protected": true
+    }
   ]
 }
