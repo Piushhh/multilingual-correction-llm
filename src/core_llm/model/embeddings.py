@@ -5,6 +5,13 @@ from .config import ModelConfig
 
 
 class TokenPositionEmbedding(nn.Module):
+    """
+    Learned token + learned position embeddings.
+
+    Supports sequences up to config.context_length.
+    Raises ValueError if sequence_length exceeds context_length.
+    """
+
     def __init__(self, config: ModelConfig):
         super().__init__()
 
@@ -21,13 +28,12 @@ class TokenPositionEmbedding(nn.Module):
         self.dropout = nn.Dropout(config.dropout)
 
     def forward(self, input_ids: torch.Tensor) -> torch.Tensor:
-        _, sequence_length = input_ids.shape
+        batch_size, sequence_length = input_ids.shape
 
         if sequence_length > self.position_embedding.num_embeddings:
             raise ValueError(
                 f"Sequence length {sequence_length} exceeds "
-                f"context length "
-                f"{self.position_embedding.num_embeddings}"
+                f"context length {self.position_embedding.num_embeddings}"
             )
 
         positions = torch.arange(

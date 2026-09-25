@@ -72,22 +72,30 @@ class MockAdapter(ModelAdapter):
 
 class CustomLLMAdapter(ModelAdapter):
     """
-    Concrete adapter for Member 1's custom-trained PyTorch Transformer model.
-    Connects to src/core_llm/checkpoints/correction_model.pt and SentencePiece BPETokenizer.
+    Adapter for Member 1's custom-trained CausalTransformerLM.
 
-    IMPORTANT CONTEXT LENGTH HANDLING:
-    Member 1's custom model was trained on a 64-token context length with prompt format:
-    "Correct:\n{text}\nAnswer:\n"
-    This adapter extracts the core text from verbose prompts (such as Member 3's PromptFormatter)
-    to guarantee that prompt + generation fit strictly within the 64-token context window.
+    This adapter connects the CorrectionEngine to Member 1's inference
+    interface without duplicating any Transformer code.
+
+    Integration chain:
+        CorrectionEngine
+            → CustomLLMAdapter
+                → LLMInference.from_checkpoint()
+                    → CausalTransformerLM
+                        → BPETokenizer + checkpoint
+
+    Config keys:
+        custom_model_path (str):   Path to correction checkpoint (.pt file)
+        tokenizer_path    (str):   Optional tokenizer path override
+        device            (str):   'cpu' or 'cuda' (default: auto-detect)
+        max_new_tokens    (int):   Maximum new tokens to generate (default: 64)
+        temperature       (float): Sampling temperature (default: 0.0 = greedy)
+        top_k             (int):   Top-k sampling filter (default: None)
     """
 
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         self.config = config or {}
-        self._model_path = self.config.get(
-            "custom_model_path",
-            "src/core_llm/checkpoints/correction_model.pt",
-        )
+        self._model_path = self.config.get("custom_model_path", None)
         self._tokenizer_path = self.config.get(
             "tokenizer_path",
             "src/core_llm/tokenizer/tokenizer.model",
@@ -96,54 +104,85 @@ class CustomLLMAdapter(ModelAdapter):
             "device",
             "cuda" if torch.cuda.is_available() else "cpu",
         )
-        self._model = None
-        self._tokenizer = None
-        self._device = None
+        self._max_new_tokens = self.config.get("max_new_tokens", 64)
+        self._temperature = self.config.get("temperature", 0.0)
+        self._top_k = self.config.get("top_k", None)
+        self._llm = None  # set after load()
 
     def load(self) -> None:
-        from src.core_llm.inference.correct import load_model
-
-        device = torch.device(self._device_str)
-        self._model, self._tokenizer, self._device = load_model(
-            checkpoint_path=self._model_path,
-            tokenizer_path=self._tokenizer_path,
-            device=device,
-        )
-
-    def _extract_input_text(self, prompt: str) -> str:
         """
-        Extract the core sentence to correct from complex prompt formats to fit 64 tokens.
+        Load Member 1's model from checkpoint using LLMInference.
+
+        Raises:
+            RuntimeError:       If custom_model_path is not configured.
+            FileNotFoundError:  If checkpoint or tokenizer file is missing.
+            ValueError:         If vocab_size mismatch detected.
+            KeyError:           If checkpoint is missing model_config.
         """
-        if "INPUT:\n" in prompt:
-            parts = prompt.split("INPUT:\n", 1)[1]
-            if "\n\nOUTPUT:" in parts:
-                return parts.split("\n\nOUTPUT:", 1)[0].strip()
-            elif "\nOUTPUT:" in parts:
-                return parts.split("\nOUTPUT:", 1)[0].strip()
-            return parts.strip()
-        elif prompt.startswith("Correct:\n") and "\nAnswer:\n" in prompt:
-            return prompt.split("Correct:\n", 1)[1].split("\nAnswer:\n", 1)[0].strip()
-        return prompt.strip()
+        if self._model_path is None:
+            raise RuntimeError(
+                "CustomLLMAdapter: 'custom_model_path' is not set in config.\n"
+                "Set config['custom_model_path'] to the path of the correction checkpoint.\n"
+                "Example: 'src/core_llm/checkpoints/correction_model.pt'"
+            )
+
+        try:
+            from src.core_llm.inference.generate import LLMInference
+        except ImportError as e:
+            raise RuntimeError(
+                f"Failed to import Member 1's inference interface: {e}\n"
+                "Ensure src/core_llm/ is properly installed."
+            )
+
+        try:
+            self._llm = LLMInference.from_checkpoint(
+                checkpoint_path=self._model_path,
+                tokenizer_path=self._tokenizer_path,
+                device=self._device_str,
+            )
+        except FileNotFoundError as e:
+            raise FileNotFoundError(
+                f"CustomLLMAdapter: checkpoint or tokenizer not found.\n{e}"
+            )
+        except (KeyError, ValueError) as e:
+            raise RuntimeError(
+                f"CustomLLMAdapter: failed to load Member 1 model.\n{e}"
+            )
 
     def generate(self, prompt: str, **kwargs) -> str:
-        if not self.is_loaded():
-            raise RuntimeError("Custom model is not loaded. Call load() first.")
+        """
+        Generate text using Member 1's LLMInference.
 
-        from src.core_llm.inference.correct import correct_text
+        Args:
+            prompt: The formatted correction prompt string.
+            **kwargs: Optional overrides for max_new_tokens, temperature, top_k.
 
-        text_to_correct = self._extract_input_text(prompt)
-        max_new_tokens = kwargs.get("max_new_tokens", 30)
+        Returns:
+            Generated text string (prompt excluded).
 
-        return correct_text(
-            self._model,
-            self._tokenizer,
-            self._device,
-            text_to_correct,
+        Raises:
+            RuntimeError: If load() has not been called successfully.
+        """
+        if self._llm is None:
+            raise RuntimeError(
+                "CustomLLMAdapter: model is not loaded. Call load() first."
+            )
+
+        max_new_tokens = kwargs.get("max_new_tokens", self._max_new_tokens)
+        temperature = kwargs.get("temperature", self._temperature)
+        top_k = kwargs.get("top_k", self._top_k)
+
+        return self._llm.generate(
+            text=prompt,
             max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            top_k=top_k,
+            stop_at_eos=True,
         )
 
     def is_loaded(self) -> bool:
-        return self._model is not None and self._tokenizer is not None
+        """Returns True if the model has been successfully loaded."""
+        return self._llm is not None
 
     @property
     def model_id(self) -> str:
@@ -151,6 +190,7 @@ class CustomLLMAdapter(ModelAdapter):
 
     @property
     def is_baseline(self) -> bool:
+        """Always False — this is Member 1's custom model, not a baseline."""
         return False
 
 

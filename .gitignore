@@ -48,3 +48,9 @@ experiments/runs/*
 # IDE
 .vscode/
 .idea/
+# Member 1 tokenizer (small binary, required for tests)
+!src/core_llm/tokenizer/tokenizer.model
+!src/core_llm/tokenizer/tokenizer.vocab
+
+# Member 1 checkpoints (large — do not commit)
+src/core_llm/checkpoints/*.pt

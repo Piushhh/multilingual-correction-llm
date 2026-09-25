@@ -1,170 +1,168 @@
-import sys
+"""
+Correction inference interface.
+
+Provides CorrectionInference wrapping LLMInference for the specific
+task of text correction via the prompt template:
+
+    Correct:
+    <incorrect text>
+    Answer:
+
+Usage:
+
+    from src.core_llm.inference.correct import CorrectionInference
+
+    corrector = CorrectionInference.from_checkpoint("path/to/correction_model.pt")
+
+    result = corrector.correct(
+        text="Deep learnig is a subfeld of machne learning.",
+        max_new_tokens=64,
+    )
+    # result is the corrected text string
+
+NOTE: Correction quality depends entirely on training. A freshly initialized
+or lightly trained model will NOT produce meaningful corrections.
+Do not claim correction quality without empirical evaluation.
+"""
+
 from pathlib import Path
-from typing import Optional, Tuple
-import torch
+from typing import Optional
 
-from src.core_llm.model.config import ModelConfig
-from src.core_llm.model.transformer import CausalTransformerLM
-from src.core_llm.tokenizer.bpe_tokenizer import BPETokenizer
+from src.core_llm.inference.generate import LLMInference
 
 
-CHECKPOINT_PATH = "src/core_llm/checkpoints/correction_model.pt"
-TOKENIZER_PATH = "src/core_llm/tokenizer/tokenizer.model"
+# Default paths (relative to repo root)
+_REPO_ROOT = Path(__file__).resolve().parents[4]
+_DEFAULT_CORRECTION_CKPT = _REPO_ROOT / "src" / "core_llm" / "checkpoints" / "correction_model.pt"
+_DEFAULT_TOKENIZER = _REPO_ROOT / "src" / "core_llm" / "tokenizer" / "tokenizer.model"
 
-CONTEXT_LENGTH = 64
-MAX_NEW_TOKENS = 30
-EOS_TOKEN_ID = 2
+PROMPT_PREFIX = "Correct:\n"
+ANSWER_PREFIX = "\nAnswer:\n"
 
 
-def load_model(
-    checkpoint_path: Optional[str] = None,
-    tokenizer_path: Optional[str] = None,
-    device: Optional[torch.device] = None,
-) -> Tuple[CausalTransformerLM, BPETokenizer, torch.device]:
+class CorrectionInference:
     """
-    Load Member 1 custom correction Transformer model, tokenizer, and target device.
+    Correction inference wrapper.
 
-    Args:
-        checkpoint_path: Path to correction_model.pt (defaults to CHECKPOINT_PATH).
-        tokenizer_path: Path to tokenizer.model (defaults to TOKENIZER_PATH).
-        device: Torch device (defaults to CUDA if available, else CPU).
-
-    Returns:
-        (model, tokenizer, device)
+    Formats the correction prompt, generates a response via LLMInference,
+    and returns only the generated correction text (not the prompt).
     """
-    ckpt_path = Path(checkpoint_path or CHECKPOINT_PATH)
-    tok_path = Path(tokenizer_path or TOKENIZER_PATH)
 
-    if not ckpt_path.exists():
-        raise FileNotFoundError(
-            f"Correction checkpoint not found at: {ckpt_path.resolve()}\n"
-            "Ensure the trained model checkpoint exists."
+    def __init__(self, llm: LLMInference):
+        """
+        Args:
+            llm: An initialized LLMInference instance.
+        """
+        self._llm = llm
+
+    # ── Factory ───────────────────────────────────────────────────────────
+
+    @classmethod
+    def from_checkpoint(
+        cls,
+        checkpoint_path: Optional[str] = None,
+        tokenizer_path: Optional[str] = None,
+        device: Optional[str] = None,
+    ) -> "CorrectionInference":
+        """
+        Load a CorrectionInference from a checkpoint.
+
+        Args:
+            checkpoint_path: Path to correction_model.pt (or domain_adapted_model.pt).
+                             Defaults to src/core_llm/checkpoints/correction_model.pt
+            tokenizer_path:  Optional override for tokenizer path.
+            device:          'cpu', 'cuda', or None (auto-detect).
+
+        Returns:
+            Initialized CorrectionInference instance.
+
+        Raises:
+            FileNotFoundError: If checkpoint or tokenizer is missing.
+            ValueError:        If vocab_size mismatch.
+        """
+        if checkpoint_path is None:
+            checkpoint_path = str(_DEFAULT_CORRECTION_CKPT)
+
+        llm = LLMInference.from_checkpoint(
+            checkpoint_path=checkpoint_path,
+            tokenizer_path=tokenizer_path,
+            device=device,
         )
 
-    if not tok_path.exists():
-        raise FileNotFoundError(
-            f"Tokenizer model not found at: {tok_path.resolve()}\n"
-            "Ensure tokenizer.model exists."
+        return cls(llm)
+
+    # ── Correction ────────────────────────────────────────────────────────
+
+    def correct(
+        self,
+        text: str,
+        max_new_tokens: int = 64,
+        temperature: float = 0.0,
+        top_k: Optional[int] = None,
+    ) -> str:
+        """
+        Correct the given text.
+
+        Args:
+            text:           The text to be corrected.
+            max_new_tokens: Maximum tokens to generate as the correction.
+            temperature:    Sampling temperature (0.0 = greedy by default).
+            top_k:          Top-k sampling. None = no filtering.
+
+        Returns:
+            The correction as a string (prompt is excluded from output).
+            Returns empty string if input is empty.
+
+        NOTE: The quality of correction depends on training.
+        A freshly initialized or lightly trained model will not produce
+        meaningful corrections. This interface is structurally correct
+        regardless of model quality.
+        """
+        if not text:
+            return ""
+
+        # Format correction prompt
+        prompt = PROMPT_PREFIX + text + ANSWER_PREFIX
+
+        correction = self._llm.generate(
+            text=prompt,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            top_k=top_k,
+            stop_at_eos=True,
         )
 
-    if device is None:
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        return correction.strip()
 
-    tokenizer = BPETokenizer(str(tok_path))
-
-    config = ModelConfig(
-        vocab_size=256,
-        context_length=CONTEXT_LENGTH,
-        embedding_dim=256,
-        num_heads=8,
-        num_layers=6,
-        dropout=0.1,
-    )
-
-    model = CausalTransformerLM(config)
-
-    checkpoint = torch.load(
-        str(ckpt_path),
-        map_location=device,
-        weights_only=False,
-    )
-
-    state_dict = checkpoint.get("model_state_dict", checkpoint)
-    model.load_state_dict(
-        state_dict,
-        strict=False,
-    )
-
-    model.to(device)
-    model.eval()
-
-    return model, tokenizer, device
+    @property
+    def llm(self) -> LLMInference:
+        """Access the underlying LLMInference instance."""
+        return self._llm
 
 
-def correct_text(
-    model: CausalTransformerLM,
-    tokenizer: BPETokenizer,
-    device: torch.device,
-    text: str,
-    max_new_tokens: int = MAX_NEW_TOKENS,
-) -> str:
-    """
-    Run correction inference on the provided text.
-
-    Args:
-        model: CausalTransformerLM instance.
-        tokenizer: BPETokenizer instance.
-        device: Execution device.
-        text: Input text to correct.
-        max_new_tokens: Maximum tokens to generate.
-
-    Returns:
-        Corrected text string.
-    """
-    if not text or not text.strip():
-        return ""
-
-    prompt = f"Correct:\n{text.strip()}\nAnswer:\n"
-    prompt_ids = tokenizer.encode(prompt)
-
-    # Keep enough room for generated correction within CONTEXT_LENGTH
-    if len(prompt_ids) >= CONTEXT_LENGTH:
-        prompt_ids = prompt_ids[-(CONTEXT_LENGTH - 1):]
-
-    input_ids = torch.tensor(
-        [prompt_ids],
-        dtype=torch.long,
-        device=device,
-    )
-
-    generated_start = input_ids.shape[1]
-
-    with torch.no_grad():
-        for _ in range(max_new_tokens):
-            context = input_ids[:, -CONTEXT_LENGTH:]
-            output = model(context)
-            logits = output["logits"]
-
-            next_token = torch.argmax(
-                logits[:, -1, :],
-                dim=-1,
-                keepdim=True,
-            )
-
-            # Stop if EOS token generated
-            if next_token.item() == EOS_TOKEN_ID:
-                break
-
-            input_ids = torch.cat([input_ids, next_token], dim=1)
-
-    generated_tokens = input_ids[0].tolist()[generated_start:]
-    decoded = tokenizer.decode(generated_tokens)
-
-    # Clean up newline artifacts if any
-    return decoded.strip()
-
+# ── Script entry point ────────────────────────────────────────────────────────
 
 def main():
+    import sys
+
     if len(sys.argv) > 1:
         text = " ".join(sys.argv[1:])
     else:
         text = "Deep learnig is a subfeld of machne learning."
 
     print("Loading correction model...")
-    model, tokenizer, device = load_model()
 
-    print("Input:")
-    print(text)
+    try:
+        corrector = CorrectionInference.from_checkpoint()
+    except FileNotFoundError as e:
+        print(f"\nERROR: {e}")
+        print("\nBLOCKED: No correction checkpoint available.")
+        print("Run training pipeline first.")
+        raise SystemExit(1)
 
-    corrected = correct_text(
-        model,
-        tokenizer,
-        device,
-        text,
-    )
-
-    print("\nModel correction:")
-    print(corrected)
+    print(f"Input: {text}")
+    result = corrector.correct(text, max_new_tokens=64, temperature=0.0)
+    print(f"Corrected: {result}")
 
 
 if __name__ == "__main__":
