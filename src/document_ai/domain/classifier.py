@@ -119,18 +119,23 @@ class DomainClassifier:
             "scores": scores,
         }
 
-    def save(self, path):
+    def save(self, path, metadata=None):
+        import sklearn
+
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
-        joblib.dump(
-            {
-                "word_vectorizer": self.word_vectorizer,
-                "char_vectorizer": self.char_vectorizer,
-                "classifier": self.classifier,
-                "fitted": self._fitted,
+        payload = {
+            "word_vectorizer": self.word_vectorizer,
+            "char_vectorizer": self.char_vectorizer,
+            "classifier": self.classifier,
+            "fitted": self._fitted,
+            "metadata": {
+                "sklearn_version": sklearn.__version__,
+                "domains": DOMAINS,
+                **(metadata or {}),
             },
-            path,
-        )
+        }
+        joblib.dump(payload, path)
 
     @classmethod
     def load(cls, path):
@@ -140,6 +145,7 @@ class DomainClassifier:
         instance.char_vectorizer = state["char_vectorizer"]
         instance.classifier = state["classifier"]
         instance._fitted = state["fitted"]
+        instance.metadata = state.get("metadata", {})
         return instance
 
 

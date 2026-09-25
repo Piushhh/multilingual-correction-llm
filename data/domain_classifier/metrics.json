@@ -1,0 +1,92 @@
+{
+  "best_model": "Calibrated_LinearSVC",
+  "scikit_learn_version": "1.6.1",
+  "train_samples": 722,
+  "val_samples": 80,
+  "test_samples": 80,
+  "non_english_train_pct": 45.98,
+  "benchmark": {
+    "LogisticRegression": {
+      "val_accuracy": 0.9625,
+      "val_macro_f1": 0.9625,
+      "test_accuracy": 0.975,
+      "test_macro_f1": 0.9749
+    },
+    "Calibrated_LinearSVC": {
+      "val_accuracy": 0.9875,
+      "val_macro_f1": 0.9875,
+      "test_accuracy": 1.0,
+      "test_macro_f1": 1.0
+    },
+    "MultinomialNB": {
+      "val_accuracy": 0.975,
+      "val_macro_f1": 0.975,
+      "test_accuracy": 0.95,
+      "test_macro_f1": 0.9493
+    }
+  },
+  "test_metrics": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_domain": {
+      "deep_learning": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      },
+      "computer_science": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      },
+      "mathematics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      },
+      "general": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      }
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "deep_learning",
+      "computer_science",
+      "mathematics",
+      "general"
+    ],
+    "matrix": [
+      [
+        20,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        20,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        20,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        20
+      ]
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+text,domain
+Refactoring cleans internal code structure without altering external observable behavior.,computer_science
+डिफ्यूजन मॉडल शोर को हटाकर उच्च गुणवत्ता वाली छवियां बनाते हैं।,deep_learning
+In technical documentation: Two-phase commit protocols coordinate distributed transactions across heterogeneous resource managers.,computer_science
+Context switching preserves processor registers and program counter state during thread multitasking.,computer_science
+An autoencoder learns a compressed latent representation and then reconstructs the input.,deep_learning
+In technical documentation: Race conditions arise when unsynchronized concurrent threads access shared state simultaneously.,computer_science
+बैकप्रोपेगेशन प्रत्येक परत के लिए ढाल की गणना करने की मानक विधि है।,deep_learning
+Students collaborated on research projects investigating plastic waste alternatives in consumer packaging.,general
+एम्बेडिंग शब्दार्थ को सघन सदिश अंतरिक्ष में प्रस्तुत करती है।,deep_learning
+मल्टी-हेड सेल्फ-अटेंशन टोकन के बीच जटिल निर्भरताओं को कैप्चर करता है।,deep_learning
+अवकल समीकरण भौतिक प्रणालियों और तरंगों के व्यवहार को दर्शाते हैं।,mathematics
+In technical documentation: A compiler translates source code written in a high-level programming language into machine code.,computer_science
+Note that Urban planning department affordable housing projects develop करने पर focus कर रहा है।,general
+Git repository में branching और merging team collaboration को smooth बनाती हैं।,computer_science
+In technical documentation: Public healthcare clinics administer seasonal influenza vaccines and preventive screening exams.,general
+In technical documentation: Differential equations with boundary value conditions model equilibrium configurations in engineering physics.,mathematics
+In technical documentation: The conference keynote addressed sustainable urban planning and renewable energy adoption.,general
+स्वच्छता अभियान के तहत नागरिकों ने सार्वजनिक स्थानों की सफाई में योगदान दिया।,general
+Simplex algorithm linear programming problems को optimize करने के लिए use होता है।,mathematics
+कैलकुलस का मौलिक प्रमेय अवकलन और समाकलन को परस्पर विपरीत संक्रियाओं के रूप में जोड़ता है।,mathematics
+Knowledge distillation transfers dark knowledge from a large teacher network to a compact student model.,deep_learning
+In technical documentation: The annual music festival attracted thousands of international travelers and cultural performers.,general
+"अध्ययन और शोध के अनुसार, कन्वोल्यूशनल न्यूरल नेटवर्क छवियों में पैटर्न पहचानने के लिए फिल्टर का उपयोग करते हैं।",deep_learning
+Note that Hypothesis testing statistical significance measure करने के लिए p-value calculate करती है।,mathematics
+In technical documentation: Spanning trees connect all vertices in a connected graph with minimal total edge weights.,computer_science
+In technical documentation: The neighborhood association organized a weekend park cleanup and community picnic event.,general
+In technical documentation: Binomial coefficients appear in polynomial expansions and discrete combinatorial probability calculations.,mathematics
+In technical documentation: The Hessian matrix contains second-order partial derivatives describing surface curvature and convexity.,mathematics
+Graph neural networks update node representations by aggregating features from local neighborhood graphs.,deep_learning
+Spanning trees connect all vertices in a connected graph with minimal total edge weights.,computer_science
+Note that Function का derivative calculate करने से rate of change easily find out हो जाता है।,mathematics
+The documentary explores marine life conservation across deep coral reef ecosystems.,general
+In technical documentation: Cross-entropy loss measures the distance between predicted probabilities and true labels.,deep_learning
+Covariance matrices capture pairwise linear dependencies across multivariate random vectors.,mathematics
+In technical documentation: A vector space is closed under vector addition and multiplication by field scalars.,mathematics
+यह transformer model multi-head self-attention mechanism का उपयोग करता है।,deep_learning
+गांवों में पक्की सड़कों के निर्माण से आवागमन और व्यापार में काफी सुविधा हुई है।,general
+In technical documentation: Cross-site scripting allows attackers to execute malicious scripts in client browser sessions.,computer_science
+In technical documentation: Taylor series expansions approximate differentiable functions using infinite polynomial sums.,mathematics
+In technical documentation: Embedding lookup layers map discrete token IDs to dense continuous representation vectors.,deep_learning
+Note that University campus में new student hostel और sports complex का उद्घाटन हुआ।,general
+"अध्ययन और शोध के अनुसार, मानव प्रतिक्रिया से सुदृढ़ीकरण सीखना मॉडल को मानवीय प्राथमिकताओं के अनुसार संरेखित करता है।",deep_learning
+Cross-attention connects encoder representations to decoder layers in conditional generation tasks.,deep_learning
+Note that Continuous integration pipeline automated tests run करके build errors catch करती है।,computer_science
+Multi-layer perceptrons use non-linear activation functions like ReLU and GELU to model complex data.,deep_learning
+In technical documentation: The weekly newspaper published investigative features on regional agricultural policies and water rights.,general
+In technical documentation: Cross-attention connects encoder representations to decoder layers in conditional generation tasks.,deep_learning
+Note that Binary search algorithm sorted array में element find करने के लिए O(log n) time लेता है।,computer_science
+Coffee shop में variety of organic tea और fresh bakery snacks serve होते हैं।,general
+Note that Convex optimization problems में local minimum ही global minimum होता है।,mathematics
+वेरिएंस यादृच्छिक चर के उसके माध्य से फैलाव को मापता है।,mathematics
+Note that Community center में free medical health checkup camp organize किया गया।,general
+In technical documentation: The Adam optimizer combines momentum with per-parameter adaptive learning rates.,deep_learning
+Note that Load balancer incoming web traffic को backend servers पर distribute करता है।,computer_science
+बेयस प्रमेय पूर्व ज्ञान के आधार पर सशर्त प्रायिकता की गणना करता है।,mathematics
+बिटवाइज़ ऑपरेटर बाइनरी स्तर पर बिट्स में हेरफेर करने के लिए उपयोग किए जाते हैं।,computer_science
+In technical documentation: Poisson distributions model counts of independent events occurring within fixed temporal intervals.,mathematics
+In technical documentation: Deadlocks occur when concurrent processes hold mutual exclusion locks in a circular wait condition.,computer_science
+Linear algebra में eigenvalues और eigenvectors linear transformation की scaling properties बताते हैं।,mathematics
+Solar photovoltaic panels convert incident sunlight into clean electrical power for homes.,general
+Orthogonal matrices preserve Euclidean vector lengths and inner products under linear transformations.,mathematics
+"अध्ययन और शोध के अनुसार, ज्ञान आसवन एक बड़े शिक्षक मॉडल से छोटे छात्र मॉडल में ज्ञान स्थानांतरित करता है।",deep_learning
+Distributed systems में CAP theorem consistency और availability के trade-offs explain करती है।,computer_science
+Volunteers beach cleanup drive conduct करके plastic waste collect कर रहे हैं।,general
+The Hessian matrix contains second-order partial derivatives describing surface curvature and convexity.,mathematics
+Healthy diet और regular morning walk overall wellness के लिए best हैं।,general
+प्राकृतिक उद्यानों में सुबह की सैर मानसिक शांति और नई ऊर्जा का संचार करती है।,general
+Dynamic programming solves optimization problems by breaking them into overlapping subproblems.,computer_science
+स्टैक डेटा संरचना लास्ट-इन-फर्स्ट-आउट (LIFO) सिद्धांत पर काम करती है।,computer_science
+Note that Supervised fine-tuning के दौरान instruction-response pairs पर model train होता है।,deep_learning
+Multivariate calculus में gradient vector maximum increase की direction point करता है।,mathematics
+वर्चुअल मेमोरी कंप्यूटर को भौतिक रैम से अधिक मेमोरी का उपयोग करने देती है।,computer_science
+In technical documentation: Gradient descent iteratively updates model parameters in the direction that reduces training loss.,deep_learning
+Relational database management systems ACID properties guarantee करते हैं।,computer_science
+In technical documentation: The documentary explores marine life conservation across deep coral reef ecosystems.,general
+डेटाबेस मैनेजमेंट सिस्टम डेटा को तालिकाओं में सुरक्षित और व्यवस्थित रखता है।,computer_science
+पर्यटकों ने ऐतिहासिक स्मारकों और प्राचीन महलों की अनूठी वास्तुकला की सराहना की।,general
+"Financial literacy encourages prudent budgeting, debt reduction, and retirement investment planning.",general
+In technical documentation: Vision transformers split images into sequential patches and process them with self-attention blocks.,deep_learning
+Fourier transforms decompose time-domain functions into continuous frequency-domain spectra.,mathematics

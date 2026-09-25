@@ -1,21 +1,81 @@
 text,domain
-"Attention mechanisms allow the model to focus on relevant tokens when generating each output.",deep_learning
-"Weight initialization affects training stability especially in very deep network architectures.",deep_learning
-"Transfer learning reuses representations from a pretrained model on a related downstream task.",deep_learning
-"The vanishing gradient problem makes training deep recurrent networks difficult without gating.",deep_learning
-"Knowledge distillation trains a small student model to replicate the outputs of a larger teacher.",deep_learning
-"Merge sort uses a divide-and-conquer strategy to sort arrays in O(n log n) time.",computer_science
-"Thread synchronization prevents race conditions when multiple threads access shared memory.",computer_science
-"A balanced binary search tree ensures O(log n) search insert and delete operations.",computer_science
-"Garbage collection automatically reclaims memory that is no longer reachable by the program.",computer_science
-"Network protocols define the rules for data exchange between systems over a communication channel.",computer_science
-"The Pythagorean theorem states that the square of the hypotenuse equals the sum of the squares.",mathematics
-"A Fourier transform decomposes a signal into its constituent frequency components.",mathematics
-"Bayesian inference updates the probability of a hypothesis as new evidence becomes available.",mathematics
-"A null hypothesis is rejected when the p-value falls below the chosen significance threshold.",mathematics
-"The Jacobian matrix collects all partial derivatives of a vector-valued function.",mathematics
-"The restaurant recently updated its menu with seasonal ingredients from local farms.",general
-"She repotted her plants over the weekend and rearranged them near the balcony window.",general
-"The school play received enthusiastic applause from parents and students in the audience.",general
-"He fixed the leaking tap in the kitchen after watching a home repair video online.",general
-"The neighborhood cleanup drive drew volunteers from across three different apartment blocks.",general
+In technical documentation: Buffer overflows corrupt memory by writing past allocated buffer bounds on the execution stack.,computer_science
+Beam search decodes output sequences by maintaining a fixed beam of highest-probability candidate hypotheses.,deep_learning
+Virtual memory translation lookaside buffer (TLB) use करके address translation fast बनाती है।,computer_science
+In technical documentation: Context-free grammars generate languages recognized by non-deterministic pushdown automata.,computer_science
+In technical documentation: Rotary position embeddings (RoPE) encode relative position information directly into query-key dot products.,deep_learning
+In technical documentation: Turing machines provide a theoretical mathematical model of computation and algorithmic decidability.,computer_science
+In technical documentation: Perplexity measures the inverse geometric mean probability assigned to tokens in test text.,deep_learning
+"In technical documentation: The maritime museum displayed model merchant sailing vessels, historic compasses, and naval logbooks.",general
+In technical documentation: Cosine annealing learning rate schedules decay the learning step smoothly toward zero over training epochs.,deep_learning
+In technical documentation: Label smoothing replaces one-hot ground truth targets with soft probabilities to prevent overconfidence.,deep_learning
+जैकबियन मैट्रिक्स बहुचर फलनों के पहले क्रम के आंशिक अवकलजों का प्रतिनिधित्व करता है।,mathematics
+Continuous integration pipeline automated tests run करके build errors catch करती है।,computer_science
+Effective communication and active listening foster productive professional working relationships.,general
+In technical documentation: Profiling tools identify performance bottlenecks and memory leaks in running software applications.,computer_science
+"In technical documentation: Public libraries lend digital audiobooks, reference encyclopedias, and educational documentary films.",general
+Note that Markov chain transition probabilities purely present state पर depend करती हैं।,mathematics
+Community center में free medical health checkup camp organize किया गया।,general
+Traditional folk dance performances celebrated cultural heritage during the seasonal harvest holiday.,general
+In technical documentation: Condition numbers measure how sensitive mathematical function outputs are to small perturbations in inputs.,mathematics
+Note that Singular value decomposition (SVD) matrix factorization की powerful technique है।,mathematics
+In technical documentation: Knowledge distillation transfers dark knowledge from a large teacher network to a compact student model.,deep_learning
+"अध्ययन और शोध के अनुसार, शहर में सार्वजनिक परिवहन के उपयोग से प्रदूषण और ट्रैफिक जाम में भारी कमी आती है।",general
+In technical documentation: Causal language modeling trains decoders by predicting future tokens with autoregressive masking.,deep_learning
+A metric space is a set equipped with a non-negative distance function satisfying the triangle inequality.,mathematics
+In technical documentation: A stack overflow occurs when recursive call frames exceed allocated stack memory limits.,computer_science
+Charity organization orphan children के लिए educational scholarships provide करती है।,general
+Euclidean metric space triangle inequality axiom satisfy करता है।,mathematics
+In technical documentation: Markov chains model stochastic processes where transition probabilities depend solely on current state.,mathematics
+Note that Tokens को continuous vector space में map करने के लिए embedding layer उपयोग होती है।,deep_learning
+In technical documentation: Refactoring cleans internal code structure without altering external observable behavior.,computer_science
+The spectral theorem guarantees that real symmetric matrices admit orthogonal diagonalizations.,mathematics
+In technical documentation: Students collaborated on research projects investigating plastic waste alternatives in consumer packaging.,general
+सुपरवाइज्ड फाइन-ट्यूनिंग मॉडल को मानवीय निर्देशों का पालन करना सिखाता है।,deep_learning
+In technical documentation: Linear programming optimizes linear objective functions subject to linear inequality constraints.,mathematics
+Convex optimization problems में local minimum ही global minimum होता है।,mathematics
+"अध्ययन और शोध के अनुसार, एडम ऑप्टिमाइज़र सीखने की दर को गतिशील रूप से समायोजित करता है।",deep_learning
+In technical documentation: Traditional folk dance performances celebrated cultural heritage during the seasonal harvest holiday.,general
+Note that Garbage collection unused heap memory को automatically deallocate कर देता है।,computer_science
+"अध्ययन और शोध के अनुसार, आव्यूह का सारणिक यह बताता है कि आव्यूह व्युत्क्रमणीय है या नहीं।",mathematics
+"अध्ययन और शोध के अनुसार, डिफ्यूजन मॉडल शोर को हटाकर उच्च गुणवत्ता वाली छवियां बनाते हैं।",deep_learning
+"Local artisans displayed woven textiles, ceramic pottery, and carved wooden souvenirs at the bazaar.",general
+Quantization reduces memory footprint by converting 32-bit floating point weights into 8-bit or 4-bit integers.,deep_learning
+Note that FlashAttention GPU memory hierarchy को optimize करके speedup देता है।,deep_learning
+"अध्ययन और शोध के अनुसार, ग्राफ में नोड्स और किनारों के बीच संबंध दर्शाने के लिए डीएफएस और बीएफएस का उपयोग होता है।",computer_science
+Dense retrieval models encode passages and queries into common vector spaces using dual encoders.,deep_learning
+Note that Library membership लेकर students digital books और journals access कर सकते हैं।,general
+In technical documentation: Quantization reduces memory footprint by converting 32-bit floating point weights into 8-bit or 4-bit integers.,deep_learning
+Branch prediction hardware guesses instruction branch outcomes to reduce pipeline stall latency.,computer_science
+"Daily meditation practice cultivates mindful awareness, emotional resilience, and overall inner tranquility.",general
+"अध्ययन और शोध के अनुसार, पाइथागोरस प्रमेय समकोण त्रिभुज की भुजाओं के बीच संबंध स्थापित करता है।",mathematics
+In technical documentation: Lebesgue integration generalizes Riemann integrals to measure spaces with discontinuous functions.,mathematics
+"अध्ययन और शोध के अनुसार, सड़क सुरक्षा नियमों का पालन करने से दुर्घटनाओं को प्रभावी रूप से रोका जा सकता है।",general
+"अध्ययन और शोध के अनुसार, मल्टी-हेड सेल्फ-अटेंशन टोकन के बीच जटिल निर्भरताओं को कैप्चर करता है।",deep_learning
+"Object-oriented programming relies on encapsulation, inheritance, polymorphism, and abstraction.",computer_science
+Lebesgue integration generalizes Riemann integrals to measure spaces with discontinuous functions.,mathematics
+"In technical documentation: WebSockets establish persistent, full-duplex TCP communication channels between client and server.",computer_science
+In technical documentation: The rank of a matrix equals the dimension of the vector space spanned by its row or column vectors.,mathematics
+"अध्ययन और शोध के अनुसार, हैश टेबल त्वरित लुकअप और प्रविष्टि के लिए औसत स्थिर समय जटिलता प्रदान करती हैं।",computer_science
+In technical documentation: Matrix diagonalization simplifies matrix powers and the solutions of coupled linear differential equations.,mathematics
+"स्थानीय बाजार में हस्तशिल्प, मिट्टी के बर्तन और पारंपरिक परिधानों की अच्छी बिक्री हुई।",general
+सामान्य वितरण एक घंटी के आकार का संभाव्यता वितरण है।,mathematics
+Self-attention allows each token to attend to all other tokens in a sequence simultaneously.,deep_learning
+Profiling tools identify performance bottlenecks and memory leaks in running software applications.,computer_science
+"In technical documentation: Daily meditation practice cultivates mindful awareness, emotional resilience, and overall inner tranquility.",general
+In technical documentation: Covariance matrices capture pairwise linear dependencies across multivariate random vectors.,mathematics
+"In technical documentation: Reading literary novels enhances vocabulary, analytical comprehension, and empathetic perspective.",general
+नदियों की स्वच्छता और जलीय जीवों के संरक्षण के लिए ठोस उपाय आवश्यक हैं।,general
+डायनामिक प्रोग्रामिंग उप-समस्याओं के परिणामों को याद रखकर अनुकूलन समस्याओं को हल करती है।,computer_science
+पॉइंटर कंप्यूटर मेमोरी के पते को सीधे संग्रहीत और संदर्भित करता है।,computer_science
+Positional embeddings encode the position of each token in the input sequence.,deep_learning
+Condition numbers measure how sensitive mathematical function outputs are to small perturbations in inputs.,mathematics
+"WebSockets establish persistent, full-duplex TCP communication channels between client and server.",computer_science
+Pretrained language model को downstream task पर fine-tune करना efficient रहता है।,deep_learning
+In technical documentation: Red-black trees are self-balancing binary search trees ensuring logarithmic search depth.,computer_science
+"In technical documentation: Tourists visited historic castles, cobblestone streets, and medieval cathedrals across Europe.",general
+Note that Graph traversal के लिए DFS recursion use करता है जबकि BFS queue data structure use करता है।,computer_science
+Note that City council ने public parks में solar street lights install करने का decision लिया।,general
+In technical documentation: The local government passed ordinances promoting electric vehicle charging infrastructure.,general
+Warmup schedules linearly increase the learning rate over initial iterations to stabilize early optimization.,deep_learning
+In technical documentation: Compact sets in Euclidean space are both closed and bounded by the Heine-Borel theorem.,mathematics
