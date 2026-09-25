@@ -6,7 +6,7 @@ when creating, editing, or reviewing code.
 
 ---
 
-## Member 1 — Aliah Jamil (Custom LLM)
+## Member 1 — Khushi Kumari Singh (Custom LLM)
 
 **Primary ownership:** `src/core_llm/`
 

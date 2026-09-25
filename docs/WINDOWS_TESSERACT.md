@@ -34,6 +34,35 @@ Invoke-WebRequest `
 
 ---
 
+## 1b. Linux (Ubuntu / Debian) Installation
+
+```bash
+sudo apt-get update
+sudo apt-get install -y tesseract-ocr tesseract-ocr-hin fonts-noto-core
+```
+Verify binary:
+```bash
+tesseract --version
+tesseract --list-langs  # Should show eng, hin, osd
+```
+
+---
+
+## 1c. macOS Installation
+
+Using Homebrew:
+```bash
+brew install tesseract tesseract-lang
+brew install font-noto-sans-devanagari
+```
+Verify binary:
+```bash
+tesseract --version
+tesseract --list-langs  # Should show eng, hin, osd
+```
+
+---
+
 ## 2. Configure Path
 
 After installation, tell Python where Tesseract lives. You can do this
