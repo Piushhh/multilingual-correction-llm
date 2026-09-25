@@ -1,0 +1,5 @@
+Probability Theory and Statistical Inference
+Let X_1, X_2, ..., X_n be independent and identically distributed variables.
+The sample mean converges almost surely to the mathematical expectation.
+Central limit theorem implies asymptotic normality of standardized sums.
+Confidence intervals quantify uncertainty under the Gaussian error assumption.

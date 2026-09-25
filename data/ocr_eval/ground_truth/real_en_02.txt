@@ -1,0 +1,5 @@
+Theorem 4.1 (Singular Value Decomposition)
+Every real matrix A in R^(m x n) admits a factorization
+A = U Sigma V^T where U and V are orthogonal matrices.
+The diagonal entries of Sigma represent singular values in non-increasing order.
+Rank(A) equals the count of strictly positive singular values.

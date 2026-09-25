@@ -1,0 +1,5 @@
+Machine Learning: Model Optimization and Quantization
+Pretrained LLM को domain-specific dataset पर fine-tune किया जाता है।
+LoRA technique freeze weights में low-rank matrices add करती है।
+Quantization float32 weights को int8 में convert करके latency reduce करता है।
+Validation loss increase होने पर early stopping trigger हो जाती है।

@@ -1,0 +1,5 @@
+Operating Systems: Process Synchronization
+Concurrent threads के critical section को mutex lock से protect करते हैं।
+Race condition तब occur होती है जब multiple threads simultaneously write करते हैं।
+Context switching CPU registers और program counter को switch करता है।
+Virtual memory translation lookaside buffer (TLB) cache use करती है।

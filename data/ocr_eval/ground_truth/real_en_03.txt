@@ -1,0 +1,5 @@
+Operating Systems Lecture Notes: Paging and Memory
+Virtual addresses are divided into page numbers and page offsets.
+The Translation Lookaside Buffer (TLB) caches recent translations.
+A TLB miss triggers a page table walk in kernel address space.
+Page faults cause trap handling to load pages from secondary storage.

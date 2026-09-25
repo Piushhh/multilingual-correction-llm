@@ -1,0 +1,5 @@
+Optimization Algorithms: Stochastic Gradient Descent
+Parameters theta are updated according to theta = theta - eta * grad_L(theta).
+The Adam optimizer computes exponentially decaying averages of past gradients.
+Momentum beta_1 accelerates progress along directions of consistent gradient.
+Second moment beta_2 scales learning rates inversely to gradient variance.

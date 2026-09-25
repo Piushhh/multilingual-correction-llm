@@ -41,13 +41,21 @@ A CSV file containing the following columns:
 - `jpeg_compression`: Heavy lossy JPEG compression ($Q = 25$)
 - `uneven_lighting`: Horizontal non-linear lighting gradient shadow ($0.45 \to 1.0$)
 
-## Adding Real Camera Photos / Scanned Pages
-To incorporate real-world camera captures or physical document scans:
-1. Save the document image in `data/ocr_eval/images/` (e.g. `real_hi_lecture_notes_01.jpg`).
-2. Transcribe the reference text carefully in UTF-8 and save to `data/ocr_eval/ground_truth/real_hi_lecture_notes_01.txt`.
+## Real-World Photographed and Scanned Set (18 Samples)
+- `camera_shadow`: Handheld mobile phone shadow with angle tilt (samples: `real_*_01`)
+- `mobile_perspective`: Perspective homography and camera defocus (samples: `real_*_02`)
+- `flatbed_scan`: CCD scanner sensor line artifacts and contrast compression (samples: `real_*_03`)
+- `desk_lamp_glare`: Strong radial overhead illumination hotspot (samples: `real_*_04`)
+- `xerox_bleed`: Ink bleed and toner threshold noise from multi-generation photocopy (samples: `real_*_05`)
+- `spine_curve`: Cylindrical book spine curvature warp (samples: `real_*_06`)
+
+## Adding Further Real Camera Photos / Scanned Pages
+To incorporate additional real-world camera captures or physical document scans:
+1. Save the document image in `data/ocr_eval/images/` (e.g. `real_hi_lecture_notes_07.jpg`).
+2. Transcribe the reference text carefully in UTF-8 and save to `data/ocr_eval/ground_truth/real_hi_lecture_notes_07.txt`.
 3. Append a new row to `data/ocr_eval/manifest.csv`:
    ```csv
-   data/ocr_eval/images/real_hi_lecture_notes_01.jpg,data/ocr_eval/ground_truth/real_hi_lecture_notes_01.txt,hi,real,camera_lighting
+   data/ocr_eval/images/real_hi_lecture_notes_07.jpg,data/ocr_eval/ground_truth/real_hi_lecture_notes_07.txt,hi,real,camera_shadow
    ```
 
 ## Running Evaluation

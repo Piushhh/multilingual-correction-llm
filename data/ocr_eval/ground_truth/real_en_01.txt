@@ -1,0 +1,5 @@
+Section 3.2: Multi-Head Attention Mechanisms
+Given queries Q, keys K, and values V in R^(n x d),
+Attention(Q, K, V) = softmax(Q K^T / sqrt(d_k)) V.
+MultiHead projects queries and keys h times with parameter matrices.
+Dropout with probability p=0.1 is applied to attention weights.

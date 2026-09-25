@@ -1,0 +1,5 @@
+Data Structures: Balanced Search Trees
+Red-black trees satisfy five structural invariants for logarithmic search.
+Every node is either red or black with a black root condition.
+Tree rotations rebalance child pointers following insert or delete.
+Worst-case search time complexity is bounded strictly by 2 log_2(n + 1).

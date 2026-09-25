@@ -1,0 +1,5 @@
+Algorithms: Graph Traversal and Search
+Binary search sorted array में target search करने के लिए O(log n) लेता है।
+DFS recursion और stack use करता है जबकि BFS queue data structure use करता है।
+Dijkstra algorithm non-negative weighted graphs में shortest path निकालता है।
+Dynamic programming overlapping subproblems को memoize करती है।

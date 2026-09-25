@@ -1,0 +1,5 @@
+Deep Learning Lecture: Transformer Architecture
+यह model multi-head self-attention mechanism का effective use करता है।
+Training के दौरान cross-entropy loss को Adam optimizer से minimize करते हैं।
+Residual connections gradient flow improve करके vanishing gradient रोकते हैं।
+Overfitting prevent करने के लिए dropout layer add की जाती है।

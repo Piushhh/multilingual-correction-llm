@@ -1,0 +1,5 @@
+Distributed Systems and Cloud Architecture
+CAP theorem states कि distributed database consistency और availability balance करता है।
+Microservices REST APIs और asynchronous message queue के through talk करती हैं।
+Kubernetes container deployment और auto-scaling manage करता है।
+Load balancer incoming web requests को backend nodes पर route करता है।

@@ -1,0 +1,5 @@
+Linear Algebra Notes: Eigenvalues and SVD
+Matrix का determinant zero होने पर matrix invertible नहीं होती है।
+Eigenvectors linear transformation में direction invariant रखते हैं।
+Singular Value Decomposition (SVD) dimensionality reduction में helpful है।
+Covariance matrix features के बीच correlation quantify करती है।
