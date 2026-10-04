@@ -1,0 +1,7 @@
+project_name: multilingual-correction-llm
+languages:
+  - en
+  - hi
+  - code_mixed
+initial_domain: deep_learning
+seed: 42
